@@ -17,3 +17,12 @@ const getOneReivewThunk = pool => dispatch => {
     })
     .catch(next)
 }
+
+initialState = {}
+
+const reducer =  (prevState = initialState, action) => {
+    switch (action.type) {
+        case GOT_SINGLE_POOL:
+            return action.payload
+    }
+}
