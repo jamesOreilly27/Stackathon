@@ -8,3 +8,12 @@ const getSinglePool = pool => {
         payload: pool
     }
 }
+
+const getOneReivewThunk = pool => dispatch => {
+    axios.get(`/api/pools/${pool.id}`)
+    .then(res => res.data)
+    .then(pool => {
+        dispatch(getSinglePool(pool))
+    })
+    .catch(next)
+}
