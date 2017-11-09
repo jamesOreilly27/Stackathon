@@ -12,6 +12,10 @@ const PoolPlayers = db.define('pool_players', {
     poolPoints: {
         type: Sequelize.INTEGER,
         defaultValue: 100
+    },
+    completed: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     }
 }, {
     timestamps: false

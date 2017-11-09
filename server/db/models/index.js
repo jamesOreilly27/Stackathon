@@ -8,7 +8,12 @@ const Bet = require('./bet');
 Pool.belongsToMany(User, { through: PoolPlayers })
 User.belongsToMany(Pool, { through: PoolPlayers })
 
-Pool.hasMany(Bet)
+/***** Bet Associations *****/
+// Pool to Bet
+Pool.hasMany(Bet, {as: 'placedBets'})
+Bet.belongsTo(Pool)
+
+//User to Bet
 User.hasMany(Bet, {foreignKey: 'betterId'})
 Bet.belongsTo(User, { as: 'better' })
 

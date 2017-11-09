@@ -3,10 +3,7 @@ const router = express.Router();
 const {User, Pool, Bet} = require('../db/models')
 
 router.get('/', (req, res, next) => {
-    User.findAll({ include: [
-        { model: Pool },
-        { model: Bet }
-    ]})
+    User.findAll()
     .then(users => res.json(users))
     .catch(next)
 })
