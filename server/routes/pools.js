@@ -2,8 +2,12 @@ const express = require('express');
 const router = express.Router();
 const {Pool, User, Bet} = require('../db/models')
 
-router.get('/', (req, res, next) => {
-    Pool.findAll()
+router.get('/nfl', (req, res, next) => {
+    Pool.findAll({
+        where: {
+            title: 'NFL'
+        }
+    })
     .then(pools => res.json(pools))
     .catch(next)
 })

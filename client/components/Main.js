@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navlink} from '../components'
+import { Navlink } from '../components'
 
 const Main = () => (
     <header>
