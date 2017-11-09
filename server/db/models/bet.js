@@ -25,6 +25,10 @@ const Bet = db.define('bet', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    odds: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
     final: {
         type: Sequelize.BOOLEAN,
         defaultValue: false

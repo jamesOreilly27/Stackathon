@@ -9,7 +9,8 @@ Pool.belongsToMany(User, { through: PoolPlayers })
 User.belongsToMany(Pool, { through: PoolPlayers })
 
 Pool.hasMany(Bet)
-Bet.belongsTo(User, { as: 'wager' })
+User.hasMany(Bet, {foreignKey: 'betterId'})
+Bet.belongsTo(User, { as: 'better' })
 
 module.exports = {
     User,

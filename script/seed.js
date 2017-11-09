@@ -1,5 +1,5 @@
 const db = require('../server/db')
-const { User, Pool, Player, PoolPlayers } = require('../server/db/models')
+const { User, Pool, Bet, PoolPlayers } = require('../server/db/models')
 const chalk = require('chalk');
 
 async function seed () {
@@ -16,11 +16,15 @@ async function seed () {
         Pool.create({title: 'NCAAF', deadline: '2017-11-20'})
     ])
 
-    const poolPlayers= await Promise.all([
+    const poolPlayers = await Promise.all([
         PoolPlayers.create({ poolId: 1, userId: 1 }),
         PoolPlayers.create({ poolId: 1, userId: 2 }),
         PoolPlayers.create({ poolId: 2, userId: 1 }),
         PoolPlayers.create({poolId: 2, userId: 2})
+    ])
+
+    const Bets = await Promise.all([
+        Bet.create({ matchId: '10', playerPick: 'Home Team', oddsType: 'money line', odds: 220, poolId: 1, betterId: 1})
     ])
 }
 
