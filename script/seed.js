@@ -17,14 +17,14 @@ async function seed () {
     ])
 
     const poolPlayers = await Promise.all([
-        PoolPlayers.create({ poolId: 1, userId: 1 }),
-        PoolPlayers.create({ poolId: 1, userId: 2 }),
-        PoolPlayers.create({ poolId: 2, userId: 1 }),
-        PoolPlayers.create({poolId: 2, userId: 2})
+        PoolPlayers.create({ poolId: pools[0].id, userId: users[0].id }),
+        PoolPlayers.create({ poolId: pools[0].id, userId: users[1].id  }),
+        PoolPlayers.create({ poolId: pools[1].id, userId: users[0].id  }),
+        PoolPlayers.create({ poolId: pools[1].id, userId:  users[1].id  })
     ])
 
     const Bets = await Promise.all([
-        Bet.create({ matchId: '10', playerPick: 'Home Team', oddsType: 'money line', odds: 220, poolId: 1, betterId: 1})
+        Bet.create({ matchId: '10', playerPick: 'Home Team', oddsType: 'money line', odds: 220, poolId: pools[0].id, betterId: users[0].id})
     ])
 }
 
