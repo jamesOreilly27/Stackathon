@@ -12,6 +12,10 @@ const Pool = db.define('pool', {
         validate: {
             isAfter: Sequelize.NOW
         }
+    },
+    entryFee: {
+        type: Sequelize.INTEGER,
+        defaultValue: 50
     }
 })
 
