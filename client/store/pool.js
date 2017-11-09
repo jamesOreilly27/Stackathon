@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-const GET_POOLS = 'GET_POOLS'
-const GET_SINGLE_POOL = 'GET_SINGLE_POOL'
+const GOT_POOLS = 'GOT_POOLS'
+const GOT_SINGLE_POOL = 'GOT_SINGLE_POOL'
 
 const gotPools = pools => {
     return {
-        type: GET_POOLS,
+        type: GOT_POOLS,
         payload: pools
     }
 }
@@ -17,33 +17,37 @@ const gotSinglePool = pool => {
     }
 }
 
-const fetchPoolThunk = pools => dispatch => {
+export const fetchPoolThunk = pools => dispatch => {
     axios.get('/api/pools')
     .then(res => res.data)
     .then(pools => {
-        dispatch(getPools(pools))
+        dispatch(gotPools(pools))
     })
 }
 
-const fetchOnePoolThunk = pool => dispatch => {
+export const fetchOnePoolThunk = pool => dispatch => {
     axios.get(`/api/pools/${pool.id}`)
     .then(res => res.data)
     .then(pool => {
-        dispatch(getSinglePool(pool))
+        dispatch(gotSinglePool(pool))
     })
     .catch(next)
 }
 
-initialState = {
-    pools = [],
+const initialState = {
+    pools: [],
     singlePool: {}
 }
 
 const reducer =  (prevState = initialState, action) => {
     switch (action.type) {
         case GOT_POOLS:
-            return { ...state, pools: action.payload }
+            return Object.assign({}, prevState, { pools: action.payload })
         case GOT_SINGLE_POOL:
-            return { ...state, singlePool: action.payload }
+            return Object.assign({}, prevState, { singlePool: action.payload })
+        default:
+            return prevState
     }
 }
+
+export default reducer
