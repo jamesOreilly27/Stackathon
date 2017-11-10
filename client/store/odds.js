@@ -9,20 +9,21 @@ const gotOdds = odds => {
     }
 }
 
-export const fecthNFLOddsThunk = odds => dispatch => {
+export const fetchNFLOddsThunk = () => dispatch => {
     axios.get('/api/odds/nfl')
     .then(res => res.data)
     .then(odds => {
-        dispatch(gotOdds(odds))
+        dispatch(gotOdds())
     })
+    .catch(console.error)
 }
 
-const intialState = []
+const initialState = []
 
 const reducer = (prevState = initialState, action) => {
     switch (action.type) {
         case GOT_ODDS:
-            return action.odds
+            return action.payload
         default:
             return prevState
     }

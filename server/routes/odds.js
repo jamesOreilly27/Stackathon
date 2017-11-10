@@ -1,17 +1,9 @@
-const JsonOddsAPI = require('json-odds-api');
-const jsonOdds = new JsonOddsAPI("e7a1a157-5667-4fa8-bb7c-5defaf8092d3")
 const express = require('express');
 const router = express.Router();
-
-const getFullGameOdds = (sport) => (
-    { sport: sport, oddType: "Game" }
-)
+const jsonOdds = require('./jsonOdds')
 
 router.get('/nfl', (req, res, next) => {
-    jsonOdds.getOdds(getFullGameOdds('NFL'), function(err, response, body) {
-        if (err) throw new Error(err);
-        res.json(body);
-      });
+    jsonOdds.get('/nfl')
 })
 
 router.get('/nba', (req, res, next) => {
@@ -25,3 +17,14 @@ router.get('/nba', (req, res, next) => {
 
 
 module.exports = router;
+
+
+// const options = {
+//     uri: `https://jsonodds.com/api/odds/nfl`,
+//     headers: {
+//         'JsonOdds-API-Key': "e7a1a157-5667-4fa8-bb7c-5defaf8092d3"
+//     },
+//     json: true // Automatically parses the JSON string in the response
+// };
+// rp(options)
+// .then(odds => res.json(odds))

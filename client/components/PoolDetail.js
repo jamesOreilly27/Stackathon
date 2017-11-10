@@ -1,16 +1,35 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
+import { fetchNFLOddsThunk } from '../store'
 
-const PoolDetail = ({ singlePool }) => {
-    return (
-        <div>
-            {singlePool && console.log('USERS', singlePool.users)}
-            Hello From Detail
-        </div>
-    )
+class PoolDetail extends Component {
+    constructor(props) {
+        super(props)
+
+    }
+
+    componentDidMount() {
+        this.props.getOdds()
+    }
+
+    render() {
+        return (
+            <div>
+                {this.props.singlePool && console.log('USERS', this.props.singlePool.users)}
+                Hello From Detail
+            </div>
+        )
+    }
 }
 
 
-const mapState = ({ singlePool }) => ({ singlePool })
+const mapState = state => state
 
-export default connect(mapState)(PoolDetail)
+const mapDispatch = dispatch => {
+    return {
+        getOdds() {
+            dispatch(fetchNFLOddsThunk())
+        }
+    }
+}
+export default connect(mapState, mapDispatch)(PoolDetail)
