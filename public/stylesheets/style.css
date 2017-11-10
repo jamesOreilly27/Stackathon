@@ -1,5 +1,5 @@
 body {
-    background-color: #2E2E2A;
+    background-color: #2A2A26;
 }
 
 header {
@@ -32,14 +32,22 @@ header {
 }
 
 .match-container {
-    display: flex;
-    justify-content: space-between;
     width: 80vw;
     margin: 10px 10vw;
+    padding: 20px;
+    background-color: #1F1D1D;
+    border-radius: 10px;
+
+}
+
+.match-container-game {
+    display: flex;
+    justify-content: space-between;
 }
 
 .match-container div {
     font-family: arial;
+    color: #FFF;
 }
 
 .team {
@@ -70,4 +78,12 @@ header {
     background-color: #6ABED8;
     font-size: 20px;
     border: none;
+}
+
+.submit-bet-button {
+    width: 125px;
+    background-color: #6ABED8;
+    border: none;
+    color: #FFF;
+    margin: 0 501px;
 }

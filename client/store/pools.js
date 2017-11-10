@@ -9,7 +9,7 @@ const gotPools = pools => {
     }
 }
 
-export const fetchPoolsThunk = pools => dispatch => {
+export const fetchPoolsThunk = () => dispatch => {
     axios.get('/api/pools')
     .then(res => res.data)
     .then(pools => {

@@ -12,7 +12,7 @@ const Pool = props => (
                 <button 
                     className="join-pool"
                     onClick={(event) => {
-                        this.props.getPool(newPool)
+                        props.getPool(newPool)
                     }}
                 >
                     Join Now
