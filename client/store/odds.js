@@ -13,7 +13,7 @@ export const fetchNFLOddsThunk = () => dispatch => {
     axios.get('/api/odds/nfl')
     .then(res => res.data)
     .then(odds => {
-        dispatch(gotOdds())
+        dispatch(gotOdds(odds))
     })
     .catch(console.error)
 }

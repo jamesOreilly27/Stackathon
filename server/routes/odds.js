@@ -1,16 +1,20 @@
 const express = require('express');
 const router = express.Router();
+const chalk = require('chalk')
 const jsonOdds = require('./jsonOdds')
 
 router.get('/nfl', (req, res, next) => {
-    jsonOdds.get('/nfl')
+    jsonOdds.get('https://jsonodds.com//api/odds/nfl')
+    .then(res => res.data)
+    .then(odds => res.json(odds))
+    .catch(console.error)
 })
 
 router.get('/nba', (req, res, next) => {
-    jsonOdds.getOdds(getFullGameOdds('NBA'), function(err, response, body) {
-        if (err) throw new Error(err);
-        res.json(body);
-      })
+    jsonOdds.get('https://jsonodds.com//api/odds/nba')
+    .then(res => res.data)
+    .then(odds => res.json(odds))
+    .catch(console.error)
 })
 
 

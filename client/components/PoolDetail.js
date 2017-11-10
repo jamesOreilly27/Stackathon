@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { fetchNFLOddsThunk } from '../store'
+import {Match} from '../components'
 
 class PoolDetail extends Component {
     constructor(props) {
@@ -15,8 +16,13 @@ class PoolDetail extends Component {
     render() {
         return (
             <div>
-                {this.props.singlePool && console.log('USERS', this.props.singlePool.users)}
-                Hello From Detail
+                {console.log('ODDS', this.props.odds)}
+                <h1>{this.props.title}</h1>
+                <div>
+                    {this.props.odds && this.props.odds.map(match => (
+                        <Match newMatch={match} key={match.id} />
+                    ))}
+                </div>
             </div>
         )
     }

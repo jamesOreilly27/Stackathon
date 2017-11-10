@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "antd": "^2.13.9",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "json-odds-api": "^1.0.2",

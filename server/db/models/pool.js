@@ -6,6 +6,13 @@ const Pool = db.define('pool', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    image: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            isUrl: true
+        }
+    },
     deadline: {
         type: Sequelize.DATE,
         allowNull: false,

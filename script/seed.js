@@ -12,8 +12,8 @@ async function seed () {
     ])
 
     const pools = await Promise.all([
-        Pool.create({title: 'NFL', deadline: '2017-11-20'}),
-        Pool.create({title: 'NCAAF', deadline: '2017-11-20'})
+        Pool.create({title: 'NFL', deadline: '2017-11-20', image: 'https://assets.nerdwallet.com/blog/wp-content/uploads/2015/08/3405933244_e04b02154e_o.jpg'}),
+        Pool.create({title: 'NCAAF', deadline: '2017-11-20', image: 'https://assets.nerdwallet.com/blog/wp-content/uploads/2015/08/3405933244_e04b02154e_o.jpg'})
     ])
 
     const poolPlayers = await Promise.all([
