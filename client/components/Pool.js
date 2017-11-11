@@ -1,5 +1,7 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { fetchOnePoolThunk } from '../store'
 
 const Pool = props => (
     <div className="pool-display">
@@ -12,7 +14,7 @@ const Pool = props => (
                 <button 
                     className="join-pool"
                     onClick={(event) => {
-                        props.getPool(newPool)
+                        props.getPool(props.newPool)
                     }}
                 >
                     Join Now
@@ -21,8 +23,7 @@ const Pool = props => (
         </div>
     </div>
 )
-
-export default Pool
+const mapState = state => state
 
 const mapDispatch = dispatch => {
     return {
@@ -31,3 +32,5 @@ const mapDispatch = dispatch => {
         }
     }
 }
+
+export default connect(mapState, mapDispatch)(Pool)

@@ -12,6 +12,16 @@ router.get('/nfl', (req, res, next) => {
     .catch(next)
 })
 
+router.get('/nba', (req, res, next) => {
+    Pool.findAll({
+        where: {
+            title: 'NBA'
+        }
+    })
+    .then(pools => res.json(pools))
+    .catch(next)
+})
+
 router.get('/:id', (req, res, next) => {
     const id = req.params.id;
     Pool.findById(id, { include: [

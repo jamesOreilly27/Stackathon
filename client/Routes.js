@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Router } from 'react-router'
 import { Route, Switch } from 'react-router-dom'
 import history from './history'
-import { Main, PoolsNFL, PoolDetail } from './components'
+import { Main, PoolsNFL, PoolsNBA, PoolDetail } from './components'
 
 const Routes = () => (
     <div>
@@ -12,6 +12,7 @@ const Routes = () => (
                 <Main />
                 <Switch>
                     <Route path={'/pools/nfl'} component={PoolsNFL} />
+                    <Route path={'/pools/nba'} component={PoolsNBA} />
                     <Route path={'/pools/:id'} component={PoolDetail} />
                 </Switch>
             </div>

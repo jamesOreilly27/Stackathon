@@ -9,20 +9,16 @@ const gotPools = pools => {
     }
 }
 
-export const fetchPoolsThunk = () => dispatch => {
-    axios.get('/api/pools')
-    .then(res => res.data)
-    .then(pools => {
-        dispatch(gotPools(pools))
-    })
-}
-
 export const fetchNFLPoolsThunk = pools => dispatch => {
     axios.get('/api/pools/nfl')
-    .then(res => res.data)
-    .then(pools => {
-        dispatch(gotPools(pools))
-    })
+    .then(res => dispatch(gotPools(res.data)))
+    .catch(err => dispatch(gotPools(err.message)))
+}
+
+export const fetchNBAPoolsThunk = pools => dispatch => {
+    axios.get('/api/pools/nba')
+    .then(res => dispatch(gotPools(res.data)))
+    .catch(err => dispatch(gotPools(err.message)))
 }
 
 const initialState = []

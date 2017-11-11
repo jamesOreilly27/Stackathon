@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {fetchNFLPoolsThunk} from '../store'
-import {Pool} from '../components'
+import { fetchNBAPoolsThunk } from '../store'
+import { Pool } from '../components'
 
-class PoolsNFL extends Component {
+class PoolsNBA extends Component {
     constructor(props) {
         super(props)
     }
@@ -28,8 +28,8 @@ const mapStateToProps = ({ pools }) => ({ pools })
 
 const mapDispatchToProps = dispatch => ({
     getPools() {
-        dispatch(fetchNFLPoolsThunk())
+        dispatch(fetchNBAPoolsThunk())
     }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(PoolsNFL)
+export default connect(mapStateToProps, mapDispatchToProps)(PoolsNBA)

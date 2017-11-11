@@ -3,9 +3,9 @@ import {Match} from '../components'
 
 
 const MatchTable = props => (
-    <div>
+    <div className="match-table">
         {props.odds && props.odds.map(match => (
-            <Match newMatch={match} key={match.id} />
+            <Match newMatch={match} key={match.id} poolId={props.poolId}/>
         ))}
     </div>
 )

@@ -5,8 +5,9 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import pools from './pools'
 import singlePool from './singlePool'
 import odds from './odds'
+import bets from './bets'
 
-const reducer = combineReducers({ pools, singlePool, odds })
+const reducer = combineReducers({ pools, singlePool, odds, bets })
 
 const middleware = composeWithDevTools(applyMiddleware(
   thunkMiddleware,
@@ -19,3 +20,4 @@ export default store
 export * from './pools'
 export * from './singlePool'
 export * from './odds'
+export * from './bets'

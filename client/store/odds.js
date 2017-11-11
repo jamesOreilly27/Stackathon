@@ -11,11 +11,14 @@ const gotOdds = odds => {
 
 export const fetchNFLOddsThunk = () => dispatch => {
     axios.get('/api/odds/nfl')
-    .then(res => res.data)
-    .then(odds => {
-        dispatch(gotOdds(odds))
-    })
-    .catch(console.error)
+    .then(res => dispatch(gotOdds(res.data)))
+    .catch(err => dispatch(gotOdds(err)))
+}
+
+export const fetchNBAOddsThunk = () => dispatch => {
+    axios.get('/api/odds/nba')
+    .then(res => dispatch(gotOdds(res.data)))
+    .catch(err => dispatch(gotOdds(err)))
 }
 
 const initialState = []

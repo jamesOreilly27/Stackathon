@@ -1,9 +1,13 @@
 import React, {Component} from 'react'
+import { connect } from 'react-redux'
+import { createBetThunk } from '../store'
 
 class Match extends Component {
     constructor(props) {
         super(props)
         this.state= {
+            betterId: 1,
+            poolId: props.poolId,
             matchId: '',
             playerPick: '',
             oddsType: 'Points Spread',
@@ -13,8 +17,8 @@ class Match extends Component {
 
         this.game = this.props.newMatch
         this.odds = this.props.newMatch.Odds[0]
-        this.homeTeam = {matchId: this.game.ID, playerPick: this.game.HomeTeam, odds: this.odds.PointSpreadHome}
-        this.awayTeam = { matchId: this.game.ID, playerPick: this.game.AwayTeam, odds: this.odds.PointSpreadAway}
+        this.homeTeam = {matchId: this.game.ID, playerPick: this.game.HomeTeam, odds: parseInt(this.odds.PointSpreadHome)}
+        this.awayTeam = { matchId: this.game.ID, playerPick: this.game.AwayTeam, odds: parseInt(this.odds.PointSpreadAway)}
     }
 
     handleChange(event) {
@@ -27,9 +31,11 @@ class Match extends Component {
         const odds = this.odds
         return (
             <div className="match-container">
-                <form>
+                <form onSubmit={(event) => {
+                    event.preventDefault()
+                    this.props.makeBet(this.state)
+                }}>
                     <div className="match-container-game">
-                        {console.log('STATE', this.state, this.props.newMatch.id)}
                         <label className="team">
                             <input
                                 type="checkbox"
@@ -38,19 +44,35 @@ class Match extends Component {
                             />
                             <div>
                                 <div>
-                                    {`${this.game.AwayTeam}`}
+                                    {this.game.AwayTeam}
                                 </div>
                                 <div>
                                     {parseInt(odds.PointSpreadAway) > 0 ? ` +${odds.PointSpreadAway}` : `${odds.PointSpreadAway}` }
                                 </div>
                             </div>
                         </label>
-                        <div className="point-value">
-                            5 Pool Points
+                        <div>
+                            <div className="match-date">
+                                <div className="wager-details-title">
+                                    Date:
+                                </div>
+                                <div>
+                                    {this.game.MatchTime.slice(0, 10)}
+                                </div>
+                            </div>
+                            <div className="wager-details">
+                                <div className="wager-details-title">
+                                    Wager:
+                                </div>
+                                <div>
+                                    5 Pool Points
+                                </div>
+                            </div>
                         </div>
                         <label className="team">
                             <input
                                 type="checkbox"
+                                onChange={this.handleChange}
                                 value={'homeTeam'}
                             />
                             <div>
@@ -75,4 +97,14 @@ class Match extends Component {
     }
 }
 
-export default Match
+const mapState = state => state
+
+const mapDispatch = (dispatch) => {
+    return {
+        makeBet(bet) {
+            dispatch(createBetThunk(bet))
+        }
+    }
+}
+
+export default connect(mapState, mapDispatch)(Match)
