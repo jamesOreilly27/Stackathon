@@ -6,8 +6,9 @@ import pools from './pools'
 import singlePool from './singlePool'
 import odds from './odds'
 import bets from './bets'
+import user from './user'
 
-const reducer = combineReducers({ pools, singlePool, odds, bets })
+const reducer = combineReducers({ pools, singlePool, odds, bets, user })
 
 const middleware = composeWithDevTools(applyMiddleware(
   thunkMiddleware,
@@ -20,4 +21,5 @@ export default store
 export * from './pools'
 export * from './singlePool'
 export * from './odds'
+export * from './user'
 export * from './bets'

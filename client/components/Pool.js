@@ -6,10 +6,11 @@ import { fetchOnePoolThunk } from '../store'
 const Pool = props => (
     <div className="pool-display">
         <img src={props.newPool.image} className="logo" />
-        <div>
-            Entry Fee: {props.newPool.entryFee}
+            <div>
+                Entry Fee: {props.newPool.entryFee}
+            </div>
             <Link 
-                to={`/pools/${props.newPool.id}`}
+                to={`pools/${props.newPool.id}`}
             >
                 <button 
                     className="join-pool"
@@ -20,7 +21,6 @@ const Pool = props => (
                     Join Now
                 </button>
             </Link>
-        </div>
     </div>
 )
 const mapState = state => state

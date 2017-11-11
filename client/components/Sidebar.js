@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Navlink } from '../components'
+import { Sidelink } from '../components'
 
 class Sidebar extends Component {
     constructor() {
@@ -8,9 +8,9 @@ class Sidebar extends Component {
 
     render() {
         return (
-            <div>
-                <Navlink name="NFL" />
-                <Navlink name="NBA" />
+            <div className="sidebar">
+                <Sidelink path="NFL" />
+                <Sidelink path="NBA" />
             </div>
         )
     }

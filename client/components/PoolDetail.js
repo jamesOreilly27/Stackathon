@@ -10,14 +10,12 @@ class PoolDetail extends Component {
     }
 
     componentDidMount() {
-        if(poolType === 'NFL') this.props.getNFLOdds()
-        else if(poolType === 'NBA') this.props.getNBAOdds()
+        this.props.getNFLOdds()
     }
 
     render() {
         return (
             <div>
-                {console.log('PROPS', this.props)}
                 <h1>{this.props.title}</h1>
                 <div>
                     <MatchTable odds={this.props.odds} poolId={parseInt(this.props.match.params.id)}/>                 
@@ -30,10 +28,9 @@ class PoolDetail extends Component {
 
 const mapState = state => state
 
-const mapDispatch = (dispatch, ownProps) => {
+const mapDispatch = (dispatch) => {
     return {
         getNFLOdds() {
-            console.log('OWN PROPS', ownProps)
             dispatch(fetchNFLOddsThunk())
         },
 

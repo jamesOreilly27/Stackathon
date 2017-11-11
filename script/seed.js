@@ -13,6 +13,14 @@ async function seed () {
 
     const pools = await Promise.all([
         Pool.create({title: 'NFL', deadline: '2017-11-20', image: 'https://assets.nerdwallet.com/blog/wp-content/uploads/2015/08/3405933244_e04b02154e_o.jpg'}),
+        Pool.create({title: 'NBA', deadline: '2017-11-20', image: 'http://www.freestencilgallery.com/wp-content/uploads/2016/09/nba-logo-stencil-thumb.jpg'}),
+        Pool.create({title: 'NFL', deadline: '2017-11-20', image: 'https://assets.nerdwallet.com/blog/wp-content/uploads/2015/08/3405933244_e04b02154e_o.jpg'}),
+        Pool.create({title: 'NBA', deadline: '2017-11-20', image: 'http://www.freestencilgallery.com/wp-content/uploads/2016/09/nba-logo-stencil-thumb.jpg'}),
+        Pool.create({title: 'NFL', deadline: '2017-11-20', image: 'https://assets.nerdwallet.com/blog/wp-content/uploads/2015/08/3405933244_e04b02154e_o.jpg'}),
+        Pool.create({title: 'NFL', deadline: '2017-11-20', image: 'https://assets.nerdwallet.com/blog/wp-content/uploads/2015/08/3405933244_e04b02154e_o.jpg'}),
+        Pool.create({title: 'NFL', deadline: '2017-11-20', image: 'https://assets.nerdwallet.com/blog/wp-content/uploads/2015/08/3405933244_e04b02154e_o.jpg'}),
+        Pool.create({title: 'NBA', deadline: '2017-11-20', image: 'http://www.freestencilgallery.com/wp-content/uploads/2016/09/nba-logo-stencil-thumb.jpg'}),
+        Pool.create({title: 'NBA', deadline: '2017-11-20', image: 'http://www.freestencilgallery.com/wp-content/uploads/2016/09/nba-logo-stencil-thumb.jpg'}),
         Pool.create({title: 'NBA', deadline: '2017-11-20', image: 'http://www.freestencilgallery.com/wp-content/uploads/2016/09/nba-logo-stencil-thumb.jpg'})
     ])
 

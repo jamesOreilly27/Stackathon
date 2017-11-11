@@ -1,42 +1,64 @@
 body {
     background-color: #2D2D2D;
+    font-family: 'Lato', sans-serif;
+    color: #FAFAFA;
 }
 
 header {
     display: flex;
-    width: 99vw;
-    margin-bottom: 20px;
+    position: fixed;
+    width: 100vw;
+    height: 2.5em;
+    margin: -.5em;
+    margin-bottom: .5em;
     justify-content: space-between;
     align-items: flex-end;
-    color: #FFF;
-    background-color: #000000;
-    border-radius: 10px;
+    color: #FAFAFA;
+    background-color: #0A0A0A;
 }
 
 .match-table {
     width: 75vw;
-    margin: 0 20vw 0;
+    margin: 12vh 20vw;
     padding: 10px;
-    background-color: #000;
-    border-radius: 40px;
+    background-color: #0A0A0A;
+    border-radius: 3em;
 }
 
 .title {
-    flex-grow: 1;
+    font-size: 2em;
+    text-decoration: none;
+    color: #FFF;
+    font-family: 'Vollkorn SC', serif;
+    flex-grow: .1;
+}
+
+.title:hover {
+    background-color: #6ABED8;
 }
 
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-content: flex-end;
-    flex-grow: 2;
+    flex-grow: 1;
+}
+
+.nav-link-container {
+    border-radius: 5px;
+}
+
+.nav-link-container :hover {
+    background-color: #6ABED8;
+    transition: all .8s;
 }
 
 .nav-link-container a {
     text-decoration: none;
     color: #FFF;
-    font-size: 20px;
-    margin: 0 10px;
+    font-size: 1.3em;
+    padding: .7em .5em 0;
+    margin: 0;
 }
 
 .match-container {
@@ -63,14 +85,17 @@ header {
 }
 
 .logo {
-    height: 350px;
-    width: 350px;
-    border-bottom: 3px solid white;
+    height: 100px;
+    width: 100px;
+    padding-right: 15px;
+    border-right: 3px solid #FFF;
     margin: auto;
 }
 
 .pool-display {
-    width: 25vw;
+    display: flex;
+    margin: 5vh 15vw;
+    width: 60vw;
     padding: 20px;
     align-content: center;
     background-color: #1F1D1D;
@@ -96,6 +121,12 @@ header {
     color: #FFF;
 }
 
+.submit-bet-button:hover {
+    background-color: #FFF;
+    color: #6ABED8;
+    transition: all .5s;
+}
+
 .match-date {
     display: flex;
 }
@@ -116,6 +147,7 @@ label {
 
 label:hover {
     background-color: #6ABED8;
+    transition: all .6s;
 }
 
 label div {
@@ -129,4 +161,29 @@ label div {
     box-sizing: border-box;
 }
 
-/*575757
+.sidebar {
+    width: 8vw;
+    position: fixed;
+    top: 2.8em;
+    height: 100vh;
+    padding: .2em;
+    margin-right: 1em;
+    border-radius: .5em;
+    background-color: #0A0A0A;
+}
+
+.sidelink:hover {
+    background-color: #6ABED8;
+    color: #000;
+    transition: all .2s;
+}
+
+.sidelink a {
+    text-decoration: none;
+    color: #FAFAFA;
+    font-size: 1.3em;
+}
+
+.main-flex {
+    display: flex;
+}

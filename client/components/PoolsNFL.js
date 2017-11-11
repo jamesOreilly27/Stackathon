@@ -16,9 +16,11 @@ class PoolsNFL extends Component {
         const pools = this.props.pools
         return (
             <div>
-                {pools && pools.map(pool => {
-                    return <Pool newPool={pool} key={pool.id} />
-                })}
+                {pools && pools.map(pool => (
+                        <div>
+                            <Pool newPool={pool} key={pool.id} />
+                        </div>
+                    ))}
             </div>
         )
     }
