@@ -10,7 +10,7 @@ const Pool = props => (
                 Entry Fee: {props.newPool.entryFee}
             </div>
             <Link 
-                to={`pools/${props.newPool.id}`}
+                to={`/pools/${props.newPool.id}`}
             >
                 <button 
                     className="join-pool"

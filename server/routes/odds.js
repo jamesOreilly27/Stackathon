@@ -10,6 +10,14 @@ router.get('/nfl', (req, res, next) => {
     .catch(console.error)
 })
 
+router.get('/:matchId', (req, res, next) => {
+    const matchId = req.params.matchId
+    jsonOdds.get(`https://jsonodds.com/api/odds/${matchId}`)
+    .then(res => res.data)
+    .then(matchOdds => res.json(matchOdds))
+    .catch(console.error)
+})
+
 router.get('/nba', (req, res, next) => {
     jsonOdds.get('https://jsonodds.com//api/odds/nba')
     .then(res => res.data)

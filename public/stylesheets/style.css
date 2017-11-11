@@ -49,7 +49,7 @@ header {
 }
 
 .nav-link-container :hover {
-    background-color: #6ABED8;
+    background-color: #8C8F96;
     transition: all .8s;
 }
 
@@ -67,7 +67,6 @@ header {
     padding: 20px;
     background-color: #1F1D1D;
     border-radius: 10px;
-    /*10px 0vw;*/
 }
 
 .match-container-game {
@@ -173,7 +172,7 @@ label div {
 }
 
 .sidelink:hover {
-    background-color: #6ABED8;
+    background-color: #8C8F96;
     color: #000;
     transition: all .2s;
 }
@@ -185,5 +184,16 @@ label div {
 }
 
 .main-flex {
+    display: flex;
+}
+
+.title-user-profile {
+    margin: 8vh 12vw;
+    color: #FAFAFA;
+    font-size: 2em;
+}
+
+.users-active-stuff {
+    margin: 0 10vw;
     display: flex;
 }

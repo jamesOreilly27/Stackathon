@@ -12,7 +12,7 @@ const gotUser = user => {
 
 //only gets one user right now to save time
 export const fetchUserThunk = () => dispatch => {
-    axios.get('/api/users/1')
+    axios.get('/api/users/8')
     .then(res => dispatch(gotUser(res.data)))
     .catch(err => dispatch(gotUser(err)))
 }
