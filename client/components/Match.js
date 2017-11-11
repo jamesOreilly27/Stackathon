@@ -6,9 +6,11 @@ class Match extends Component {
     constructor(props) {
         super(props)
         this.state= {
-            betterId: 1,
+            betterId: 8,
             poolId: props.poolId,
             matchId: '',
+            homeTeam: '',
+            awayTeam: '',
             playerPick: '',
             oddsType: 'Points Spread',
             odds: 0
@@ -17,8 +19,8 @@ class Match extends Component {
 
         this.game = this.props.newMatch
         this.odds = this.props.newMatch.Odds[0]
-        this.homeTeam = {matchId: this.game.ID, playerPick: this.game.HomeTeam, odds: parseInt(this.odds.PointSpreadHome)}
-        this.awayTeam = { matchId: this.game.ID, playerPick: this.game.AwayTeam, odds: parseInt(this.odds.PointSpreadAway)}
+        this.homeTeam = { matchId: this.game.ID, matchTime: this.game.MatchTime, homeTeam: this.game.HomeTeam, awayTeam: this.game.AwayTeam, playerPick: this.game.HomeTeam, odds: parseInt(this.odds.PointSpreadHome)}
+        this.awayTeam = { matchId: this.game.ID, matchTime: this.game.MatchTime, homeTeam: this.game.HomeTeam, awayTeam: this.game.AwayTeam, playerPick: this.game.AwayTeam, odds: parseInt(this.odds.PointSpreadAway)}
     }
 
     handleChange(event) {

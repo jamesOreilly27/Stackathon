@@ -5,22 +5,25 @@ import { fetchOnePoolThunk } from '../store'
 
 const Pool = props => (
     <div className="pool-display">
-        <img src={props.newPool.image} className="logo" />
-            <div>
-                Entry Fee: {props.newPool.entryFee}
-            </div>
-            <Link 
-                to={`/pools/${props.newPool.id}`}
+
+        <div className="pool-title">
+            {props.pool.title}
+        </div>
+        <div>
+            Your Rank: 
+        </div>
+        <Link 
+            to={`/pools/${props.pool.id}`}
+        >
+            <button 
+                className="view-pool"
+                onClick={(event) => {
+                    props.getPool(props.pool)
+                }}
             >
-                <button 
-                    className="join-pool"
-                    onClick={(event) => {
-                        props.getPool(props.newPool)
-                    }}
-                >
-                    Join Now
-                </button>
-            </Link>
+                View Pool
+            </button>
+        </Link>
     </div>
 )
 const mapState = state => state

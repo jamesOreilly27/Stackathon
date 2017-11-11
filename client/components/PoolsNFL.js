@@ -17,8 +17,8 @@ class PoolsNFL extends Component {
         return (
             <div>
                 {pools && pools.map(pool => (
-                        <div>
-                            <Pool newPool={pool} key={pool.id} />
+                        <div key={pool.id}>
+                            <Pool pool={pool} />
                         </div>
                     ))}
             </div>

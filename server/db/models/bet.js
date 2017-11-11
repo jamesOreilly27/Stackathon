@@ -17,6 +17,18 @@ const Bet = db.define('bet', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    matchTime: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    homeTeam: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    awayTeam: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     playerPick: {
         type: Sequelize.STRING,
         allowNull: false

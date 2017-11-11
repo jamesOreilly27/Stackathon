@@ -1,5 +1,5 @@
 body {
-    background-color: #2D2D2D;
+    background-color: #1F1D1D;
     font-family: 'Lato', sans-serif;
     color: #FAFAFA;
 }
@@ -92,24 +92,31 @@ header {
 }
 
 .pool-display {
-    display: flex;
-    margin: 5vh 15vw;
-    width: 60vw;
-    padding: 20px;
-    align-content: center;
-    background-color: #1F1D1D;
-    border-radius: 40px;
+    margin: 2vh 2vw;
+    width: 10vw;
+    padding: .5em 1em;
+    text-align: center;
+    color: #F3EDED;
+    background-color: #8C8F96;
+    border-radius: .2em;
 }
 
-.join-pool {
-    width: 150px;
-    height: 40px;
-    margin: 5px;
-    border-radius: 10px;
-    color: #FFF;
+.pool-display div {
+    margin: .2em;
+}
+
+.view-pool {
+    width: 8em;
+    height: 1.5em;
+    margin: .25em;
+    border-radius: .2em;
+    color: #F3EDED;
     background-color: #6ABED8;
-    font-size: 20px;
     border: none;
+}
+
+.view-pool:active {
+    background-color: #31A9C7;
 }
 
 .submit-bet-button {
@@ -155,7 +162,7 @@ label div {
 
 .team {
     padding: 2px;
-    background-color: #ABABAB;
+    background-color: #8C8F96;
     border-radius: 10px;
     box-sizing: border-box;
 }
@@ -166,14 +173,12 @@ label div {
     top: 2.8em;
     height: 100vh;
     padding: .2em;
-    margin-right: 1em;
-    border-radius: .5em;
+    border-radius: .3em;
     background-color: #0A0A0A;
 }
 
 .sidelink:hover {
     background-color: #8C8F96;
-    color: #000;
     transition: all .2s;
 }
 
@@ -187,13 +192,78 @@ label div {
     display: flex;
 }
 
-.title-user-profile {
+.user-profile-container {
     margin: 8vh 12vw;
-    color: #FAFAFA;
-    font-size: 2em;
 }
+ .title-user-profile {
+    color: #FAFAFA;
+    font-size: 1.5em;
+ }
+
+ .active-bets-container {
+     width: 20vw;
+     background-color: #0A0A0A;
+     padding: 1em;
+ }
 
 .users-active-stuff {
-    margin: 0 10vw;
+    width: 75vw;
+    margin: 4vh 0vw;
+    padding: 1em;
     display: flex;
+}
+
+.users-active-stuff * {
+    border-radius: .3em;
+}
+
+.test {
+    width: 20vw;
+
+}
+
+.bet {
+    display: flex;
+    font-size: .5em;
+}
+
+.bet > div{
+    margin: 1.5em .2em;
+    background-color: #8C8F96;
+    color: #F3EDED;
+    width: 12vw;
+    padding: .3em;
+}
+.game-details {
+    text-align: center;
+    font-size: 1.8em;
+}
+
+.bet-user-info {
+    text-align: center;
+}
+
+.time {
+    margin-top: 1.5vh;
+    text-align: center;
+    font-size: 1.6em;
+}
+
+.active-bets-title {
+    font-size: 1.2em;
+    padding: .5em;
+    text-align: center;
+}
+
+.active-pools-container {
+    width: 52vw;
+    margin: 0 2vw;
+    background-color: #0A0A0A;
+    padding: .5em;
+}
+
+.active-pools2x2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

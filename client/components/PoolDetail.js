@@ -6,10 +6,10 @@ import { MatchTable } from '../components'
 class PoolDetail extends Component {
     constructor(props) {
         super(props)
-
     }
 
     componentDidMount() {
+        console.log(this.props.match.params.id)
         this.props.getNFLOdds()
     }
 
@@ -18,7 +18,7 @@ class PoolDetail extends Component {
             <div>
                 <h1>{this.props.title}</h1>
                 <div>
-                    <MatchTable odds={this.props.odds} poolId={parseInt(this.props.match.params.id)}/>                 
+                    <MatchTable odds={this.props.odds} poolId={parseInt(this.props.match.params.id)} />                 
                 </div>
             </div>
         )

@@ -17,7 +17,7 @@ class PoolsNBA extends Component {
         return (
             <div>
                 {pools && pools.map(pool => {
-                    return <Pool newPool={pool} key={pool.id} />
+                    return <Pool pool={pool} key={pool.id} />
                 })}
             </div>
         )

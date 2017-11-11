@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchUserThunk } from '../store'
-import { ActiveBets } from '../components'
+import { UsersActiveBets, UsersActivePools } from '../components'
 
 class UserProfile extends Component {
     constructor(props) {
@@ -15,13 +15,13 @@ class UserProfile extends Component {
     render() {
         const user = this.props.user
         return (
-            <div>
-                {user && console.log(user)}
+            <div className="user-profile-container">
                 <div className="title-user-profile">
-                    {`Welcome ${this.props.user.userName}!`}
+                    {`Welcome Back ${this.props.user.userName}!`}
                 </div>
                 <div className="users-active-stuff">
-                    <ActiveBets user={user} />
+                    <UsersActiveBets user={user} />
+                    <UsersActivePools user={user }/>
                 </div>
             </div>
         )
