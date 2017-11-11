@@ -29,14 +29,3 @@ router.get('/nba', (req, res, next) => {
 
 
 module.exports = router;
-
-
-// const options = {
-//     uri: `https://jsonodds.com/api/odds/nfl`,
-//     headers: {
-//         'JsonOdds-API-Key': "e7a1a157-5667-4fa8-bb7c-5defaf8092d3"
-//     },
-//     json: true // Automatically parses the JSON string in the response
-// };
-// rp(options)
-// .then(odds => res.json(odds))
