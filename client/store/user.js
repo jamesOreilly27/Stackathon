@@ -16,3 +16,16 @@ export const fetchUserThunk = () => dispatch => {
     .then(res => dispatch(gotUser(res.data)))
     .catch(err => dispatch(gotUser(err)))
 }
+
+const initialState = {}
+
+const reducer = (prevState = initialState, action) => {
+    switch (action.type) {
+        case GOT_USER:
+            return action.payload
+        default:
+            return prevState
+    }
+}
+
+export default reducer
