@@ -15,10 +15,25 @@ class PoolsNBA extends Component {
     render() {
         const pools = this.props.pools
         return (
-            <div>
-                {pools && pools.map(pool => {
-                    return <Pool pool={pool} key={pool.id} />
-                })}
+            <div style={{
+                margin: '10vh 14vw',
+                textAlign: 'center'
+            }}>
+                <div style={{
+                    fontSize: '1.4em',
+                    backgroundColor: '#0A0A0A'
+                }}>
+                    NBA Pools
+                </div>
+                <div style={{
+                    padding: '.5em',
+                    backgroundColor: '#0A0A0A',
+                    borderRadius: '.3em'
+                }}>
+                {pools && pools.map(pool => (
+                    <Pool key={pool.id} pool={pool} />
+                ))}
+                </div>
             </div>
         )
     }

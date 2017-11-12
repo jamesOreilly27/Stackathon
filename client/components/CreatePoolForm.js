@@ -22,6 +22,7 @@ class CreatePoolForm extends Component {
                 style={{
                     width: '25vw',
                     backgroundColor: '#0A0A0A',
+                    boxShadow: '.1em .1em .3em #9C9',
                     margin: '0 3vw',
                     textAlign: 'center',
                     padding: '.8em'     

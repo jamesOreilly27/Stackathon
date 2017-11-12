@@ -1,15 +1,18 @@
 import React from 'react'
-import { Pool } from '../components'
+import { YourActivePool } from '../components'
 
 const UsersActivePools = props => (
     <div>
-        <div className="active-pools-container">
+        <div 
+            className="active-pools-container"
+            style={{boxShadow: '.1em .1em .3em #9C9'}}  
+        >
             <div className="active-bets-title">
                 Your Active Pools 
             </div>
             <div className="active-pools2x2">
                 {props.user.pools && props.user.pools.map(pool => {
-                    return <Pool key={pool.id} pool={pool} />
+                    return <YourActivePool key={pool.id} pool={pool} />
                 })}
             </div>
         </div>

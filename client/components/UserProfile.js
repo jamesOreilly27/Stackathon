@@ -31,7 +31,10 @@ class UserProfile extends Component {
                     {`Welcome Back ${this.props.user.userName}!`}
                 </div>
                 <div style={{display: 'flex'}}>
-                    <div className="profile-info-container">
+                    <div 
+                        className="profile-info-container"
+                        style={{boxShadow: '.1em .1em .3em #9C9'}}    
+                    >
                         <div style={{textAlign: 'center', fontSize: '1.6em'}}>
                             Account Info
                         </div>

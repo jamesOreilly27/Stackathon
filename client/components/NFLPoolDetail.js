@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchNFLOddsThunk, fetchNBAOddsThunk } from '../store'
 import { MatchTable } from '../components'
 
-class PoolDetail extends Component {
+class NFLPoolDetail extends Component {
     constructor(props) {
         super(props)
     }
@@ -40,4 +40,4 @@ const mapDispatch = (dispatch) => {
     }
 }
 
-export default connect(mapState, mapDispatch)(PoolDetail)
+export default connect(mapState, mapDispatch)(NFLPoolDetail)

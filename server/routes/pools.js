@@ -6,7 +6,10 @@ router.get('/nfl', (req, res, next) => {
     Pool.findAll({
         where: {
             sport: 'NFL'
-        }
+        },
+        include: [
+            {model: User }
+        ]
     })
     .then(pools => res.json(pools))
     .catch(next)

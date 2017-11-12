@@ -3,7 +3,10 @@ import { Bet } from '../components'
 
 
 const UsersActiveBets = props => (
-    <div className="active-bets-container">
+    <div 
+        className="active-bets-container"
+        style={{boxShadow: '.1em .1em .3em #9C9'}}
+    >
         <div className="active-bets-title">
             Your Active Bets 
         </div>
