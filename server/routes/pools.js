@@ -32,4 +32,10 @@ router.get('/:id', (req, res, next) => {
     .catch(next)
 })
 
+router.post('/', (req, res, next) => {
+    Pool.create(req.body)
+    .then(pool => res.json(pool))
+    .catch(next)
+})
+
 module.exports = router;
