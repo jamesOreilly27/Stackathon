@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Route } from 'react-router-dom'
 import { fetchUserThunk, updateUserThunk } from '../store'
-import { UsersActiveBets, UsersActivePools, UserProfileUpdateForm } from '../components'
+import { UsersActiveBets, UsersActivePools, UserProfileUpdateForm, CreatePoolForm } from '../components'
 
 class UserProfile extends Component {
     constructor(props) {
@@ -30,38 +30,41 @@ class UserProfile extends Component {
                 <div className="title-user-profile">
                     {`Welcome Back ${this.props.user.userName}!`}
                 </div>
-                <div className="profile-info-container">
-                    <div style={{textAlign: 'center', fontSize: '1.6em'}}>
-                        Account Info
-                    </div>
-                    <div style={{display: 'flex'}}>
-                        <div className="profile-info-details">
-                            <div>
-                                {`First Name: ${user.firstName}`}
-                            </div>
-                            <div>
-                                {`Last Name: ${user.lastName}`}
-                            </div>
-                            <div>
-                                {`Username: ${user.userName}`}
-                            </div>
-                            <div>
-                                {`Email: ${user.email}`}
-                            </div>
-                            <div>
-                                {`Available Points: ${user.points}`}
-                            </div>
-                            <button 
-                                className="edit-button"
-                                onClick={this.handleClick}
-                            >
-                                Edit
-                            </button>
+                <div style={{display: 'flex'}}>
+                    <div className="profile-info-container">
+                        <div style={{textAlign: 'center', fontSize: '1.6em'}}>
+                            Account Info
                         </div>
-                        <div className="test">
-                            {this.state.editButtonClicked && <UserProfileUpdateForm handleSubmit={this.props.handleEditSubmit} />}
+                        <div style={{display: 'flex'}}>
+                            <div className="profile-info-details">
+                                <div>
+                                    {`First Name: ${user.firstName}`}
+                                </div>
+                                <div>
+                                    {`Last Name: ${user.lastName}`}
+                                </div>
+                                <div>
+                                    {`Username: ${user.userName}`}
+                                </div>
+                                <div>
+                                    {`Email: ${user.email}`}
+                                </div>
+                                <div>
+                                    {`Available Points: ${user.points}`}
+                                </div>
+                                <button 
+                                    className="edit-button"
+                                    onClick={this.handleClick}
+                                >
+                                    Edit
+                                </button>
+                            </div>
+                            <div className="test">
+                                {this.state.editButtonClicked && <UserProfileUpdateForm handleSubmit={this.props.handleEditSubmit} />}
+                            </div>
                         </div>
                     </div>
+                    <CreatePoolForm />
                 </div>
                 <div className="users-active-stuff">
                     <UsersActiveBets user={user} />
