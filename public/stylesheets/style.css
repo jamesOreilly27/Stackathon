@@ -111,17 +111,17 @@ header {
     margin: .25em;
     border-radius: .2em;
     color: #F3EDED;
-    background-color: #B83838;
+    background-color: rgba(33, 198, 0, 0.74);
     border: none;
 }
 
 .view-pool:active {
-    background-color: #852727;
+    background-color: rgba(33, 198, 0, 0.74);
 }
 
 .submit-bet-button {
     width: 125px;
-    background-color: #8C4646;
+    background-color: rgba(33, 198, 0, 0.74);
     border: none;
     margin-left: 30vw;
     color: #FFF;
@@ -143,21 +143,6 @@ header {
 
 .wager-details-title {
     margin: 0 10px;
-}
-
-label {
-    box-sizing: border-box;
-    width: 20em;
-    height: 3em;
-}
-
-label:hover {
-    background-color: #6ABED8;
-    transition: all .6s;
-}
-
-label div {
-    margin: auto;
 }
 
 .team {
@@ -271,9 +256,8 @@ label div {
 }
 
 .profile-info-container {
-    border: 2px dotted green;
     background-color: #0A0A0A;
-    width: 45vw;
+    width: 38vw;
     height: 45vh;
     padding: .5em;
     border-radius: .3em;
@@ -294,7 +278,7 @@ label div {
     height: 4vh;
     margin: 0 1vw;
     border: none;
-    background-color: #B83838;
+    background-color: rgba(33, 198, 0, 0.74);
     color: #F3EDED;
     border-radius: .3em;
 }
@@ -315,9 +299,35 @@ form input {
  .submit-update-button {
     width: 5vw;
     height: 4vh;
-    background-color: #B83838;
+    background-color: rgba(33, 198, 0, 0.74);
     border: none;
     color: #F3EDED;
     border-radius: .3em;
     margin: 2vh 0;
+ }
+
+select {
+    margin: 3vh 1vw;
+}
+ .create-pool-submit {
+    width: 10vw; 
+    height: 5vh; 
+    margin: 2vh;
+    color: #F3EDED;
+    background-color: rgba(33, 198, 0, 0.74);
+    border: none;
+ }
+
+ button {
+     color: #F3EDED;
+     background-color: rgba(33, 198, 0, 0.74);
+ }
+
+ button:active {
+     background-color: rgba(10, 144, 0, 0.79);
+ }
+
+ button:hover {
+    border: .5px solid white;
+    transition: .05s
  }
