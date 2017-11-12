@@ -39,6 +39,8 @@ const reducer = (prevState = initialState, action) => {
     switch (action.type) {
         case GOT_USER:
             return action.payload
+        case UPDATED_USER:
+            return action.payload
         default:
             return prevState
     }
