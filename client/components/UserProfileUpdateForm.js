@@ -9,7 +9,7 @@ class UserProfileUpdateForm extends Component {
     render() {
         return (
             <div>
-                Hello From UserProfileUpdateForm
+                Hello From User Update Form
             </div>
         )
     }

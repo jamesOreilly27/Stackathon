@@ -9,13 +9,21 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-    const id = req.params.id;
+    const id = req.params.id
     User.findById(id, { include: [
         { model: Pool },
         { model: Bet }
     ]})
     .then(user => res.json(user))
     .catch(next)
+})
+
+router.put('/:id', (req, res, next) => {
+    User.update(req.body, {
+        where: { id: req.params.id},
+        returning: true
+    })
+    .then(update => res.json(update))
 })
 
 module.exports = router;

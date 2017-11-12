@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Route } from 'react-router-dom'
-import { fetchUserThunk } from '../store'
+import { fetchUserThunk, updateUserThunk } from '../store'
 import { UsersActiveBets, UsersActivePools, UserProfileUpdateForm } from '../components'
 
 class UserProfile extends Component {
@@ -59,7 +59,7 @@ class UserProfile extends Component {
                             </button>
                         </div>
                         <div>
-                            {this.state.editButtonClicked && <UserProfileUpdateForm />}
+                            {this.state.editButtonClicked && <UserProfileUpdateForm handleSubmit={this.props.handleEditSubmit} />}
                         </div>
                     </div>
                 </div>
@@ -77,6 +77,9 @@ const mapDispatch = dispatch => {
     return {
         getUser() {
             dispatch(fetchUserThunk())
+        },
+        handleEditSubmit(update) {
+            dispatch(updateUserThunk(update))
         }
     }
 }

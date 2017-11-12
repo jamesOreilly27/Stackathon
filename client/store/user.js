@@ -1,11 +1,19 @@
 import axios from 'axios'
 
 const GOT_USER = 'GOT_USER'
+const UPDATED_USER = 'UPDATED_USER'
 
 
 const gotUser = user => {
     return {
         type: GOT_USER,
+        payload: user
+    }
+}
+
+const updatedUser = user => {
+    return {
+        type: UPDATED_USER,
         payload: user
     }
 }
@@ -16,6 +24,14 @@ export const fetchUserThunk = () => dispatch => {
     .then(res => dispatch(gotUser(res.data)))
     .catch(err => dispatch(gotUser(err)))
 }
+
+export const updateUserThunk = user => dispatch => {
+    axios.put(`api/users/${user.id}`, user)
+    .then(res => res.data)
+    .then(changedUser => dispatch(updatedUser(changedUser[0])))
+    .catch(err => dispatch(updatedUser(err)))
+}
+
 
 const initialState = {}
 
