@@ -1,6 +1,7 @@
 const express = require('express'); 
 const router = express.Router();
-const {User, Pool, Bet} = require('../db/models')
+const chalk = require('chalk');
+const {User, Pool, Bet} = require('../db/models');
 
 router.get('/', (req, res, next) => {
     User.findAll()
@@ -19,6 +20,7 @@ router.get('/:id', (req, res, next) => {
 })
 
 router.put('/:id', (req, res, next) => {
+    console.log(chalk.bgBlue.white.bold(Object.keys(req.body)))
     User.update(req.body, {
         where: { id: req.params.id},
         returning: true

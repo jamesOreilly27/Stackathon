@@ -58,7 +58,7 @@ class UserProfile extends Component {
                                 Edit
                             </button>
                         </div>
-                        <div>
+                        <div className="test">
                             {this.state.editButtonClicked && <UserProfileUpdateForm handleSubmit={this.props.handleEditSubmit} />}
                         </div>
                     </div>

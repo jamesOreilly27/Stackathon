@@ -28,7 +28,7 @@ export const fetchUserThunk = () => dispatch => {
 export const updateUserThunk = user => dispatch => {
     axios.put(`api/users/${user.id}`, user)
     .then(res => res.data)
-    .then(changedUser => dispatch(updatedUser(changedUser[0])))
+    .then(changedUser => dispatch(updatedUser(changedUser[1][0])))
     .catch(err => dispatch(updatedUser(err)))
 }
 

@@ -280,6 +280,7 @@ label div {
 }
 
 .profile-info-details {
+    width: 19vw;
     margin: 2vh 0;
     font-size: 1em;
 }
@@ -291,11 +292,32 @@ label div {
 .edit-button {
     width: 5vw;
     height: 4vh;
-    margin: 0 4vw;
+    margin: 0 1vw;
     border: none;
     background-color: #B83838;
     color: #F3EDED;
     border-radius: .3em;
 }
 
-/*#8C4646*/
+.test {
+     width: 19vw;
+     margin-left: .5vw;
+ }
+
+form {
+     margin: 2vh 0;
+ }
+
+form input {
+     width: 90%;
+ }
+
+ .submit-update-button {
+    width: 5vw;
+    height: 4vh;
+    background-color: #B83838;
+    border: none;
+    color: #F3EDED;
+    border-radius: .3em;
+    margin: 2vh 0;
+ }
