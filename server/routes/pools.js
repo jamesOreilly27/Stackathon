@@ -5,7 +5,7 @@ const {Pool, User, Bet} = require('../db/models')
 router.get('/nfl', (req, res, next) => {
     Pool.findAll({
         where: {
-            title: 'NFL'
+            sport: 'NFL'
         }
     })
     .then(pools => res.json(pools))
@@ -15,7 +15,7 @@ router.get('/nfl', (req, res, next) => {
 router.get('/nba', (req, res, next) => {
     Pool.findAll({
         where: {
-            title: 'NBA'
+            sport: 'NBA'
         }
     })
     .then(pools => res.json(pools))

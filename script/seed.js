@@ -23,12 +23,12 @@ async function seed () {
     ])
 
     const pools = await Promise.all([
-        Pool.create({title: 'NFL Points Spread', deadline: '2017-11-20', image: 'https://assets.nerdwallet.com/blog/wp-content/uploads/2015/08/3405933244_e04b02154e_o.jpg'}),
-        Pool.create({title: 'NBA Points Spread', deadline: '2017-11-20', image: 'http://www.freestencilgallery.com/wp-content/uploads/2016/09/nba-logo-stencil-thumb.jpg'}),
-        Pool.create({title: 'NFL Money Line', deadline: '2017-11-20', image: 'https://assets.nerdwallet.com/blog/wp-content/uploads/2015/08/3405933244_e04b02154e_o.jpg'}),
-        Pool.create({title: 'NBA Money Line', deadline: '2017-11-20', image: 'http://www.freestencilgallery.com/wp-content/uploads/2016/09/nba-logo-stencil-thumb.jpg'}),
-        Pool.create({title: 'NFL Over/Under', deadline: '2017-11-20', image: 'https://assets.nerdwallet.com/blog/wp-content/uploads/2015/08/3405933244_e04b02154e_o.jpg'}),
-        Pool.create({title: 'NBA Over/Under', deadline: '2017-11-20', image: 'http://www.freestencilgallery.com/wp-content/uploads/2016/09/nba-logo-stencil-thumb.jpg'}),
+        Pool.create({title: 'NFL Points Spread', sport: 'NFL', deadline: '2017-11-20'}),
+        Pool.create({title: 'NBA Points Spread', sport: 'NBA', deadline: '2017-11-20'}),
+        Pool.create({title: 'NFL Money Line', sport: 'NFL', deadline: '2017-11-20'}),
+        Pool.create({title: 'NBA Money Line', sport: 'NBA', deadline: '2017-11-20'}),
+        Pool.create({title: 'NFL Over/Under', sport: 'NFL', deadline: '2017-11-20'}),
+        Pool.create({title: 'NBA Over/Under', sport: 'NBA', deadline: '2017-11-20'})
     ])
 
     const poolPlayers = await Promise.all([

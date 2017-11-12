@@ -1,6 +1,7 @@
 export {default as Header} from './Header'
 export {default as Navlink} from './Navlink'
 export {default as UserProfile} from './UserProfile'
+export {default as UserProfileUpdateForm} from './UserProfileUpdateForm'
 export {default as Sidelink} from './Sidelink'
 export {default as PoolsNFL} from './PoolsNFL'
 export {default as PoolsNBA} from './PoolsNBA'

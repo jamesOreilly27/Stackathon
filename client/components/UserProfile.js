@@ -1,15 +1,26 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Route } from 'react-router-dom'
 import { fetchUserThunk } from '../store'
-import { UsersActiveBets, UsersActivePools } from '../components'
+import { UsersActiveBets, UsersActivePools, UserProfileUpdateForm } from '../components'
 
 class UserProfile extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            editButtonClicked: false
+        }
+        this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount() {
         this.props.getUser()
+    }
+
+    handleClick() {
+        this.setState({
+            editButtonClicked: true
+        })
     }
 
     render() {
@@ -19,9 +30,42 @@ class UserProfile extends Component {
                 <div className="title-user-profile">
                     {`Welcome Back ${this.props.user.userName}!`}
                 </div>
+                <div className="profile-info-container">
+                    <div style={{textAlign: 'center', fontSize: '1.6em'}}>
+                        Account Info
+                    </div>
+                    <div style={{display: 'flex'}}>
+                        <div className="profile-info-details">
+                            <div>
+                                {`First Name: ${user.firstName}`}
+                            </div>
+                            <div>
+                                {`Last Name: ${user.lastName}`}
+                            </div>
+                            <div>
+                                {`Username: ${user.userName}`}
+                            </div>
+                            <div>
+                                {`Email: ${user.email}`}
+                            </div>
+                            <div>
+                                {`Available Points: ${user.points}`}
+                            </div>
+                            <button 
+                                className="edit-button"
+                                onClick={this.handleClick}
+                            >
+                                Edit
+                            </button>
+                        </div>
+                        <div>
+                            {this.state.editButtonClicked && <UserProfileUpdateForm />}
+                        </div>
+                    </div>
+                </div>
                 <div className="users-active-stuff">
                     <UsersActiveBets user={user} />
-                    <UsersActivePools user={user }/>
+                    <UsersActivePools user={user} />
                 </div>
             </div>
         )

@@ -14,7 +14,7 @@ const Main = () => (
                 <div className="main-flex">
                     <Sidebar />
                     <Switch>
-                        <Route exact path='/' component={UserProfile}/>
+                        <Route exact path='/' component={UserProfile} />
                         <Route path={'/pools/nfl'} component={PoolsNFL} />
                         <Route path={'/pools/nba'} component={PoolsNBA} />
                         <Route path={'/pools/:id'} component={PoolDetail} />

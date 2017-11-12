@@ -6,12 +6,9 @@ const Pool = db.define('pool', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    image: {
+    sport: {
         type: Sequelize.STRING,
-        allowNull: false,
-        validate: {
-            isUrl: true
-        }
+        allowNull: false
     },
     deadline: {
         type: Sequelize.DATE,

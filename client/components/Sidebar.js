@@ -8,7 +8,10 @@ class Sidebar extends Component {
 
     render() {
         return (
-            <div className="sidebar">
+            <div className="sidebar" style={{textAlign: 'center'}}>
+                <h2>
+                    Sports
+                </h2>
                 <Sidelink path="NFL" />
                 <Sidelink path="NBA" />
             </div>

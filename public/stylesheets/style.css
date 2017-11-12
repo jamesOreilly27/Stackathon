@@ -111,17 +111,17 @@ header {
     margin: .25em;
     border-radius: .2em;
     color: #F3EDED;
-    background-color: #6ABED8;
+    background-color: #B83838;
     border: none;
 }
 
 .view-pool:active {
-    background-color: #31A9C7;
+    background-color: #852727;
 }
 
 .submit-bet-button {
     width: 125px;
-    background-color: #6ABED8;
+    background-color: #8C4646;
     border: none;
     margin-left: 30vw;
     color: #FFF;
@@ -193,9 +193,11 @@ label div {
 }
 
 .user-profile-container {
-    margin: 8vh 12vw;
+    margin: 8vh 10vw;
 }
  .title-user-profile {
+     margin: .3em 0;
+
     color: #FAFAFA;
     font-size: 1.5em;
  }
@@ -267,3 +269,33 @@ label div {
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.profile-info-container {
+    border: 2px dotted green;
+    background-color: #0A0A0A;
+    width: 45vw;
+    height: 45vh;
+    padding: .5em;
+    border-radius: .3em;
+}
+
+.profile-info-details {
+    margin: 2vh 0;
+    font-size: 1em;
+}
+
+.profile-info-details div {
+    margin: .8em;
+}
+
+.edit-button {
+    width: 5vw;
+    height: 4vh;
+    margin: 0 4vw;
+    border: none;
+    background-color: #B83838;
+    color: #F3EDED;
+    border-radius: .3em;
+}
+
+/*#8C4646*/

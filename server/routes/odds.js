@@ -4,7 +4,7 @@ const chalk = require('chalk')
 const jsonOdds = require('./jsonOdds')
 
 router.get('/nfl', (req, res, next) => {
-    jsonOdds.get('https://jsonodds.com//api/odds/nfl')
+    jsonOdds.get('https://jsonodds.com/api/odds/nfl')
     .then(res => res.data)
     .then(odds => res.json(odds))
     .catch(console.error)
@@ -19,7 +19,7 @@ router.get('/:matchId', (req, res, next) => {
 })
 
 router.get('/nba', (req, res, next) => {
-    jsonOdds.get('https://jsonodds.com//api/odds/nba')
+    jsonOdds.get('https://jsonodds.com/api/odds/nba')
     .then(res => res.data)
     .then(odds => res.json(odds))
     .catch(console.error)
