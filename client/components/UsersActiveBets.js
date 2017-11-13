@@ -1,5 +1,6 @@
 import React from 'react'
 import { Bet } from '../components'
+import { connect } from 'react-redux'
 
 
 const UsersActiveBets = props => (
@@ -18,4 +19,6 @@ const UsersActiveBets = props => (
     </div>
 )
 
-export default UsersActiveBets
+const mapState = ({ user }) => ({ user })
+
+export default connect(mapState)(UsersActiveBets)

@@ -3,11 +3,9 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { fetchOnePoolThunk } from '../store'
 
-class Pool extends Component {
+class NFLPool extends Component {
     constructor(props) {
         super(props)
-
-        // this.findLeader = this.findLeader.bind(this)
     }
 
     findLeader(players) {
@@ -73,4 +71,4 @@ class Pool extends Component {
     }
 }
 
-export default Pool
+export default NFLPool

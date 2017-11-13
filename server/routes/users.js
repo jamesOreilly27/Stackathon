@@ -20,12 +20,12 @@ router.get('/:id', (req, res, next) => {
 })
 
 router.put('/:id', (req, res, next) => {
-    console.log(chalk.bgBlue.white.bold(Object.keys(req.body)))
     User.update(req.body, {
         where: { id: req.params.id},
         returning: true
     })
     .then(update => res.json(update))
+    .catch(next)
 })
 
 module.exports = router;

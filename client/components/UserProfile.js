@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Route } from 'react-router-dom'
-import { fetchUserThunk, updateUserThunk } from '../store'
+import { fetchUserThunk, updateUserThunk, updateBetThunk } from '../store'
 import { UsersActiveBets, UsersActivePools, UserProfileUpdateForm, CreatePoolForm } from '../components'
 
 class UserProfile extends Component {
@@ -70,7 +70,7 @@ class UserProfile extends Component {
                     <CreatePoolForm />
                 </div>
                 <div className="users-active-stuff">
-                    <UsersActiveBets user={user} />
+                    <UsersActiveBets />
                     <UsersActivePools user={user} />
                 </div>
             </div>

@@ -17,4 +17,13 @@ router.post('/', (req, res, next) => {
     .then(newBet => res.json(newBet))
 })
 
+router.put('/:id', (req, res, next) => {
+    Bet.update(req.body, {
+        where: { id: req.params.id },
+        returning: true
+    })
+    .then(update => res.json(update))
+    .catch(next)
+})
+
 module.exports = router;

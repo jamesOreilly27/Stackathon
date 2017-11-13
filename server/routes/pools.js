@@ -1,6 +1,7 @@
 const express = require('express'); 
 const router = express.Router();
-const {Pool, User, Bet} = require('../db/models')
+const {Pool, User, Bet, PoolPlayers} = require('../db/models')
+const chalk = require('chalk')
 
 router.get('/nfl', (req, res, next) => {
     Pool.findAll({
@@ -8,7 +9,7 @@ router.get('/nfl', (req, res, next) => {
             sport: 'NFL'
         },
         include: [
-            {model: User }
+            { model: User }
         ]
     })
     .then(pools => res.json(pools))
@@ -19,7 +20,10 @@ router.get('/nba', (req, res, next) => {
     Pool.findAll({
         where: {
             sport: 'NBA'
-        }
+        },
+        include: [
+            { model: User }
+        ]
     })
     .then(pools => res.json(pools))
     .catch(next)
@@ -35,9 +39,15 @@ router.get('/:id', (req, res, next) => {
     .catch(next)
 })
 
-router.post('/', (req, res, next) => {
+router.post('/nfl', (req, res, next) => {
     Pool.create(req.body)
     .then(pool => res.json(pool))
+    .catch(next)
+})
+
+router.put('/:id', (req, res, next) => {
+    PoolPlayers.create({poolId: req.params.id, userId: req.body.id, poolPoints: 500})
+    .then(added => res.json(added))
     .catch(next)
 })
 

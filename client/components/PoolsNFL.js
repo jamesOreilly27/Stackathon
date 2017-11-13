@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import {fetchNFLPoolsThunk} from '../store'
-import {Pool, CreatePoolForm} from '../components'
+import {NFLPool, CreatePoolForm} from '../components'
 
 class PoolsNFL extends Component {
     constructor(props) {
@@ -33,7 +33,7 @@ class PoolsNFL extends Component {
                         borderRadius: '.3em',
                     }}>
                     {pools && pools.map(pool => (
-                        <Pool key={pool.id} pool={pool} />
+                        <NFLPool key={pool.id} pool={pool} />
                     ))}
                     </div>
                 </div>

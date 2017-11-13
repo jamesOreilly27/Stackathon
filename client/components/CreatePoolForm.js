@@ -1,19 +1,28 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { createPoolThunk } from '../store'
 
 class CreatePoolForm extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            sport: 'NFL'
+            sport: 'NFL',
+            title: '',
+            entryFee: 0,
+            deadline: '',
+            users: [this.props.user]
         }
         
         this.handleChange = this.handleChange.bind(this)
     }
 
     handleChange(event) {
-        console.log(event.target.name)
-        console.log(event.target.value)
+        const name = event.target.name
+        const value = event.target.value
+        const newState = {}
+console.log('SELECT CHANGE', name, value)
+        newState[name] = value
+        this.setState(newState)
     }
 
     render() {
@@ -31,7 +40,16 @@ class CreatePoolForm extends Component {
                 <div style={{fontSize: '1.5em'}}>
                     Create A Pool
                 </div>
-                <form>
+                <form onSubmit={(event) => {
+                        event.preventDefault()
+                        this.props.makePool(this.state)
+                        this.setState({
+                            sport: 'NFL',
+                            title: '',
+                            entryFee: 0,
+                            deadline: ''
+                        })
+                }}>
                     <label>
                         Title
                         <input 
@@ -57,7 +75,7 @@ class CreatePoolForm extends Component {
                     </label>
                     <label>
                         Entry Fee
-                        <select name="entry-fee">
+                        <select name="entryFee" onChange={this.handleChange}>
                             {[50, 100, 150, 200].map(fee => {
                                 return <option key={fee} value={fee}>{`${fee} points`}</option>
                             })}
@@ -72,5 +90,15 @@ class CreatePoolForm extends Component {
     }
 }
 
+const mapState = state => state
 
-export default CreatePoolForm
+const mapDispatch = dispatch => {
+    return {
+        makePool(pool) {
+            dispatch(createPoolThunk(pool))
+        }
+    }
+}
+
+
+export default connect(mapState, mapDispatch)(CreatePoolForm)

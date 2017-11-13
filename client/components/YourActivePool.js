@@ -4,27 +4,16 @@ import { connect } from 'react-redux'
 import { fetchOnePoolThunk } from '../store'
 
 const YourActivePool = props => (
-    <div className="pool-display">
-
-        <div className="pool-title">
-            {props.pool.title}
+    <Link to={`/pools/nfl/${props.pool.id}`} style={{textDecoration: 'none'}}>
+        <div className="pool-display">
+            <div>
+                {`ID: ${props.pool.id}`}
+            </div>
+            <div className="pool-title">
+                {props.pool.title}
+            </div>
         </div>
-        <div>
-            Your Rank: 
-        </div>
-        <Link 
-            to={`/pools/${props.pool.id}`}
-        >
-            <button 
-                className="view-pool"
-                onClick={(event) => {
-                    props.getPool(props.pool)
-                }}
-            >
-                View Pool
-            </button>
-        </Link>
-    </div>
+    </Link>
 )
 const mapState = state => state
 

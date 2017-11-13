@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const GOT_POOLS = 'GOT_POOLS'
 const CREATED_POOL = 'CREATED_POOL'
+const ADDED_USER = 'ADDED_USER'
 
 const gotPools = pools => {
     return {
@@ -13,6 +14,13 @@ const gotPools = pools => {
 const createdPool = pool => {
     return {
         type: CREATED_POOL,
+        payload: pool
+    }
+}
+
+const addedUser = pool => {
+    return {
+        type: ADDED_USER,
         payload: pool
     }
 }
@@ -30,9 +38,15 @@ export const fetchNBAPoolsThunk = pools => dispatch => {
 }
 
 export const createPoolThunk = pool => dispatch => {
-    axios.post('/api/pools', pool)
-    .then(res => dispatch(createdPool(pool)))
+    axios.post('/api/pools/nfl', pool)
+    .then(res => dispatch(createdPool(res.data)))
     .catch(err => dispatch(createdPool(err)))
+}
+
+export const addUserThunk = (user, pool) => dispatch => {
+    axios.put(`/api/pools/${pool.id}`, user)
+    .then(res => dispatch(addedUser(user)))
+    .catch(err => dispatch(addedUser(err)))
 }
 
 const initialState = []
@@ -43,6 +57,8 @@ const reducer =  (prevState = initialState, action) => {
             return action.payload
         case CREATED_POOL:
             return prevState.concat([action.payload])
+        case ADDED_USER:
+            return prevState
         default:
             return prevState
     }

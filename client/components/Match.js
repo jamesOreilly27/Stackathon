@@ -33,8 +33,7 @@ class Match extends Component {
         const odds = this.odds
         return (
             <div className="match-container">
-                <form onSubmit={(event) => {
-                    event.preventDefault()
+                <form style={{margin: '1vh 0'}} onSubmit={(event) => {
                     this.props.makeBet(this.state)
                 }}>
                     <div className="match-container-game">
@@ -45,15 +44,21 @@ class Match extends Component {
                                 value={'awayTeam'}
                             />
                             <div>
-                                <div>
+                                <div style={{
+                                    fontSize: '1.3em',
+                                    textAlign: 'center'
+                                }}>
                                     {this.game.AwayTeam}
                                 </div>
-                                <div>
+                                <div style={{
+                                    textAlign: 'center',
+                                    fontSize: '1.3em'
+                                }}>
                                     {parseInt(odds.PointSpreadAway) > 0 ? ` +${odds.PointSpreadAway}` : `${odds.PointSpreadAway}` }
                                 </div>
                             </div>
                         </label>
-                        <div>
+                        <div style={{fontSize: '1.8em'}}>
                             <div className="match-date">
                                 <div className="wager-details-title">
                                     Date:
@@ -77,7 +82,10 @@ class Match extends Component {
                                 onChange={this.handleChange}
                                 value={'homeTeam'}
                             />
-                            <div>
+                            <div style={{
+                                fontSize: '1.3em',
+                                textAlign: 'center'
+                            }}>
                                 <div>
                                     {`@ ${this.game.HomeTeam}`}
                                 </div>
