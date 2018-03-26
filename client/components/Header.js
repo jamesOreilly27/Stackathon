@@ -16,12 +16,20 @@ const Container = styled.div`
   background-color: #0A0A0A;
 `
 
+const HomeLink = styled(Link)`
+  font-size: 2em;
+  text-decoration: none;
+  text-shadow: .02em .02em .1em #F3EDED;
+  color: #F3EDED;
+  font-family: 'Vollkorn SC', serif;
+`
+
 const Header = () => (
   <Wrapper>
     <Container>
-      <Link to='/' className="title">
+      <HomeLink to='/'>
         Crypto Book-E
-      </Link>
+      </HomeLink>
       <div className="navbar">
         <Navlink name="Login" />
         <Navlink name="Sign-Up" />
