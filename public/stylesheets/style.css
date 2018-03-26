@@ -4,19 +4,6 @@ body {
     color: #FAFAFA;
 }
 
-/* header {
-    display: flex;
-    position: fixed;
-    width: 100vw;
-    height: 2.5em;
-    margin: -.5em;
-    margin-bottom: .5em;
-    justify-content: space-between;
-    align-items: flex-end;
-    color: #FAFAFA;
-    background-color: #0A0A0A;
-} */
-
 .match-table {
     width: 40vw;
     margin: 5vh 10vw;
