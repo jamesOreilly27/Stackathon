@@ -15,22 +15,14 @@ const Container = styled.div`
   text-align: center;
 `
 
-class Sidebar extends Component {
-  constructor() {
-    super()
-  }
-
-  render() {
-    return (
-      <Wrapper>
-        <Container>
-          <h2> Sports </h2>
-          <Sidelink path="NFL" />
-          <Sidelink path="NBA" />
-        </Container>
-      </Wrapper>
-    )
-  }
-}
+const Sidebar = () => (
+  <Wrapper>
+    <Container>
+      <h2> Sports </h2>
+      <Sidelink path="NFL" />
+      <Sidelink path="NBA" />
+    </Container>
+  </Wrapper>
+)
 
 export default Sidebar
