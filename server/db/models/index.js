@@ -10,16 +10,16 @@ User.belongsToMany(Pool, { through: PoolPlayers })
 
 /***** Bet Associations *****/
 // Pool to Bet
-Pool.hasMany(Bet, {as: 'placedBets'})
+Pool.hasMany(Bet, { as: 'placedBets' })
 Bet.belongsTo(Pool)
 
 //User to Bet
-User.hasMany(Bet, {foreignKey: 'betterId'})
+User.hasMany(Bet, { foreignKey: 'betterId' })
 Bet.belongsTo(User, { as: 'better' })
 
 module.exports = {
-    User,
-    Pool,
-    PoolPlayers,
-    Bet
+  User,
+  Pool,
+  PoolPlayers,
+  Bet
 }
