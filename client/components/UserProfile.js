@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Route } from 'react-router-dom'
 import { fetchUserThunk, updateUserThunk, updateBetThunk } from '../store'
@@ -7,9 +8,7 @@ import { UsersActiveBets, UsersActivePools, UserProfileUpdateForm, CreatePoolFor
 class UserProfile extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      editButtonClicked: false
-    }
+    this.state = { editButtonClicked: false }
     this.handleClick = this.handleClick.bind(this)
   }
 
@@ -18,9 +17,7 @@ class UserProfile extends Component {
   }
 
   handleClick() {
-    this.setState({
-      editButtonClicked: true
-    })
+    this.setState({ editButtonClicked: true })
   }
 
   render() {
