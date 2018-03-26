@@ -26,24 +26,6 @@ body {
     box-shadow: .1em .1em .3em #9C9;
 }
 
-.nav-link-container {
-    border-radius: 5px;
-}
-
-.nav-link-container :hover {
-    background-color: rgba(33, 198, 0, 0.74);
-    transition: all .8s;
-}
-
-.nav-link-container a {
-    text-decoration: none;
-    color: #F3EDED;
-    text-shadow: .01em .01em .05em #F3EDED;
-    font-size: 1.3em;
-    padding: .7em .5em 0;
-    margin: 0;
-}
-
 .match-container {
     width: 35vw;
     margin: 5vh auto;
