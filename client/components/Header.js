@@ -24,16 +24,22 @@ const HomeLink = styled(Link)`
   font-family: 'Vollkorn SC', serif;
 `
 
+const Navbar = styled.nav`
+  display: flex;
+  justify-content: flex-end;
+  align-content: flex-end;
+`
+
 const Header = () => (
   <Wrapper>
     <Container>
       <HomeLink to='/'>
         Crypto Book-E
       </HomeLink>
-      <div className="navbar">
+      <Navbar>
         <Navlink name="Login" />
         <Navlink name="Sign-Up" />
-      </div>
+      </Navbar>
     </Container>
   </Wrapper>
 )

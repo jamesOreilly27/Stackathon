@@ -26,13 +26,6 @@ body {
     box-shadow: .1em .1em .3em #9C9;
 }
 
-.navbar {
-    display: flex;
-    justify-content: flex-end;
-    align-content: flex-end;
-    flex-grow: 1;
-}
-
 .nav-link-container {
     border-radius: 5px;
 }
