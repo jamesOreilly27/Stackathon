@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 const Wrapper = styled.header`
   width: 100vw;
   position: fixed;
+  margin: -.5em;
 `
 
 const Container = styled.div`
@@ -14,6 +15,7 @@ const Container = styled.div`
   align-items: flex-end;
   color: #FAFAFA;
   background-color: #0A0A0A;
+  border-radius: .5em;
 `
 
 const HomeLink = styled(Link)`
