@@ -18,9 +18,7 @@ const UsersActiveBets = props => (
   <Wrapper>
     <Title> Your Active Bets </Title>
     <div>
-      {props.user.bets && props.user.bets.map(bet => {
-        return <Bet key={bet.id} bet={bet} />
-      })}
+      {props.user.bets && props.user.bets.map(bet => <Bet key={bet.id} bet={bet} /> )}
     </div>
   </Wrapper>
 )

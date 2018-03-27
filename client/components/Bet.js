@@ -1,33 +1,37 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { fetchMatchThunk } from '../store'
+import { MatchDetails } from '../components'
+
+const Wrapper = styled.div`
+  display: flex;
+  font-size: .875em;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vh 0;
+  border-bottom: 1px solid rgba(33, 198, 0, 0.74);
+  margin-bottom: 1vh;
+
+  &:hover {
+    background-color: #484A50;
+    transition: .2s;
+  }
+`
 
 const Bet = props => {
   const bet = props.bet
   return (
-    <div>
-      <div className="bet">
-        <div className="match-up">
-          <div className="game-details">
-            <div>
-              {bet.awayTeam}
-            </div>
-            <div>
-              @
-                        </div>
-            <div>
-              {bet.homeTeam}
-            </div>
-          </div>
-          <div className="time">
-            {bet.matchTime}
-          </div>
-        </div>
+    <Wrapper>
+      <MatchDetails bet={bet} />
+      <div>
+        {bet.matchTime}
+      </div>
         <div className="bet-user-info">
-          <div style={{ fontSize: '1.8em', marginBottom: '3vh' }}>
+          <div>
             Your Pick
-                    </div>
-          <div style={{ fontSize: '2em' }}>
+          </div>
+          <div>
             <div>
               {bet.playerPick}
             </div>
@@ -36,10 +40,8 @@ const Bet = props => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+    </Wrapper>
   )
 }
-
 
 export default Bet
