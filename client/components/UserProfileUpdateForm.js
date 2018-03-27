@@ -38,6 +38,7 @@ class UserProfileUpdateForm extends Component {
         <Wrapper
           onSubmit={(event) => {
             event.preventDefault()
+            console.log(this)
             this.props.handleSubmit(this.state)
           }}
         >

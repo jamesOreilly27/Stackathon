@@ -40,7 +40,7 @@ const reducer = (prevState = initialState, action) => {
     case GOT_USER:
       return action.payload
     case UPDATED_USER:
-      return action.payload
+      return Object.assign({}, prevState, action.payload)
     default:
       return prevState
   }

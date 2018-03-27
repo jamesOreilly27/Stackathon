@@ -42,29 +42,36 @@ class AccountInfo extends Component {
     super(props)
     this.state = { editButtonClicked: false }
     this.handleClick = this.handleClick.bind(this)
+    this.handleUpdateSubmit = this.handleUpdateSubmit.bind(this)
   }
 
   handleClick() {
     this.setState({ editButtonClicked: true })
   }
 
+  handleUpdateSubmit(update) {
+    this.setState({ editButtonClicked: false })
+    this.props.handleEditSubmit(update)
+  }
+
   render() {
     const { firstName, lastName, userName, email, points } = this.props.user
     return (
       <Wrapper>
+        {console.log('STATE', this.state)}
         <Title> Account Info </Title>
         <ContentContainer>
           <Details>
             <div> {`First Name: ${firstName}`} </div>
             <div> {`Last Name: ${lastName}`} </div>
-            <div> {`Username: ${userName}`}</div>
-            <div> {`Email: ${email}`}</div>
+            <div> {`Username: ${userName}`} </div>
+            <div> {`Email: ${email}`} </div>
             <div> {`Available Points: ${points}`} </div>
             <EditButton onClick={this.handleClick}>
               Edit
             </EditButton>
           </Details>
-          {this.state.editButtonClicked && <UserProfileUpdateForm handleSubmit={this.props.handleEditSubmit} />}
+          {this.state.editButtonClicked && <UserProfileUpdateForm handleSubmit={this.handleUpdateSubmit} />}
         </ContentContainer>
       </Wrapper>
     )
