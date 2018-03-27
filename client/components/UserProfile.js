@@ -2,14 +2,38 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Route } from 'react-router-dom'
-import { fetchUserThunk, updateUserThunk, updateBetThunk } from '../store'
-import { UsersActiveBets, UsersActivePools, UserProfileUpdateForm, CreatePoolForm } from '../components'
+import { fetchUserThunk, updateBetThunk } from '../store'
+import { AccountInfo, UsersActiveBets, UsersActivePools, CreatePoolForm } from '../components'
+
+const Wrapper = styled.div`
+  margin: 8vh 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const Title = styled.div`
+  margin: .3em;
+  color: #FAFAFA;
+  font-size: 1.5em;
+`
+
+const UpperContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+const ProfileInfoContainer = styled.div`
+  text-align: center;
+  background-color: #0A0A0A;
+  padding: .5em;
+  border-radius: .3em;
+  box-shadow: .1em .1em .3em #9C9
+`
 
 class UserProfile extends Component {
   constructor(props) {
     super(props)
-    this.state = { editButtonClicked: false }
-    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
@@ -23,54 +47,19 @@ class UserProfile extends Component {
   render() {
     const user = this.props.user
     return (
-      <div className="user-profile-container">
-        <div className="title-user-profile">
+      <Wrapper>
+        <Title>
           {`Welcome Back ${this.props.user.userName}!`}
-        </div>
-        <div style={{ display: 'flex' }}>
-          <div
-            className="profile-info-container"
-            style={{ boxShadow: '.1em .1em .3em #9C9' }}
-          >
-            <div style={{ textAlign: 'center', fontSize: '1.6em' }}>
-              Account Info
-                        </div>
-            <div style={{ display: 'flex' }}>
-              <div className="profile-info-details">
-                <div>
-                  {`First Name: ${user.firstName}`}
-                </div>
-                <div>
-                  {`Last Name: ${user.lastName}`}
-                </div>
-                <div>
-                  {`Username: ${user.userName}`}
-                </div>
-                <div>
-                  {`Email: ${user.email}`}
-                </div>
-                <div>
-                  {`Available Points: ${user.points}`}
-                </div>
-                <button
-                  className="edit-button"
-                  onClick={this.handleClick}
-                >
-                  Edit
-                                </button>
-              </div>
-              <div className="test">
-                {this.state.editButtonClicked && <UserProfileUpdateForm handleSubmit={this.props.handleEditSubmit} />}
-              </div>
-            </div>
-          </div>
+        </Title>
+        <UpperContainer>
+          <AccountInfo />
           <CreatePoolForm />
-        </div>
+        </UpperContainer>
         <div className="users-active-stuff">
           <UsersActiveBets />
           <UsersActivePools user={user} />
         </div>
-      </div>
+      </Wrapper>
     )
   }
 }
@@ -80,9 +69,6 @@ const mapDispatch = dispatch => {
   return {
     getUser() {
       dispatch(fetchUserThunk())
-    },
-    handleEditSubmit(update) {
-      dispatch(updateUserThunk(update))
     }
   }
 }

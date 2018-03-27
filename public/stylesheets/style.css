@@ -87,20 +87,6 @@ body {
     margin: 0 10px;
 }
 
-.main-flex {
-    display: flex;
-}
-
-.user-profile-container {
-    margin: 8vh 10vw;
-}
- .title-user-profile {
-     margin: .3em 0;
-
-    color: #FAFAFA;
-    font-size: 1.5em;
- }
-
  .active-bets-container {
      width: 20vw;
      background-color: #0A0A0A;

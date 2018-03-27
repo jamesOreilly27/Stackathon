@@ -34,7 +34,7 @@ class UserProfileUpdateForm extends Component {
         >
           <label>
             First Name
-                        <input
+            <input
               type="text"
               name="firstName"
               onChange={this.handleChange}
@@ -44,7 +44,7 @@ class UserProfileUpdateForm extends Component {
           <br />
           <label>
             Last Name
-                        <input
+            <input
               type="text"
               name="lastName"
               onChange={this.handleChange}
@@ -54,7 +54,7 @@ class UserProfileUpdateForm extends Component {
           <br />
           <label>
             Username
-                        <input
+            <input
               type="text"
               name="userName"
               style={{ borderRadius: '.3em' }}
@@ -65,7 +65,7 @@ class UserProfileUpdateForm extends Component {
           <br />
           <label>
             Email
-                        <input
+            <input
               type="email"
               name="email"
               onChange={this.handleChange}
@@ -75,7 +75,7 @@ class UserProfileUpdateForm extends Component {
           <br />
           <button type="submit" className="submit-update-button">
             submit
-                    </button>
+          </button>
         </form>
       </div>
     )

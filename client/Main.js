@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Router } from 'react-router'
 import { Route, Switch } from 'react-router-dom'
 import history from './history'
 import { fetchUserThunk } from './store'
 import { Header, PoolsNFL, PoolsNBA, NFLPoolDetail, NBAPoolDetail, Sidebar, UserProfile } from './components'
+
+const ContentContainer = styled.div`
+  display: flex;
+`
 
 class Main extends Component {
   constructor(props) {
@@ -21,7 +26,7 @@ class Main extends Component {
         <Router history={history}>
           <div>
             <Header />
-            <div className="main-flex">
+            <ContentContainer>
               <Sidebar />
               <Switch>
                 <Route exact path='/' component={UserProfile} />
@@ -30,7 +35,7 @@ class Main extends Component {
                 <Route path={'/pools/nfl/:id'} component={NFLPoolDetail} />
                 <Route path={'/pools/nba/:id'} component={NBAPoolDetail} />
               </Switch>
-            </div>
+            </ContentContainer>
           </div>
         </Router>
       </div>
