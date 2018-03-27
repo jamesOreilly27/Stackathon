@@ -1,6 +1,42 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { createPoolThunk } from '../store'
+import { PoolCreateSelects } from '../components'
+
+const Wrapper = styled.div`
+  background-color: #0A0A0A;
+  box-shadow: .1em .1em .3em #9C9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 3em;
+  padding: 1em;
+`
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 2vh;
+`
+
+const Label = styled.label`
+  width: 80%;
+`
+
+const Input = styled.input`
+  width: 80%;
+  border-radius: .3em;
+`
+
+const SubmitButton = styled.button`
+  width: 10em;
+  height: 3em;
+  border-radius: .5em;
+  margin-top: 2vh;
+`
 
 class CreatePoolForm extends Component {
   constructor(props) {
@@ -19,28 +55,18 @@ class CreatePoolForm extends Component {
   handleChange(event) {
     const name = event.target.name
     const value = event.target.value
-    const newState = {}
-    console.log('SELECT CHANGE', name, value)
+    let newState = {}
     newState[name] = value
     this.setState(newState)
   }
 
   render() {
     return (
-      <div className="user-profile-pool-create-container"
-        style={{
-          width: '25vw',
-          backgroundColor: '#0A0A0A',
-          boxShadow: '.1em .1em .3em #9C9',
-          margin: '0 3vw',
-          textAlign: 'center',
-          padding: '.8em'
-        }}
-      >
-        <div style={{ fontSize: '1.5em' }}>
+      <Wrapper>
+        <div>
           Create A Pool
-                </div>
-        <form onSubmit={(event) => {
+        </div>
+        <Form onSubmit={(event) => {
           event.preventDefault()
           this.props.makePool(this.state)
           this.setState({
@@ -50,55 +76,30 @@ class CreatePoolForm extends Component {
             deadline: ''
           })
         }}>
-          <label>
+          <Label>
             Title
-                        <input
-              type="text"
-              name="title"
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
+            <Input type="text" name="title" onChange={this.handleChange}/>
+          </Label>
+          <Label>
             Deadline
-                        <input
-              type="text"
-              name="deadline"
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            Sport
-                        <select name="sport" onChange={this.handleChange}>
-              <option value={1}>NFL</option>
-              <option value={2}>NBA</option>
-            </select>
-          </label>
-          <label>
-            Entry Fee
-                        <select name="entryFee" onChange={this.handleChange}>
-              {[50, 100, 150, 200].map(fee => {
-                return <option key={fee} value={fee}>{`${fee} points`}</option>
-              })}
-            </select>
-          </label>
-          <button type="submit" className="create-pool-submit">
+            <Input type="text" name="deadline" onChange={this.handleChange}/>
+          </Label>
+          <PoolCreateSelects handleChange={this.handleChange} />
+          <SubmitButton type="submit">
             Create Pool
-                    </button>
-        </form>
-      </div>
+          </SubmitButton>
+        </Form>
+      </Wrapper>
     )
   }
 }
 
 const mapState = state => state
 
-const mapDispatch = dispatch => {
-  return {
+const mapDispatch = dispatch => ({
     makePool(pool) {
       dispatch(createPoolThunk(pool))
     }
-  }
-}
-
+})
 
 export default connect(mapState, mapDispatch)(CreatePoolForm)
