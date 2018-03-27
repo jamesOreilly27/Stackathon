@@ -24,7 +24,7 @@ class NFLPool extends Component {
       }}>
         <div>
           Leader
-                </div>
+        </div>
         <div style={{ fontSize: '1.2em' }}>
           {leader}
         </div>
@@ -43,7 +43,7 @@ class NFLPool extends Component {
               padding: '.25em'
             }}>
               Pool ID
-                        </div>
+            </div>
             <div>
               {pool.id}
             </div>

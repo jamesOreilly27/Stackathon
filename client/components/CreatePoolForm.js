@@ -10,8 +10,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 3em;
   padding: 1em;
+  margin-left: 2vw;
 `
 
 const Form = styled.form`

@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   margin: 1vh 10vw;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 `
 
 const Title = styled.div`
@@ -21,7 +21,6 @@ const Title = styled.div`
 const UpperContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 2vw auto;
 `
 
 class UserProfile extends Component {

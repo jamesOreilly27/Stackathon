@@ -4,7 +4,8 @@ import { Bet } from '../components'
 import { connect } from 'react-redux'
 
 const Wrapper = styled.div`
-  width: 95%;
+  margin: 1.5vw auto;
+  width: 100%;
   background-color: #0A0A0A;
   box-shadow: .1em .1em .3em #9C9;
 `

@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { YourActivePool } from '../components'
+import { PoolLink } from '../components'
 
 const Wrapper = styled.div`
-  width: 95%;
-  margin: 2vh 0;
+  margin: 1.5vw auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #0A0A0A;
   box-shadow: .1em .1em .3em #9C9;
 `
@@ -14,16 +17,23 @@ const Title = styled.div`
   text-align: center;
 `
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+`
+
 const UsersActivePools = props => (
   <Wrapper>
       <Title>
         Your Active Pools
       </Title>
-      <div className="active-pools2x2">
+      <Container>
         {props.user.pools && props.user.pools.map(pool => {
-          return <YourActivePool key={pool.id} pool={pool} />
+          return <PoolLink key={pool.id} pool={pool} />
         })}
-      </div>
+      </Container>
   </Wrapper>
 )
 
