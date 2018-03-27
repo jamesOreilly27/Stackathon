@@ -88,7 +88,7 @@ body {
 }
 
  .active-bets-container {
-     width: 20vw;
+     width: 100%;
      background-color: #0A0A0A;
      padding: 1em;
  }

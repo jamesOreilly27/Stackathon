@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   margin: 8vh 10vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 `
 
 const Title = styled.div`
@@ -21,6 +21,7 @@ const Title = styled.div`
 const UpperContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  margin: 2vh auto;
 `
 
 const ProfileInfoContainer = styled.div`
@@ -55,10 +56,8 @@ class UserProfile extends Component {
           <AccountInfo />
           <CreatePoolForm />
         </UpperContainer>
-        <div className="users-active-stuff">
-          <UsersActiveBets />
-          <UsersActivePools user={user} />
-        </div>
+        <UsersActiveBets />
+        <UsersActivePools user={user} />
       </Wrapper>
     )
   }
