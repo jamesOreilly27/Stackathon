@@ -38,7 +38,7 @@ export const fetchNBAPoolsThunk = pools => dispatch => {
 }
 
 export const createPoolThunk = pool => dispatch => {
-  axios.post('/api/pools/nfl', pool)
+  axios.post(`/api/pools/nfl`, pool)
     .then(res => dispatch(createdPool(res.data)))
     .catch(err => dispatch(createdPool(err)))
 }
