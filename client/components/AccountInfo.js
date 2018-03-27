@@ -17,7 +17,6 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
   text-align: center;
-  font-size: 1.6em;
   margin-bottom: .5em;
 `
 const ContentContainer = styled.div`

@@ -136,19 +136,6 @@ body {
     font-size: 1.6em;
 }
 
-.active-bets-title {
-    font-size: 1.2em;
-    padding: .5em;
-    text-align: center;
-}
-
-.active-pools-container {
-    width: 52vw;
-    margin: 0 2vw;
-    background-color: #0A0A0A;
-    padding: .5em;
-}
-
 .active-pools2x2 {
     display: flex;
     flex-wrap: wrap;
@@ -163,41 +150,13 @@ body {
     border-radius: .3em;
 }
 
-.profile-info-details {
-    width: 19vw;
-    margin: 2vh 0;
-    font-size: 1em;
-}
-
-.profile-info-details div {
-    margin: .8em;
-}
-
-.edit-button {
-    width: 5vw;
-    height: 4vh;
-    margin: 0 1vw;
-    border-radius: .3em;
-}
-
 .test {
      width: 19vw;
      margin-left: .5vw;
  }
 
-form {
-     margin: 2vh 0;
- }
-
-form input {
+ form input {
      width: 90%;
- }
-
- .submit-update-button {
-    width: 5vw;
-    height: 4vh;
-    border-radius: .3em;
-    margin: 2vh 0;
  }
 
 select {

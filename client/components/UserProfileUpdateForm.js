@@ -12,6 +12,11 @@ const SubmitButton = styled.button`
   margin-top: .5em;
 `
 
+const Input = styled.input`
+  width: 90%;
+  border-radius: .3em;
+`
+
 class UserProfileUpdateForm extends Component {
   constructor(props) {
     super(props)
@@ -44,7 +49,7 @@ class UserProfileUpdateForm extends Component {
         >
           <label>
             First Name
-            <input
+            <Input
               type="text"
               name="firstName"
               onChange={this.handleChange}
@@ -54,7 +59,7 @@ class UserProfileUpdateForm extends Component {
           <br />
           <label>
             Last Name
-            <input
+            <Input
               type="text"
               name="lastName"
               onChange={this.handleChange}
@@ -64,7 +69,7 @@ class UserProfileUpdateForm extends Component {
           <br />
           <label>
             Username
-            <input
+            <Input
               type="text"
               name="userName"
               style={{ borderRadius: '.3em' }}
@@ -75,7 +80,7 @@ class UserProfileUpdateForm extends Component {
           <br />
           <label>
             Email
-            <input
+            <Input
               type="email"
               name="email"
               onChange={this.handleChange}

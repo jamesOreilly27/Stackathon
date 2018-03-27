@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 const Title = styled.div`
   margin: .3em;
   color: #FAFAFA;
-  font-size: 1.5em;
+  font-size: 1em;
 `
 
 const UpperContainer = styled.div`
