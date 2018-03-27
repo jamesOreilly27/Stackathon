@@ -6,6 +6,9 @@ import { updateUserThunk } from '../store'
 
 const Wrapper = styled.div`
   width: 55vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: #0A0A0A;
   padding: .5em;
   border-radius: .3em;

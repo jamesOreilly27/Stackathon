@@ -1,5 +1,16 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 
+const Wrapper = styled.form`
+  margin: 0;
+`
+
+const SubmitButton = styled.button`
+  width: 10em;
+  height: 3em;
+  border-radius: .5em;
+  margin-top: .5em;
+`
 
 class UserProfileUpdateForm extends Component {
   constructor(props) {
@@ -24,13 +35,11 @@ class UserProfileUpdateForm extends Component {
 
   render() {
     return (
-      <div>
-        <form
+        <Wrapper
           onSubmit={(event) => {
             event.preventDefault()
             this.props.handleSubmit(this.state)
           }}
-          style={{ textAlign: 'center' }}
         >
           <label>
             First Name
@@ -73,11 +82,10 @@ class UserProfileUpdateForm extends Component {
             />
           </label>
           <br />
-          <button type="submit" className="submit-update-button">
+          <SubmitButton type="submit">
             submit
-          </button>
-        </form>
-      </div>
+          </SubmitButton>
+        </Wrapper>
     )
   }
 }
