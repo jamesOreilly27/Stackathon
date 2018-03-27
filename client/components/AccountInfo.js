@@ -5,7 +5,7 @@ import { UserProfileUpdateForm }  from '../components'
 import { updateUserThunk } from '../store'
 
 const Wrapper = styled.div`
-  width: 55vw;
+  width: 40vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,13 +28,15 @@ const Details = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 28vh;
+  height: 20vw;
+  width: 20vw;
 `
 
 const EditButton = styled.button`
-  width: 10em;
-  height: 3em;
+  width: 10vw;
+  height: 3vw;
   border-radius: .5em;
+  font-size: .875em;
 `
 class AccountInfo extends Component {
   constructor(props) {

@@ -1,20 +1,33 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.form`
-  margin: 0;
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 20vw;
+`
+
+const Label = styled.label`
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const SubmitButton = styled.button`
-  width: 10em;
-  height: 3em;
-  border-radius: .5em;
-  margin-top: .5em;
+  width: 10vw;
+  height: 5vw;
+  border-radius: .5vw;
+  font-size: .875em;
 `
 
 const Input = styled.input`
-  width: 90%;
+  width: 10vw;
+  height: 2vw;
   border-radius: .3em;
+  font-size: .875em;
 `
 
 class UserProfileUpdateForm extends Component {
@@ -40,14 +53,14 @@ class UserProfileUpdateForm extends Component {
 
   render() {
     return (
-        <Wrapper
+        <Form
           onSubmit={(event) => {
             event.preventDefault()
             console.log(this)
             this.props.handleSubmit(this.state)
           }}
         >
-          <label>
+          <Label>
             First Name
             <Input
               type="text"
@@ -55,9 +68,9 @@ class UserProfileUpdateForm extends Component {
               onChange={this.handleChange}
               required
             />
-          </label>
+          </Label>
           <br />
-          <label>
+          <Label>
             Last Name
             <Input
               type="text"
@@ -65,9 +78,9 @@ class UserProfileUpdateForm extends Component {
               onChange={this.handleChange}
               required
             />
-          </label>
+          </Label>
           <br />
-          <label>
+          <Label>
             Username
             <Input
               type="text"
@@ -76,9 +89,9 @@ class UserProfileUpdateForm extends Component {
               onChange={this.handleChange}
               required
             />
-          </label>
+          </Label>
           <br />
-          <label>
+          <Label>
             Email
             <Input
               type="email"
@@ -86,12 +99,12 @@ class UserProfileUpdateForm extends Component {
               onChange={this.handleChange}
               required
             />
-          </label>
+          </Label>
           <br />
           <SubmitButton type="submit">
             submit
           </SubmitButton>
-        </Wrapper>
+        </Form>
     )
   }
 }

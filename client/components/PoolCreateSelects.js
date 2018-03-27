@@ -13,22 +13,26 @@ const Label = styled.label`
   margin: 0 .5em;
 `
 
+const Select = styled.select`
+  font-size: .875em;
+`
+
 const PoolCreateSelects = props => (
   <Wrapper>
     <Label>
       Sport
-      <select name="sport" onChange={props.handleChange}>
+      <Select name="sport" onChange={props.handleChange}>
         <option value= "NFL"> NFL </option>
         <option value= "NBA"> NBA </option>
-      </select>
+      </Select>
     </Label>
     <Label>
       Entry Fee
-      <select name="entryFee" onChange={props.handleChange}>
+      <Select name="entryFee" onChange={props.handleChange}>
         {[50, 100, 150, 200].map(fee => {
           return <option key={fee} value={fee}>{`${fee} points`}</option>
         })}
-      </select>
+      </Select>
     </Label>
   </Wrapper>
 )

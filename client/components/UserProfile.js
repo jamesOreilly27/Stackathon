@@ -6,14 +6,14 @@ import { fetchUserThunk, updateBetThunk } from '../store'
 import { AccountInfo, UsersActiveBets, UsersActivePools, CreatePoolForm } from '../components'
 
 const Wrapper = styled.div`
-  margin: 8vh 10vw;
+  margin: 1vh 10vw;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 `
 
 const Title = styled.div`
-  margin: .3em;
+  margin-top: 3vw;
   color: #FAFAFA;
   font-size: 1em;
 `
@@ -21,15 +21,7 @@ const Title = styled.div`
 const UpperContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 2vh auto;
-`
-
-const ProfileInfoContainer = styled.div`
-  text-align: center;
-  background-color: #0A0A0A;
-  padding: .5em;
-  border-radius: .3em;
-  box-shadow: .1em .1em .3em #9C9
+  margin: 2vw auto;
 `
 
 class UserProfile extends Component {

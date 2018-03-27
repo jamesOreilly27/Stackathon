@@ -19,23 +19,28 @@ const Form = styled.form`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 2vh;
+  margin-top: 1vw;
 `
 
 const Label = styled.label`
-  width: 80%;
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const Input = styled.input`
-  width: 80%;
+  width: 10vw;
   border-radius: .3em;
+  font-size: 1em;
 `
 
 const SubmitButton = styled.button`
-  width: 10em;
-  height: 3em;
-  border-radius: .5em;
-  margin-top: 2vh;
+  width: 10vw;
+  height: 3vw;
+  border-radius: .5vw;
+  margin-top: 1vw;
+  font-size: .875em;
 `
 
 class CreatePoolForm extends Component {
