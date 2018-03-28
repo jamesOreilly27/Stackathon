@@ -25,7 +25,11 @@ router.get('/nba', (req, res, next) => {
     .catch(console.error)
 })
 
-
-
+router.get('/mlb', (req, res, next) => {
+  jsonOdds.get('https://jsonodds.com/api/odds/mlb')
+  .then(res => res.data)
+  .then(odds => res.json(odds))
+  .catch(console.error)
+})
 
 module.exports = router;
