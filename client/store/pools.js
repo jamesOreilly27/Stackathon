@@ -4,26 +4,20 @@ const GOT_POOLS = 'GOT_POOLS'
 const CREATED_POOL = 'CREATED_POOL'
 const ADDED_USER = 'ADDED_USER'
 
-const gotPools = pools => {
-  return {
-    type: GOT_POOLS,
-    payload: pools
-  }
-}
+const gotPools = pools => ({
+  type: GOT_POOLS,
+  payload: pools
+})
 
-const createdPool = pool => {
-  return {
-    type: CREATED_POOL,
-    payload: pool
-  }
-}
+const createdPool = pool => ({
+  type: CREATED_POOL,
+  payload: pool
+})
 
-const addedUser = pool => {
-  return {
-    type: ADDED_USER,
-    payload: pool
-  }
-}
+const addedUser = pool => ({
+  type: ADDED_USER,
+  payload: pool
+})
 
 export const fetchPoolsBySport = sport => dispatch => {
   axios.get(`/api/pools${sport}`)
