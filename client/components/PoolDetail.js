@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { fetchOnePoolThunk, fetchOddsBySport } from '../store'
+import { MatchTable } from '../components'
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 class PoolDetail extends Component {
   constructor(props) {
@@ -22,9 +28,9 @@ class PoolDetail extends Component {
 
   render() {
     return (
-      <div>
-        {console.log('STATE', this.state)}
-      </div>
+      <Wrapper>
+        <MatchTable odds={this.props.odds} poolId={parseInt(this.props.match.params.id)} />
+      </Wrapper>
     )
   }
 }
