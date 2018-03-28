@@ -5,12 +5,8 @@ const chalk = require('chalk')
 
 router.get('/nfl', (req, res, next) => {
   Pool.findAll({
-    where: {
-      sport: 'NFL'
-    },
-    include: [
-      { model: User }
-    ]
+    where: { sport: 'NFL'},
+    include: [{ model: User }]
   })
     .then(pools => res.json(pools))
     .catch(next)
@@ -18,15 +14,20 @@ router.get('/nfl', (req, res, next) => {
 
 router.get('/nba', (req, res, next) => {
   Pool.findAll({
-    where: {
-      sport: 'NBA'
-    },
-    include: [
-      { model: User }
-    ]
+    where: { sport: 'NBA' },
+    include: [{ model: User }]
   })
     .then(pools => res.json(pools))
     .catch(next)
+})
+
+router.get('/mlb', (req, res, next) => {
+  Pool.findAll({
+    where: { sport: 'MLB' },
+    include: [{ model: User }]
+  })
+  .then(pools => res.json(pools))
+  .catch(next)
 })
 
 router.get('/:id', (req, res, next) => {

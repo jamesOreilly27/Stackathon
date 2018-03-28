@@ -12,10 +12,15 @@ class SportHome extends Component {
     this.props.getPools(this.props.match.path)
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(this.props.match.path !== nextProps.match.path) {
+      this.props.getPools(nextProps.match.path)
+    }
+  }
+
   render() {
     return (
       <div>
-        {console.log('PROPS', this.props)}
         Hello World!
       </div>
     )
@@ -24,12 +29,10 @@ class SportHome extends Component {
 
 const mapState = state => state
 
-const mapDispatch = dispatch => {
-  return {
+const mapDispatch = dispatch => ({
     getPools(sport) {
       dispatch(fetchPoolsBySport(sport))
     }
-  }
-}
+})
 
 export default connect(mapState, mapDispatch)(SportHome)
