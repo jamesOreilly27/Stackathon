@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { Game } from '../components'
+import { Game, PoolLink } from '../components'
 import { fetchPoolsBySport, fetchOddsBySport } from '../store'
 
 const Wrapper = styled.div`
@@ -17,6 +17,12 @@ const GamesContainer = styled.div`
   justify-content: space-between;
   flex-wrap: no-wrap;
   overflow-x: auto;
+  background-color: #0A0A0A;
+`
+
+const PoolsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   background-color: #0A0A0A;
 `
 
@@ -45,6 +51,11 @@ class SportHome extends Component {
             return <Game game={game} />
           })}
         </GamesContainer>
+        <PoolsContainer>
+          {this.props.pools && this.props.pools.map(pool => {
+            return <PoolLink key={pool.id} pool={pool} />
+          })}
+        </PoolsContainer>
       </Wrapper>
     )
   }
