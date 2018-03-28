@@ -1,6 +1,45 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { createBetThunk } from '../store'
+
+const Wrapper = styled.div`
+  width: 70vw;
+  margin-bottom: 3vw;
+  align-items: center;
+`
+
+const Form = styled.form`
+  padding: 1vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`
+
+const TeamContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const BetDetailContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: .875em;
+`
+
+const DateAndWagerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: .875em;
+`
 
 class Match extends Component {
   constructor(props) {
@@ -32,77 +71,45 @@ class Match extends Component {
   render() {
     const odds = this.odds
     return (
-      <div className="match-container">
-        <form style={{ margin: '1vh 0' }} onSubmit={(event) => {
+      <Wrapper>
+        <Form onSubmit={(event) => {
           this.props.makeBet(this.state)
         }}>
-          <div className="match-container-game">
-            <label className="team">
-              <input
-                type="checkbox"
-                onChange={this.handleChange}
-                value={'awayTeam'}
-              />
-              <div>
-                <div style={{
-                  fontSize: '1.3em',
-                  textAlign: 'center'
-                }}>
-                  {this.game.AwayTeam}
-                </div>
-                <div style={{
-                  textAlign: 'center',
-                  fontSize: '1.3em'
-                }}>
-                  {parseInt(odds.PointSpreadAway) > 0 ? ` +${odds.PointSpreadAway}` : `${odds.PointSpreadAway}`}
-                </div>
-              </div>
+          <Container>
+            <label>
+              <TeamContainer>
+                <input type="checkbox" onChange={this.handleChange} value={'awayTeam'} />
+                <BetDetailContainer>
+                  <div>
+                    {this.game.AwayTeam}
+                  </div>
+                  <div>
+                    {parseInt(odds.PointSpreadAway) > 0 ? ` +${odds.PointSpreadAway}` : `${odds.PointSpreadAway}`}
+                  </div>
+                </BetDetailContainer>
+              </TeamContainer>
             </label>
-            <div style={{ fontSize: '1.8em' }}>
-              <div className="match-date">
-                <div className="wager-details-title">
-                  Date:
-                                </div>
-                <div>
-                  {this.game.MatchTime.slice(0, 10)}
-                </div>
-              </div>
-              <div className="wager-details">
-                <div className="wager-details-title">
-                  Wager:
-                                </div>
-                <div>
-                  5 Pool Points
-                                </div>
-              </div>
-            </div>
-            <label className="team">
-              <input
-                type="checkbox"
-                onChange={this.handleChange}
-                value={'homeTeam'}
-              />
-              <div style={{
-                fontSize: '1.3em',
-                textAlign: 'center'
-              }}>
-                <div>
-                  {`@ ${this.game.HomeTeam}`}
-                </div>
-                <div>
-                  {parseInt(odds.PointSpreadHome) > 0 ? `+${odds.PointSpreadHome}` : odds.PointSpreadHome}
-                </div>
-              </div>
+            <DateAndWagerContainer>
+              <div> {`Date: ${this.game.MatchTime.slice(0, 10)}`} </div>
+              <div> {`Wager: 5 Pool Points`} </div>
+            </DateAndWagerContainer>
+            <label>
+              <TeamContainer>
+                <input type="checkbox" onChange={this.handleChange} value={'homeTeam'} />
+                <BetDetailContainer>
+                  <div>
+                    {`@ ${this.game.HomeTeam}`}
+                  </div>
+                  <div>
+                    {parseInt(odds.PointSpreadHome) > 0 ? `+${odds.PointSpreadHome}` : odds.PointSpreadHome}
+                  </div>
+                </BetDetailContainer>
+              </TeamContainer>
             </label>
-          </div>
-          <button
-            type="submit"
-            className="submit-bet-button"
-          >
-            Submit Your Bet
-                    </button>
-        </form>
-      </div>
+          </Container>
+          <button type="submit"> Submit Your Bet </button>
+        </Form>
+      </Wrapper>
     )
   }
 }
