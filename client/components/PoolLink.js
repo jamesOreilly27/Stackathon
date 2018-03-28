@@ -61,7 +61,7 @@ class PoolLink extends Component {
             </div>
           :
             <div>
-              {pool.pool_players && this.findLeader(pool.users)}
+              {pool && this.findLeader(pool.users)}
             </div>
           }
         </div>
