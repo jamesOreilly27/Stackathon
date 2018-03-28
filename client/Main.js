@@ -5,7 +5,7 @@ import { Router } from 'react-router'
 import { Route, Switch } from 'react-router-dom'
 import history from './history'
 import { fetchUserThunk } from './store'
-import { Header, PoolsNFL, PoolsNBA, NFLPoolDetail, NBAPoolDetail, Sidebar, UserProfile } from './components'
+import { Header, PoolsNFL, PoolsNBA, NFLPoolDetail, NBAPoolDetail, Sidebar, UserProfile, SportHome } from './components'
 
 const ContentContainer = styled.div`
   display: flex;
@@ -30,8 +30,8 @@ class Main extends Component {
               <Sidebar />
               <Switch>
                 <Route exact path='/' component={UserProfile} />
-                <Route exact path={'/pools/nfl'} component={PoolsNFL} />
-                <Route exact path={'/pools/nba'} component={PoolsNBA} />
+                <Route exact path={'/nfl'} component={SportHome} />
+                <Route exact path={'/nba'} component={SportHome} />
                 <Route path={'/pools/nfl/:id'} component={NFLPoolDetail} />
                 <Route path={'/pools/nba/:id'} component={NBAPoolDetail} />
               </Switch>

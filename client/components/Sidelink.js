@@ -20,7 +20,7 @@ const StyledLink = styled(Link)`
 
 const Sidelink = ({ path }) => (
   <Container>
-    <StyledLink to={`/pools/${path}`}>
+    <StyledLink to={`/${path}`}>
       {path}
     </StyledLink>
   </Container>
