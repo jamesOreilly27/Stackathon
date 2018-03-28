@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { fetchOnePoolThunk } from '../store'
 
 const Wrapper = styled(Link)`
   display: flex;
@@ -31,10 +30,6 @@ class PoolLink extends Component {
     super(props)
   }
 
-  componentDidMount() {
-    this.props.getPool(this.props.pool.id)
-  }
-
   findLeader(players) {
     let leader;
     let highScore = 0;
@@ -54,26 +49,25 @@ class PoolLink extends Component {
   }
 
   render() {
-    const pool = this.props.singlePool
+    const pool = this.props.pool
     return (
       <Wrapper to={`/pools/${pool.sport}/${pool.id}`}>
-      {console.log('ID', pool.id)}
         <div> {`Pool ID: ${pool.id}`} </div>
         <div> {pool.title} </div>
         <div>
-          {pool.users && this.findLeader(pool.users)}
+          {this.props.userProfileLink ?
+            <div>
+              {pool && `your score: ${pool.pool_players.poolPoints} points`}
+            </div>
+          :
+            <div>
+              {pool.pool_players && this.findLeader(pool.users)}
+            </div>
+          }
         </div>
       </Wrapper>
     )
   }
 }
 
-const mapState = state => state
-
-const mapDispatch = dispatch => ({
-  getPool(id) {
-    dispatch(fetchOnePoolThunk(id))
-  }
-})
-
-export default connect(mapState, mapDispatch)(PoolLink)
+export default PoolLink

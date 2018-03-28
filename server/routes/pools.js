@@ -3,9 +3,8 @@ const router = express.Router();
 const { Pool, User, Bet, PoolPlayers } = require('../db/models')
 const chalk = require('chalk')
 
-router.get('/:sport', (req, res, next) => {
+router.get('/sports/:sport', (req, res, next) => {
   const sport = req.params.sport
-  console.log(chalk.blue.bgWhite.bold('SPORT', sport))
   Pool.findAll({
     where: { sport: sport},
     include: [{ model: User }]

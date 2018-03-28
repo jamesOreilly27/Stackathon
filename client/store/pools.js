@@ -20,7 +20,7 @@ const addedUser = pool => ({
 })
 
 export const fetchPoolsBySport = sport => dispatch => {
-  axios.get(`/api/pools${sport}`)
+  axios.get(`/api/pools/sports/${sport}`)
   .then(res => dispatch(gotPools(res.data)))
   .catch(err => dispatch(gotPools(err.message)))
 }

@@ -31,7 +31,7 @@ const UsersActivePools = props => (
     </Title>
     <Container>
       {props.user.pools && props.user.pools.map(pool => {
-        return <PoolLink key={pool.id} pool={pool} />
+        return <PoolLink key={pool.id} pool={pool} userProfileLink />
       })}
     </Container>
   </Wrapper>

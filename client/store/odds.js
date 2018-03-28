@@ -10,7 +10,7 @@ const gotOdds = odds => {
 }
 
 export const fetchOddsBySport = sport => dispatch => {
-  axios.get(`/api/odds${sport}`)
+  axios.get(`/api/odds/${sport}`)
   .then(res => dispatch(gotOdds(res.data)))
   .catch(err => dispatch(gotOdds(err.message)))
 }

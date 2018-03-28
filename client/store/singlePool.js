@@ -12,9 +12,8 @@ const gotSinglePool = pool => {
 export const fetchOnePoolThunk = id => dispatch => {
   axios.get(`/api/pools/${id}`)
     .then(res => res.data)
-    .then(pool => {
-      dispatch(gotSinglePool(pool))
-    })
+    .then(pool => dispatch(gotSinglePool(pool)))
+    .catch(err => dispatch(gotSinglePool(err.message)))
 }
 
 const initialState = {}
