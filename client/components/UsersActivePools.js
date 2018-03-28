@@ -26,17 +26,15 @@ const Container = styled.div`
 
 const UsersActivePools = props => (
   <Wrapper>
-      <Title>
-        Your Active Pools
-      </Title>
-      <Container>
-        {props.user.pools && props.user.pools.map(pool => {
-          return <PoolLink key={pool.id} pool={pool} />
-        })}
-      </Container>
+    <Title>
+      Your Active Pools
+    </Title>
+    <Container>
+      {props.user.pools && props.user.pools.map(pool => {
+        return <PoolLink key={pool.id} pool={pool} />
+      })}
+    </Container>
   </Wrapper>
 )
 
 export default UsersActivePools
-
-
