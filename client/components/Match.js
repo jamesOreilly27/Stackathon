@@ -3,12 +3,6 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { createBetThunk } from '../store'
 
-const Wrapper = styled.div`
-  width: 70vw;
-  margin-bottom: 3vw;
-  align-items: center;
-`
-
 const Form = styled.form`
   padding: 1vh 0;
   display: flex;
@@ -71,7 +65,6 @@ class Match extends Component {
   render() {
     const odds = this.odds
     return (
-      <Wrapper>
         <Form onSubmit={(event) => {
           this.props.makeBet(this.state)
         }}>
@@ -92,6 +85,7 @@ class Match extends Component {
             <DateAndWagerContainer>
               <div> {`Date: ${this.game.MatchTime.slice(0, 10)}`} </div>
               <div> {`Wager: 5 Pool Points`} </div>
+              <button type="submit"> Submit Your Bet </button>
             </DateAndWagerContainer>
             <label>
               <TeamContainer>
@@ -107,9 +101,7 @@ class Match extends Component {
               </TeamContainer>
             </label>
           </Container>
-          <button type="submit"> Submit Your Bet </button>
         </Form>
-      </Wrapper>
     )
   }
 }

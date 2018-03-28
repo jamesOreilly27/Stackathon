@@ -19,9 +19,9 @@ const Sidebar = () => (
   <Wrapper>
     <Container>
       <h2> Sports </h2>
-      <Sidelink path="NFL" />
-      <Sidelink path="NBA" />
-      <Sidelink path="MLB" />
+      <Sidelink path="nfl" />
+      <Sidelink path="nba" />
+      <Sidelink path="mlb" />
     </Container>
   </Wrapper>
 )

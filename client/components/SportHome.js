@@ -26,8 +26,8 @@ class SportHome extends Component {
   }
 
   componentDidMount() {
-    this.props.getPools(this.props.match.path)
-    this.props.getOdds(this.props.match.path)
+    this.props.getPools(this.props.match.params.sport)
+    this.props.getOdds(this.props.match.params.sport)
   }
 
   componentWillReceiveProps(nextProps) {

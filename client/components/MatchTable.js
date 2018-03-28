@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Match } from '../components'
 
 const Wrapper = styled.div`
+  width: 70vw;
   margin: 8vh 10vw;
   padding: .5em;
   background-color: #0A0A0A;
@@ -15,6 +16,7 @@ const Wrapper = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `
 
 const Title = styled.div`

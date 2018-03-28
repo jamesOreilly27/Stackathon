@@ -22,8 +22,9 @@ const PoolCreateSelects = props => (
     <Label>
       Sport
       <Select name="sport" onChange={props.handleChange}>
-        <option value= "NFL"> NFL </option>
-        <option value= "NBA"> NBA </option>
+        <option value= "nfl"> NFL </option>
+        <option value= "nba"> NBA </option>
+        <option value= "mlb"> MLB </option>
       </Select>
     </Label>
     <Label>

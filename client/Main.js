@@ -30,9 +30,7 @@ class Main extends Component {
               <Sidebar />
               <Switch>
                 <Route exact path='/' component={UserProfile} />
-                <Route exact path={'/nfl'} component={SportHome} />
-                <Route exact path={'/nba'} component={SportHome} />
-                <Route exact path={'/mlb'} component={SportHome} />
+                <Route exact path={'/:sport'} component={SportHome} />
                 <Route path={'/pools/:sport/:id'} component={PoolDetail} />
               </Switch>
             </ContentContainer>

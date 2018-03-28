@@ -32,8 +32,6 @@ const truncateForScore = string => {
   else if(string === 'Seattle Mariners') return 'SEA'
 }
 
-
-
 //convertTime will take the date/time string from JSONodds and convert it into an insatnce of JS Date
 export const convertTime = string => {
   return new Date(string)
