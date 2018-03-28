@@ -31,18 +31,6 @@ export const fetchPoolsBySport = sport => dispatch => {
   .catch(err => dispatch(gotPools(err.message)))
 }
 
-export const fetchNFLPoolsThunk = pools => dispatch => {
-  axios.get('/api/pools/nfl')
-    .then(res => dispatch(gotPools(res.data)))
-    .catch(err => dispatch(gotPools(err.message)))
-}
-
-export const fetchNBAPoolsThunk = pools => dispatch => {
-  axios.get('/api/pools/nba')
-    .then(res => dispatch(gotPools(res.data)))
-    .catch(err => dispatch(gotPools(err.message)))
-}
-
 export const createPoolThunk = pool => dispatch => {
   axios.post(`/api/pools/nfl`, pool)
     .then(res => dispatch(createdPool(res.data)))
