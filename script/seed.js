@@ -23,12 +23,12 @@ async function seed() {
   ])
 
   const pools = await Promise.all([
-    Pool.create({ title: 'NFL Points Spread', sport: 'NFL', deadline: '2017-11-20' }),
-    Pool.create({ title: 'NBA Points Spread', sport: 'NBA', deadline: '2017-11-20' }),
-    Pool.create({ title: 'NFL Money Line', sport: 'NFL', deadline: '2017-11-20' }),
-    Pool.create({ title: 'NBA Money Line', sport: 'NBA', deadline: '2017-11-20' }),
-    Pool.create({ title: 'NFL Over/Under', sport: 'NFL', deadline: '2017-11-20' }),
-    Pool.create({ title: 'NBA Over/Under', sport: 'NBA', deadline: '2017-11-20' })
+    Pool.create({ title: 'NFL Points Spread', sport: 'nfl', deadline: '2017-11-20' }),
+    Pool.create({ title: 'NBA Points Spread', sport: 'nba', deadline: '2017-11-20' }),
+    Pool.create({ title: 'NFL Money Line', sport: 'nfl', deadline: '2017-11-20' }),
+    Pool.create({ title: 'NBA Money Line', sport: 'nba', deadline: '2017-11-20' }),
+    Pool.create({ title: 'NFL Over/Under', sport: 'nfl', deadline: '2017-11-20' }),
+    Pool.create({ title: 'NBA Over/Under', sport: 'nba', deadline: '2017-11-20' })
   ])
 
   const poolPlayers = await Promise.all([

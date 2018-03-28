@@ -3,31 +3,15 @@ const router = express.Router();
 const { Pool, User, Bet, PoolPlayers } = require('../db/models')
 const chalk = require('chalk')
 
-router.get('/nfl', (req, res, next) => {
+router.get('/:sport', (req, res, next) => {
+  const sport = req.params.sport
+  console.log(chalk.blue.bgWhite.bold('SPORT', sport))
   Pool.findAll({
-    where: { sport: 'NFL'},
+    where: { sport: sport},
     include: [{ model: User }]
   })
     .then(pools => res.json(pools))
     .catch(next)
-})
-
-router.get('/nba', (req, res, next) => {
-  Pool.findAll({
-    where: { sport: 'NBA' },
-    include: [{ model: User }]
-  })
-    .then(pools => res.json(pools))
-    .catch(next)
-})
-
-router.get('/mlb', (req, res, next) => {
-  Pool.findAll({
-    where: { sport: 'MLB' },
-    include: [{ model: User }]
-  })
-  .then(pools => res.json(pools))
-  .catch(next)
 })
 
 router.get('/:id', (req, res, next) => {

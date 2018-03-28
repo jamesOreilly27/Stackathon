@@ -57,6 +57,7 @@ class PoolLink extends Component {
     const pool = this.props.singlePool
     return (
       <Wrapper to={`/pools/${pool.sport}/${pool.id}`}>
+      {console.log('ID', pool.id)}
         <div> {`Pool ID: ${pool.id}`} </div>
         <div> {pool.title} </div>
         <div>
