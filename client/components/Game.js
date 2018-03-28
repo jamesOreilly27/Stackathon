@@ -1,31 +1,45 @@
 import React from 'react'
 import styled from 'styled-components'
+import truncateForScore, { processTime } from '../../helpers'
 
 const Wrapper = styled.div`
   font-size: .75em;
-  margin: 0 .25em;
+  padding: 0 1em;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  border-right: 1px solid #FFF;
+`
+
+const TeamsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-right: .5em;
+`
+
+const TimeContainer = styled.div`
   display: flex;
   flex-direction: column;
 `
 
-const splitNameString = string => {
-  const arr = string.split(' ')
-  if(arr.length === 3) return arr[2]
-  else return arr[1]
-}
-
-const truncate = string => {
-  return string.slice(0, 3)
-}
-
 const Game = props => (
   <Wrapper>
-    <div>
-      {truncate(splitNameString(props.game.HomeTeam))}
-    </div>
-    <div>
-      {truncate(splitNameString(props.game.AwayTeam))}
-    </div>
+    <TeamsContainer>
+      <div>
+        {truncateForScore(props.game.HomeTeam)}
+      </div>
+      <div>
+        {truncateForScore(props.game.AwayTeam)}
+      </div>
+    </TeamsContainer>
+    <TimeContainer>
+      <div>
+        {processTime(props.game.MatchTime)}
+      </div>
+      <div>
+        {'PM'}
+      </div>
+    </TimeContainer>
   </Wrapper>
 )
 

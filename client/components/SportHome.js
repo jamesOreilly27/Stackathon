@@ -15,6 +15,9 @@ const Wrapper = styled.div`
 const GamesContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: no-wrap;
+  overflow-x: auto;
+  background-color: #0A0A0A;
 `
 
 class SportHome extends Component {
