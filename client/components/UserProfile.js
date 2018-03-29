@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Route } from 'react-router-dom'
 import { settleBetThunk } from '../store'
 import { isMatchFinal } from '../../helpers'
-import { AccountInfo, UsersActiveBets, UsersActivePools, CreatePoolForm } from '../components'
+import { AccountInfo, UsersBets, UsersActivePools, CreatePoolForm } from '../components'
 
 const Wrapper = styled.div`
   margin: 1vh 10vw;
@@ -53,7 +53,7 @@ class UserProfile extends Component {
           <AccountInfo />
           <CreatePoolForm />
         </UpperContainer>
-        <UsersActiveBets />
+        <UsersBets bets={user.bets}/>
         <UsersActivePools user={user} />
       </Wrapper>
     )

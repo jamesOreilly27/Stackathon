@@ -15,15 +15,15 @@ const Title = styled.div`
   text-align: center;
 `
 
-const UsersActiveBets = props => (
+const UsersBets = ({ bets }) => (
   <Wrapper>
-    <Title> Your Active Bets </Title>
+    <Title> Your Bets </Title>
     <div>
-      {props.user.bets && props.user.bets.map(bet => <Bet key={bet.id} bet={bet} /> )}
+      {bets && bets.map(bet => <Bet key={bet.id} bet={bet} /> )}
     </div>
   </Wrapper>
 )
 
 const mapState = ({ user }) => ({ user })
 
-export default connect(mapState)(UsersActiveBets)
+export default connect(mapState)(UsersBets)
