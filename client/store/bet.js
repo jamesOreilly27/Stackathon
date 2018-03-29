@@ -1,22 +1,22 @@
 import axios from 'axios'
 
-const UPDATED_BET = 'UPDATED_BET'
+const SETTLED_BET = 'SETTLED_BET'
 
-const updatedBet = bet => ({
-    type: UPDATED_BET,
+const settledBet = bet => ({
+    type: SETTLED_BET,
     payload: bet
 })
 
-export const updateBetThunk = bet => dispatch => {
+export const settleBetThunk = bet => dispatch => {
   axios.put('/api/bet/:id', bet)
-    .then(res => dispatch(updatedBet(res.data)))
+    .then(res => dispatch(settledBet(res.data)))
     .catch(next)
 }
 
 const reducer = (bet = {}, action) => {
   switch (action.type) {
     case UPDATED_BETS:
-      return action.payload
+      return { ...bet, final: action.payload.final, playerResult: action.payload.result }
     default:
       return bet
   }
