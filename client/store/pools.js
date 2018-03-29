@@ -28,28 +28,26 @@ export const fetchPoolsBySport = sport => dispatch => {
 
 export const createPoolThunk = pool => dispatch => {
   axios.post(`/api/pools/nfl`, pool)
-    .then(res => dispatch(createdPool(res.data)))
-    .catch(err => dispatch(createdPool(err)))
+  .then(res => dispatch(createdPool(res.data)))
+  .catch(err => dispatch(createdPool(err)))
 }
 
 export const addUserThunk = (user, pool) => dispatch => {
   axios.put(`/api/pools/${pool.id}`, user)
-    .then(res => dispatch(addedUser(user)))
-    .catch(err => dispatch(addedUser(err)))
+  .then(res => dispatch(addedUser(user)))
+  .catch(err => dispatch(addedUser(err)))
 }
 
-const initialState = []
-
-const reducer = (prevState = initialState, action) => {
+const reducer = (pools = [], action) => {
   switch (action.type) {
     case GOT_POOLS:
       return action.payload
     case CREATED_POOL:
-      return prevState.concat([action.payload])
+      return pools.concat([action.payload])
     case ADDED_USER:
-      return prevState
+      return pools
     default:
-      return prevState
+      return pools
   }
 }
 

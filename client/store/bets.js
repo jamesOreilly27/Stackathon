@@ -5,42 +5,39 @@ const CREATE_BET = 'CREATE_BET'
 
 /***** Action Creators *****/
 
-const gotBets = bets => {
-  return {
-    type: GOT_BETS,
-    payload: bets
-  }
-}
+const gotBets = bets => ({
+  type: GOT_BETS,
+  payload: bets
+})
 
-const createBet = bet => {
-  return {
-    type: CREATE_BET,
-    payload: bet
-  }
-}
+const createBet = bet => ({
+  type: CREATE_BET,
+  payload: bet
+})
 
 /****** Thunks *****/
 
 export const fetchBetsThunk = () => dispatch => {
   axios.get('/api/bets')
-    .then(res => dispatch(gotBets(res.data)))
+  .then(res => dispatch(gotBets(res.data)))
+  .catch(err => dispatch(gotBets(err.message)))
 }
+
 
 export const createBetThunk = bet => dispatch => {
   axios.post('/api/bets', bet)
-    .then(res => dispatch(createBet(res.data)))
+  .then(res => dispatch(createBet(res.data)))
+  .catch(err => dispatch(createBet(err.message)))
 }
 
-const initialState = []
-
-const reducer = (prevState = initialState, action) => {
+const reducer = (bets = [], action) => {
   switch (action.type) {
     case GOT_BETS:
       return action.payload
     case CREATE_BET:
-      return prevState.concat([action.payload])
+      return bets.concat([action.payload])
     default:
-      return prevState
+      return bets
   }
 }
 

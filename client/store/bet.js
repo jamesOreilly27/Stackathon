@@ -1,13 +1,11 @@
 import axios from 'axios'
 
-const UPDATED_BETS = 'UPDATED_BETS'
+const UPDATED_BET = 'UPDATED_BET'
 
-const updatedBet = bet => {
-  return {
+const updatedBet = bet => ({
     type: UPDATED_BET,
     payload: bet
-  }
-}
+})
 
 export const updateBetThunk = bet => dispatch => {
   axios.put('/api/bet/:id', bet)
@@ -15,13 +13,11 @@ export const updateBetThunk = bet => dispatch => {
     .catch(next)
 }
 
-const initialState = {}
-
-const reducer = (prevState = initialState, action) => {
+const reducer = (bet = {}, action) => {
   switch (action.type) {
     case UPDATED_BETS:
       return action.payload
     default:
-      return prevState
+      return bet
   }
 }
