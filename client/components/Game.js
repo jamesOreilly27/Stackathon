@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   flex: 0 0 auto;
   align-items: center;
   border-right: 1px solid #FFF;
+  border-bottom: 1px solid #FFF;
 `
 
 const TeamsContainer = styled.div`

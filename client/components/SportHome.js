@@ -8,8 +8,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: 5vh 10vw;
-  width: 100vw;
-  border: 1px solid white;
+  width: 90vw;
+  font-size: .875em;
 `
 
 const GamesContainer = styled.div`
@@ -24,6 +24,8 @@ const PoolsContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #0A0A0A;
+  margin: 3vw 0;
+  width: 80vw;
 `
 
 class SportHome extends Component {

@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom'
 const Wrapper = styled(Link)`
   display: flex;
   text-decoration: none;
-  justify-content: space-between;
+  justify-content: space-around;
   color: #F3EDED;
   width:100%;
+  height: 4vw;
   align-items: center;
   padding: .5vw 0;
   border-bottom: 1px solid green;
@@ -23,6 +24,7 @@ const LeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 15vw;
 `
 
 class PoolLink extends Component {
@@ -43,7 +45,8 @@ class PoolLink extends Component {
     return (
       <LeaderContainer>
         <div> {`Leader`} </div>
-        <div> {`${leader} ${highScore} Points`}</div>
+        <div> {leader} </div>
+        <div> {`${highScore} Points`} </div>
       </LeaderContainer>
     )
   }
