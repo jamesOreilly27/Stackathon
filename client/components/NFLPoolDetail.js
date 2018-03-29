@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchNFLOddsThunk, fetchOnePoolThunk, addUserThunk, updateUserThunk } from '../store'
+import { fetchOnePoolThunk, addUserThunk, updateUserThunk } from '../store'
 import { MatchTable, Leaderboard } from '../components'
 
 class NFLPoolDetail extends Component {
@@ -60,10 +60,6 @@ const mapState = state => state
 
 const mapDispatch = (dispatch, ownProps) => {
   return {
-    getNFLOdds() {
-      dispatch(fetchNFLOddsThunk())
-    },
-
     getPoolDetail(id) {
       dispatch(fetchOnePoolThunk(id))
     },

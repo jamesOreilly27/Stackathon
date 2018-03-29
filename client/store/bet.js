@@ -15,7 +15,7 @@ export const settleBetThunk = bet => dispatch => {
 
 const reducer = (bet = {}, action) => {
   switch (action.type) {
-    case UPDATED_BETS:
+    case SETTLED_BETS:
       return { ...bet, final: action.payload.final, playerResult: action.payload.result }
     default:
       return bet

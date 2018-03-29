@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const GOT_BETS = 'GOT_BETS'
-const CREATE_BET = 'CREATE_BET'
+const CREATED_BET = 'CREATED_BET'
 
 /***** Action Creators *****/
 
@@ -10,7 +10,7 @@ const gotBets = bets => ({
   payload: bets
 })
 
-const createBet = bet => ({
+const createdBet = bet => ({
   type: CREATE_BET,
   payload: bet
 })
@@ -34,7 +34,7 @@ const reducer = (bets = [], action) => {
   switch (action.type) {
     case GOT_BETS:
       return action.payload
-    case CREATE_BET:
+    case CREATED_BET:
       return bets.concat([action.payload])
     default:
       return bets

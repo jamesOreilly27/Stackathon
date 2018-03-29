@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchNBAOddsThunk, fetchOnePoolThunk } from '../store'
+import { fetchOnePoolThunk } from '../store'
 import { MatchTable, Leaderboard } from '../components'
 
 class NBAPoolDetail extends Component {
@@ -51,10 +51,6 @@ const mapState = state => state
 
 const mapDispatch = dispatch => {
   return {
-    getNBAOdds() {
-      dispatch(fetchNBAOddsThunk())
-    },
-
     getPoolDetail(id) {
       dispatch(fetchOnePoolThunk(id))
     }

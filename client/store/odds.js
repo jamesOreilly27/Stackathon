@@ -13,18 +13,6 @@ export const fetchOddsBySport = sport => dispatch => {
   .catch(err => dispatch(gotOdds(err.message)))
 }
 
-export const fetchNFLOddsThunk = () => dispatch => {
-  axios.get('/api/odds/nfl')
-  .then(res => dispatch(gotOdds(res.data)))
-  .catch(err => dispatch(gotOdds(err)))
-}
-
-export const fetchNBAOddsThunk = () => dispatch => {
-  axios.get('/api/odds/nba')
-  .then(res => dispatch(gotOdds(res.data)))
-  .catch(err => dispatch(gotOdds(err)))
-}
-
 const reducer = (odds = [], action) => {
   switch (action.type) {
     case GOT_ODDS:
