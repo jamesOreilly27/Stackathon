@@ -19,7 +19,22 @@ const UsersBets = ({ bets }) => (
   <Wrapper>
     <Title> Your Bets </Title>
     <div>
-      {bets && bets.map(bet => <Bet key={bet.id} bet={bet} /> )}
+      <Title> Settled Bets </Title>
+      {bets && 
+        bets.filter(bet => bet.final)
+        .map(finishedBet => {
+          return <Bet key={finishedBet.id} bet={finishedBet} />
+        })
+      }
+    </div>
+    <div>
+      <Title> Active Bets </Title>
+      {bets &&
+        bets.filter(bet => !bet.final)
+        .map(activeBet => {
+          return <Bet key={activeBet.id} bet={activeBet} />
+        })
+      }
     </div>
   </Wrapper>
 )
