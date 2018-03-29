@@ -8,15 +8,15 @@ const settledBet = bet => ({
 })
 
 export const settleBetThunk = bet => dispatch => {
-  axios.put('/api/bet/:id', bet)
+  axios.put(`/api/bets/${bet.id}`, bet)
     .then(res => dispatch(settledBet(res.data)))
-    .catch(next)
+    .catch(err => dispatch(settledBet(err.message)))
 }
 
 const reducer = (bet = {}, action) => {
   switch (action.type) {
-    case SETTLED_BETS:
-      return { ...bet, final: action.payload.final, playerResult: action.payload.result }
+    case SETTLED_BET:
+      return action.payload
     default:
       return bet
   }

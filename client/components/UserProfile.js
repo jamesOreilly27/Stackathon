@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Route } from 'react-router-dom'
-import { fetchUserThunk, updateBetThunk } from '../store'
+import { settleBetThunk } from '../store'
+import { isMatchFinal } from '../../helpers'
 import { AccountInfo, UsersActiveBets, UsersActivePools, CreatePoolForm } from '../components'
 
 const Wrapper = styled.div`
@@ -28,12 +29,17 @@ class UserProfile extends Component {
     super(props)
   }
 
-  componentDidMount() {
-    this.props.getUser()
-  }
-
   handleClick() {
     this.setState({ editButtonClicked: true })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(this.props.user !== nextProps.user) {
+      nextProps.user.bets.forEach(bet => {
+        const newBet = {...bet, final: isMatchFinal(bet)}
+        this.props.settleBet(newBet)
+      })
+    }
   }
 
   render() {
@@ -55,12 +61,11 @@ class UserProfile extends Component {
 }
 
 const mapState = ({ user }) => ({ user })
-const mapDispatch = dispatch => {
-  return {
-    getUser() {
-      dispatch(fetchUserThunk())
-    }
+
+const mapDispatch = dispatch => ({
+  settleBet(bet) {
+    dispatch(settleBetThunk(bet))
   }
-}
+})
 
 export default connect(mapState, mapDispatch)(UserProfile)
