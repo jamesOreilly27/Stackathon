@@ -11,12 +11,11 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 2vh 0;
-  border-bottom: 1px solid rgba(33, 198, 0, 0.74);
-  margin-bottom: 1vh;
-  background-color: ${({ backgroundColor }) => backgroundColor}
+  border-bottom: .5vw solid #0A0A0A;
+  background-color: ${({ backgroundColor }) => backgroundColor.normal }
 
   &:hover {
-    background-color: #484A50;
+    background-color: ${ ({ backgroundColor }) => backgroundColor.hover }
     transition: .2s;
   }
 `
@@ -35,8 +34,9 @@ align-items: center;
 `
 
 const chooseBackgroundColor = bet => {
-  if(bet.result && bet.playerWon) return 'rgba(0, 205, 0, .25);'
-  if(bet.result && !bet.playerWon) return 'rgba(225, 0, 0, .25);'
+  if(bet.result && bet.playerWon) return { normal: 'rgba(0, 205, 0, .25);', hover: '#484A50;' } 
+  if(bet.result && !bet.playerWon) return { normal: 'rgba(225, 0, 0, .25);', hover: '#484A50' }
+  return ''
 }
 
 const Bet = ({ bet }) => (
