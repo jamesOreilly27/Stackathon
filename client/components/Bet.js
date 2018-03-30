@@ -35,8 +35,8 @@ align-items: center;
 `
 
 const chooseBackgroundColor = bet => {
-  if(bet.result && bet.playerWon) return { normal: 'rgba(0, 205, 0, .25);', hover: '#484A50;' } 
-  if(bet.result && !bet.playerWon) return { normal: 'rgba(225, 0, 0, .25);', hover: '#484A50' }
+  if(bet.result && bet.playerWon) return { normal: 'rgba(0, 205, 0, .25);', hover: 'rgba(0, 205, 0, .50);' } 
+  if(bet.result && !bet.playerWon) return { normal: 'rgba(225, 0, 0, .25);', hover: 'rgba(225, 0, 0, .50);' }
   return ''
 }
 
