@@ -35,9 +35,9 @@ align-items: center;
 `
 
 const chooseBackgroundColor = bet => {
-  if(bet.result && bet.playerWon) return { normal: 'rgba(0, 205, 0, .25);', hover: 'rgba(0, 205, 0, .50);' } 
-  if(bet.result && !bet.playerWon) return { normal: 'rgba(225, 0, 0, .25);', hover: 'rgba(225, 0, 0, .50);' }
-  return ''
+  if(bet.result && bet.playerWon) return { normal: 'rgba(0, 200, 0, .2);', hover: 'rgba(0, 200, 0, .4);' } 
+  if(bet.result && !bet.playerWon) return { normal: 'rgba(225, 0, 0, .2);', hover: 'rgba(225, 0, 0, .4);' }
+  return { normal: 'rgba(170, 170, 200, .2);', hover: 'rgba(170, 170, 200, .4);'}
 }
 
 const Bet = ({ bet }) => (
