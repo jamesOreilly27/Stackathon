@@ -4,7 +4,6 @@ import { Bet } from '../components'
 import { connect } from 'react-redux'
 
 const Wrapper = styled.div`
-  margin: 2vw;
   width: 100%;
 `
 
