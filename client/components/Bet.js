@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   padding: 2vh 0;
   border-bottom: 1px solid rgba(33, 198, 0, 0.74);
   margin-bottom: 1vh;
+  background-color: ${({ backgroundColor }) => backgroundColor}
 
   &:hover {
     background-color: #484A50;
@@ -33,8 +34,13 @@ flex-direction: column;
 align-items: center;
 `
 
+const chooseBackgroundColor = bet => {
+  if(bet.result && bet.playerWon) return 'rgba(0, 205, 0, .25);'
+  if(bet.result && !bet.playerWon) return 'rgba(225, 0, 0, .25);'
+}
+
 const Bet = ({ bet }) => (
-  <Wrapper>
+  <Wrapper backgroundColor={chooseBackgroundColor(bet)}>
     <MatchDetails bet={bet} />
     <div>
       {bet.matchTime}
@@ -42,7 +48,7 @@ const Bet = ({ bet }) => (
     <PickWrapper>
       <div>
         Your Pick
-      </div>
+        </div>
       <PickContentContainer>
         <div>
           {truncateTeamName(bet.playerPick)}

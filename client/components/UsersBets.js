@@ -6,8 +6,6 @@ import { connect } from 'react-redux'
 const Wrapper = styled.div`
   margin: 1.5vw auto;
   width: 100%;
-  background-color: #0A0A0A;
-  box-shadow: .1em .1em .3em #9C9;
 `
 
 const Title = styled.div`
@@ -15,19 +13,24 @@ const Title = styled.div`
   text-align: center;
 `
 
+const BetsContainer = styled.div`
+  margin: 2vw 0;
+  background-color: #0A0A0A;
+  box-shadow: .1em .1em .3em #9C9;
+`
+
 const UsersBets = ({ bets }) => (
   <Wrapper>
-    <Title> Your Bets </Title>
-    <div>
+    <BetsContainer>
       <Title> Settled Bets </Title>
       {bets &&
         bets.filter(bet => bet.final)
         .map(finishedBet => {
-          return <Bet key={finishedBet.id} bet={finishedBet} finished />
+          return <Bet key={finishedBet.id} bet={finishedBet} finished won={finishedBet.playerWon}/>
         })
       }
-    </div>
-    <div>
+    </BetsContainer>
+    <BetsContainer>
       <Title> Active Bets </Title>
       {bets &&
         bets.filter(bet => !bet.final)
@@ -35,7 +38,7 @@ const UsersBets = ({ bets }) => (
           return <Bet key={activeBet.id} bet={activeBet} />
         })
       }
-    </div>
+    </BetsContainer>
   </Wrapper>
 )
 
