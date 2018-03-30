@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   border-radius: .75em;
   justify-content: space-between;
   align-items: center;
-  padding: 2vw 0;
+  padding: 1vw;
   border-bottom: .5vw solid #0A0A0A;
   background-color: ${({ backgroundColor }) => backgroundColor.normal }
 

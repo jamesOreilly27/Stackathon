@@ -57,8 +57,8 @@ class UserDashboard extends Component {
         <Title>
           {`Welcome Back ${this.props.user.userName}!`}
         </Title>
-        <UsersBets bets={user.bets}/>
         <UsersActivePools user={user} />
+        <UsersBets bets={user.bets}/>
       </Wrapper>
     )
   }

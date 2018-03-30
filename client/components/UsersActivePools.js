@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { PoolLink } from '../components'
 
 const Wrapper = styled.div`
-  margin: 1.5vw auto;
+  margin-top: 2vw;
   width: 100%;
   display: flex;
   flex-direction: column;

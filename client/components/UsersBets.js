@@ -4,7 +4,7 @@ import { Bet } from '../components'
 import { connect } from 'react-redux'
 
 const Wrapper = styled.div`
-  margin: 1.5vw auto;
+  margin: 2vw;
   width: 100%;
 `
 
@@ -14,7 +14,7 @@ const Title = styled.div`
 `
 
 const BetsContainer = styled.div`
-  margin: 2vw 0;
+  margin-bottom: 2vw
   background-color: #0A0A0A;
   box-shadow: .1em .1em .3em #9C9;
   padding: 0 .75vw;
