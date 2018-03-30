@@ -24,7 +24,7 @@ const UpperContainer = styled.div`
   justify-content: space-between;
 `
 
-class UserProfile extends Component {
+class UserDashboard extends Component {
   constructor(props) {
     super(props)
   }
@@ -75,4 +75,4 @@ const mapDispatch = dispatch => ({
   }
 })
 
-export default connect(mapState, mapDispatch)(UserProfile)
+export default connect(mapState, mapDispatch)(UserDashboard)
