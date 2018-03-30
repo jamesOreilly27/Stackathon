@@ -17,6 +17,7 @@ const BetsContainer = styled.div`
   margin: 2vw 0;
   background-color: #0A0A0A;
   box-shadow: .1em .1em .3em #9C9;
+  padding: 0 .75vw;
 `
 
 const UsersBets = ({ bets }) => (
