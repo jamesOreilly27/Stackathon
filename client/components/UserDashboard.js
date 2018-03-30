@@ -56,10 +56,6 @@ class UserProfile extends Component {
         <Title>
           {`Welcome Back ${this.props.user.userName}!`}
         </Title>
-        <UpperContainer>
-          <AccountInfo />
-          <CreatePoolForm />
-        </UpperContainer>
         <UsersBets bets={user.bets}/>
         <UsersActivePools user={user} />
       </Wrapper>
