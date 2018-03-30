@@ -3,11 +3,13 @@ import styled from 'styled-components'
 import { PoolLink } from '../components'
 
 const Wrapper = styled.div`
+  box-sizing: border-box;
   margin-top: 2vw;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 .75vw;
   background-color: #0A0A0A;
   box-shadow: .1em .1em .3em #9C9;
 `

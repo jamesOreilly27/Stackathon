@@ -64,6 +64,7 @@ class Match extends Component {
 
   render() {
     const odds = this.odds
+    console.log(this.props.newMatch)
     return (
         <Form onSubmit={(event) => {
           this.props.makeBet(this.state)
