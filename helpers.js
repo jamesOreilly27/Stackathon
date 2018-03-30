@@ -1,5 +1,5 @@
 //truncateForScore will take the strings that JSONodds returns and convert them to common Scoreboard abbreviations
-const truncateForScore = string => {
+const truncateTeamName = string => {
   if(string === 'Miami Marlins') return 'MIA'
   else if(string === 'Chicago Cubs') return 'CHC'
   else if(string === 'St. Louis Cardinals') return 'STL'
@@ -53,7 +53,6 @@ export const isMatchFinal = bet => {
 }
 
 export const didHomeTeamWin = result => {
-  console.log('TESTING', result.BinaryScore)
   return result.BinaryScore === '1-0'
 }
 
@@ -70,4 +69,4 @@ export const settleBet = (bet, result) => {
   }
 }
 
-export default truncateForScore
+export default truncateTeamName

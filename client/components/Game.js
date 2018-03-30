@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import truncateForScore, { processTime } from '../../helpers'
+import truncateTeamName, { processTime } from '../../helpers'
 
 const Wrapper = styled.div`
   font-size: .75em;
@@ -27,10 +27,10 @@ const Game = props => (
   <Wrapper>
     <TeamsContainer>
       <div>
-        {truncateForScore(props.game.HomeTeam)}
+        {truncateTeamName(props.game.HomeTeam)}
       </div>
       <div>
-        {truncateForScore(props.game.AwayTeam)}
+        {truncateTeamName(props.game.AwayTeam)}
       </div>
     </TeamsContainer>
     <TimeContainer>

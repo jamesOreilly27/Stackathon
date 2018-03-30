@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { gotResultThunk, checkBetThunk } from '../store'
 import { MatchDetails } from '../components'
-import settleBet from '../../helpers'
+import truncateTeamName from '../../helpers'
 
 const Wrapper = styled.div`
   display: flex;
@@ -20,47 +20,39 @@ const Wrapper = styled.div`
   }
 `
 
-class Bet extends Component {
-  constructor(props) {
-    super(props)
-  }
-  
-  render() {
-    const bet = this.props.bet
-    return (
-      <Wrapper>
-        <MatchDetails bet={bet} />
+const PickWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 8vw;
+`
+
+const PickContentContainer = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+`
+
+const Bet = ({ bet }) => (
+  <Wrapper>
+    <MatchDetails bet={bet} />
+    <div>
+      {bet.matchTime}
+    </div>
+    <PickWrapper>
+      <div>
+        Your Pick
+      </div>
+      <PickContentContainer>
         <div>
-          {bet.matchTime}
+          {truncateTeamName(bet.playerPick)}
         </div>
         <div>
-          <div>
-            Your Pick
-          </div>
-          <div>
-            <div>
-              {bet.playerPick}
-            </div>
-            <div>
-              {bet.odds > 0 ? `+${bet.odds}` : bet.odds}
-            </div>
-          </div>
+          {bet.odds > 0 ? `+${bet.odds}` : bet.odds}
         </div>
-      </Wrapper>
-    )
-  }
-}
+      </PickContentContainer>
+    </PickWrapper>
+  </Wrapper>
+)
 
-const mapState = ({ result }) => ({ result })
-
-const mapDispatch = dispatch => ({
-  getResult(id) {
-    dispatch(gotResultThunk(id))
-  },
-  updatePlayerResult(bet, result) {
-    dispatch(checkBetThunk(settleBet(bet, result)))
-  }
-})
-
-
-export default connect(mapState, mapDispatch)(Bet)
+export default Bet
