@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   flex-direction: column;
 `
 
-class PoolDetail extends Component {
+class PoolHome extends Component {
   constructor(props) {
     super(props)
   }
@@ -45,4 +45,4 @@ const mapDispatch = dispatch => ({
   }
 })
 
-export default connect(mapState, mapDispatch)(PoolDetail)
+export default connect(mapState, mapDispatch)(PoolHome)
