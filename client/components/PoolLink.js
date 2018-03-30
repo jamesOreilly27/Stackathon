@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom'
 const Wrapper = styled(Link)`
   display: flex;
   text-decoration: none;
-  justify-content: space-around;
+  justify-content: space-between;
   color: #F3EDED;
   width:100%;
   height: 4vw;
   align-items: center;
-  padding: .5vw 0;
-  border-bottom: 1px solid green;
+  padding: 1vw;
+  border-bottom: 1px solid #0A0A0A;
 
   &:hover {
     background-color: #484A50;
@@ -25,6 +25,13 @@ const LeaderContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 15vw;
+`
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 14vw;
 `
 
 class PoolLink extends Component {
@@ -55,19 +62,35 @@ class PoolLink extends Component {
     const pool = this.props.pool
     return (
       <Wrapper to={`/pools/${pool.sport}/${pool.id}`}>
-        <div> {`Pool ID: ${pool.id}`} </div>
-        <div> {pool.title} </div>
-        <div>
+        <Container> 
+          <div>
+            {`Pool ID`} 
+          </div>
+          <div>
+            {`${pool.id}`}
+          </div>
+        </Container>
+        <Container> {pool.title} </Container>
+        <Container>
           {this.props.userProfileLink ?
             <div>
-              {pool && `your score: ${pool.pool_players.poolPoints} points`}
+              {pool && 
+                <div>
+                  <div>
+                    {`Your Score`}
+                  </div>
+                  <div>
+                    { `${pool.pool_players.poolPoints} points` }
+                  </div>
+                </div>
+              }
             </div>
           :
             <div>
               {pool && this.findLeader(pool.users)}
             </div>
           }
-        </div>
+        </Container>
       </Wrapper>
     )
   }
