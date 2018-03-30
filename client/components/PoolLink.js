@@ -13,6 +13,7 @@ const Wrapper = styled(Link)`
   padding: 1vw;
   border-bottom: .5vw solid #0A0A0A;
   background-color: rgba(170, 170, 200, .2);
+  border-radius: .75em;
 
   &:hover {
     background-color: rgba(170, 170, 200, .4);
