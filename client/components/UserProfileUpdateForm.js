@@ -56,7 +56,6 @@ class UserProfileUpdateForm extends Component {
         <Form
           onSubmit={(event) => {
             event.preventDefault()
-            console.log(this)
             this.props.handleSubmit(this.state)
           }}
         >

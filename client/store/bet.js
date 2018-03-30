@@ -7,7 +7,7 @@ const settledBet = bet => ({
     payload: bet
 })
 
-export const settleBetThunk = bet => dispatch => {
+export const checkBetThunk = bet => dispatch => {
   axios.put(`/api/bets/${bet.id}`, bet)
     .then(res => dispatch(settledBet(res.data)))
     .catch(err => dispatch(settledBet(err.message)))

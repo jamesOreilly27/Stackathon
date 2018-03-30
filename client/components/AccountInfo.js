@@ -59,7 +59,6 @@ class AccountInfo extends Component {
     const { firstName, lastName, userName, email, points } = this.props.user
     return (
       <Wrapper>
-        {console.log('STATE', this.state)}
         <Title> Account Info </Title>
         <ContentContainer>
           <Details>

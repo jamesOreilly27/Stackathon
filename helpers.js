@@ -52,5 +52,22 @@ export const isMatchFinal = bet => {
   else return false
 }
 
+export const didHomeTeamWin = result => {
+  console.log('TESTING', result.BinaryScore)
+  return result.BinaryScore === '1-0'
+}
+
+const setWinner = (bet, result) => {
+  if(didHomeTeamWin(result)) return bet.homeTeam
+  else return bet.awayTeam
+}
+
+export const settleBet = (bet, result) => {
+  if(bet.playerPick === setWinner(bet, result)) {
+    return { ...bet, result: result, playerWon: true }
+  } else {
+    return { ...bet, result: result , playerWon: false }
+  }
+}
 
 export default truncateForScore

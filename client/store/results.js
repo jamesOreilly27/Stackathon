@@ -1,0 +1,2 @@
+const GOT_RESULTS = 'GOT_RESULTS'
+

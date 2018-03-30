@@ -20,10 +20,10 @@ const UsersBets = ({ bets }) => (
     <Title> Your Bets </Title>
     <div>
       <Title> Settled Bets </Title>
-      {bets && 
+      {bets &&
         bets.filter(bet => bet.final)
         .map(finishedBet => {
-          return <Bet key={finishedBet.id} bet={finishedBet} />
+          return <Bet key={finishedBet.id} bet={finishedBet} finished />
         })
       }
     </div>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { fetchMatchThunk } from '../store'
+import { gotResultThunk, checkBetThunk } from '../store'
 import { MatchDetails } from '../components'
+import settleBet from '../../helpers'
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,15 +20,20 @@ const Wrapper = styled.div`
   }
 `
 
-const Bet = props => {
-  const bet = props.bet
-  return (
-    <Wrapper>
-      <MatchDetails bet={bet} />
-      <div>
-        {bet.matchTime}
-      </div>
-        <div className="bet-user-info">
+class Bet extends Component {
+  constructor(props) {
+    super(props)
+  }
+  
+  render() {
+    const bet = this.props.bet
+    return (
+      <Wrapper>
+        <MatchDetails bet={bet} />
+        <div>
+          {bet.matchTime}
+        </div>
+        <div>
           <div>
             Your Pick
           </div>
@@ -40,8 +46,21 @@ const Bet = props => {
             </div>
           </div>
         </div>
-    </Wrapper>
-  )
+      </Wrapper>
+    )
+  }
 }
 
-export default Bet
+const mapState = ({ result }) => ({ result })
+
+const mapDispatch = dispatch => ({
+  getResult(id) {
+    dispatch(gotResultThunk(id))
+  },
+  updatePlayerResult(bet, result) {
+    dispatch(checkBetThunk(settleBet(bet, result)))
+  }
+})
+
+
+export default connect(mapState, mapDispatch)(Bet)

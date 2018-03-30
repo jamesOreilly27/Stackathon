@@ -45,9 +45,13 @@ const Bet = db.define('bet', {
     type: Sequelize.BOOLEAN,
     defaultValue: false
   },
+  result: {
+    type: Sequelize.JSON,
+    defaultValue: null
+  },
   playerWon: {
     type: Sequelize.BOOLEAN,
-    defaultValue: false
+    defaultValue: null
   }
 })
 
