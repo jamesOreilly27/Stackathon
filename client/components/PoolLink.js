@@ -8,15 +8,15 @@ const Wrapper = styled(Link)`
   text-decoration: none;
   justify-content: space-between;
   color: #F3EDED;
-  width:100%;
   height: 4vw;
   align-items: center;
   padding: 1vw;
-  border-bottom: 1px solid #0A0A0A;
+  border-bottom: .5vw solid #0A0A0A;
+  background-color: rgba(170, 170, 200, .2);
 
   &:hover {
-    background-color: #484A50;
-    transition: .2s; 
+    background-color: rgba(170, 170, 200, .4);
+    transition: .2s;
   }
 `
 

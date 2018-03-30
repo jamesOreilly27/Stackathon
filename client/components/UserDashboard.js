@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Route } from 'react-router-dom'
 import { checkBetThunk, gotResultThunk } from '../store'
 import { isMatchFinal, settleBet, didHomeTeamWin, setWinner } from '../../helpers'
-import { AccountInfo, UsersBets, UsersActivePools, CreatePoolForm } from '../components'
+import { AccountInfo, UsersBets, UsersPools, CreatePoolForm } from '../components'
 
 const Wrapper = styled.div`
   margin: 1vh 10vw;
@@ -57,7 +57,7 @@ class UserDashboard extends Component {
         <Title>
           {`Welcome Back ${this.props.user.userName}!`}
         </Title>
-        <UsersActivePools user={user} />
+        <UsersPools user={user} />
         <UsersBets bets={user.bets}/>
       </Wrapper>
     )
