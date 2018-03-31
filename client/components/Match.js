@@ -65,6 +65,10 @@ const CheckboxLabel = styled.label`
 
   background: ${({ checked }) => checked ? 'rgba(33, 198, 0, 0.74);' : '#0A0A0A;'}
   box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+
+  &:hover {
+    background-color: rgba(33, 198, 0, 0.74);
+  }
 `
 
 const SubmitBetButton = styled.button`
