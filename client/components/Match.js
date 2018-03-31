@@ -6,7 +6,7 @@ import { createBetThunk } from '../store'
 const Form = styled.form`
   padding: 1vh 0;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 `
 
@@ -26,95 +26,115 @@ const TeamContainer = styled.div`
 const BetDetailContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   font-size: .875em;
+  width: 20vw;
 `
 
 const DateAndWagerContainer = styled.div`
   display: flex;
   flex-direction: column;
   font-size: .875em;
+  width: 30%;
+  align-items: center;
 `
 
 class Match extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      betterId: 8,
-      poolId: props.poolId,
-      matchId: '',
-      homeTeam: '',
-      awayTeam: '',
-      playerPick: '',
-      oddsType: 'Points Spread',
-      odds: 0
+      bet: {
+        betterId: 8,
+        poolId: props.poolId,
+        matchId: this.props.newMatch.ID,
+        matchTime: this.props.newMatch.MatchTime,
+        homeTeam: this.props.newMatch.HomeTeam,
+        awayTeam: this.props.newMatch.AwayTeam,
+        playerPick: '',
+        oddsType: 'Points Spread',
+        odds: 0
+      },
+      boxes: {
+        awayChecked: false,
+        homeChecked: false
+      }
     }
     this.handleChange = this.handleChange.bind(this)
-
-    this.game = this.props.newMatch
-    this.odds = this.props.newMatch.Odds[0]
-    this.homeTeam = { matchId: this.game.ID, matchTime: this.game.MatchTime, homeTeam: this.game.HomeTeam, awayTeam: this.game.AwayTeam, playerPick: this.game.HomeTeam, odds: parseInt(this.odds.PointSpreadHome) }
-    this.awayTeam = { matchId: this.game.ID, matchTime: this.game.MatchTime, homeTeam: this.game.HomeTeam, awayTeam: this.game.AwayTeam, playerPick: this.game.AwayTeam, odds: parseInt(this.odds.PointSpreadAway) }
   }
 
   handleChange(event) {
-    const value = event.target.value
-    if (value === 'awayTeam') this.setState(this.awayTeam)
-    else if (value === 'homeTeam') this.setState(this.homeTeam)
+    const name = event.target.name
+    let boxUpdate = {}
+    name === 'away-box' ? boxUpdate = { awayChecked: !this.state.boxes.awayChecked, homeChecked: false } : boxUpdate = { awayChecked: false, homeChecked: !this.state.boxes.homeChecked }
+    const values = event.target.value.split(',')
+    this.setState({
+      bet: {...this.state.bet, playerPick: values[0], odds: parseFloat(values[1]) },
+      boxes: boxUpdate
+    })
   }
 
   render() {
-    const odds = this.odds
-    console.log(this.props.newMatch)
+    const odds = this.props.newMatch.Odds[0]
+    const game = this.props.newMatch
     return (
-        <Form onSubmit={(event) => {
-          this.props.makeBet(this.state)
-        }}>
-          <Container>
-            <label>
-              <TeamContainer>
-                <input type="checkbox" onChange={this.handleChange} value={'awayTeam'} />
-                <BetDetailContainer>
-                  <div>
-                    {this.game.AwayTeam}
-                  </div>
-                  <div>
-                    {parseInt(odds.PointSpreadAway) > 0 ? ` +${odds.PointSpreadAway}` : `${odds.PointSpreadAway}`}
-                  </div>
-                </BetDetailContainer>
-              </TeamContainer>
-            </label>
-            <DateAndWagerContainer>
-              <div> {`Date: ${this.game.MatchTime.slice(0, 10)}`} </div>
-              <div> {`Wager: 5 Pool Points`} </div>
-              <button type="submit"> Submit Your Bet </button>
-            </DateAndWagerContainer>
-            <label>
-              <TeamContainer>
-                <input type="checkbox" onChange={this.handleChange} value={'homeTeam'} />
-                <BetDetailContainer>
-                  <div>
-                    {`@ ${this.game.HomeTeam}`}
-                  </div>
-                  <div>
-                    {parseInt(odds.PointSpreadHome) > 0 ? `+${odds.PointSpreadHome}` : odds.PointSpreadHome}
-                  </div>
-                </BetDetailContainer>
-              </TeamContainer>
-            </label>
-          </Container>
-        </Form>
+      <Form onSubmit={(event) => {
+        event.preventDefault()
+        this.props.makeBet(this.state.bet)
+      }}>
+      {console.log('STATE', this.state)}
+        <label>
+          <TeamContainer>
+            <input
+              type="checkbox"
+              name="away-box"
+              onChange={this.handleChange}
+              value={[game.AwayTeam, odds.PointSpreadAway]} 
+              checked={this.state.boxes.awayChecked}
+            />
+            <BetDetailContainer>
+              <div>
+                {game.AwayTeam}
+              </div>
+              <div>
+                {parseInt(odds.PointSpreadAway) > 0 ? ` +${odds.PointSpreadAway}` : `${odds.PointSpreadAway}`}
+              </div>
+            </BetDetailContainer>
+          </TeamContainer>
+        </label>
+        <DateAndWagerContainer>
+          <div> {`Wager: 5 Pool Points`} </div>
+          <button type="submit"> Submit Your Bet </button>
+        </DateAndWagerContainer>
+        <label>
+          <TeamContainer>
+            <input
+            type="checkbox"
+            name="home-box"
+            onChange={this.handleChange}
+            value={[game.HomeTeam, odds.PointSpreadHome]}
+            checked={this.state.boxes.homeChecked}
+          />
+            <BetDetailContainer>
+              <div>
+                {`@ ${game.HomeTeam}`}
+              </div>
+              <div>
+                {parseInt(odds.PointSpreadHome) > 0 ? `+${odds.PointSpreadHome}` : odds.PointSpreadHome}
+              </div>
+            </BetDetailContainer>
+          </TeamContainer>
+        </label>
+      </Form>
     )
   }
 }
 
 const mapState = state => state
 
-const mapDispatch = (dispatch) => {
-  return {
-    makeBet(bet) {
-      dispatch(createBetThunk(bet))
-    }
+const mapDispatch = dispatch => ({
+  makeBet(bet) {
+    dispatch(createBetThunk(bet))
   }
-}
+})
 
 export default connect(mapState, mapDispatch)(Match)

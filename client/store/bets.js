@@ -11,7 +11,7 @@ const gotBets = bets => ({
 })
 
 const createdBet = bet => ({
-  type: CREATE_BET,
+  type: CREATED_BET,
   payload: bet
 })
 
@@ -26,8 +26,8 @@ export const fetchBetsThunk = () => dispatch => {
 
 export const createBetThunk = bet => dispatch => {
   axios.post('/api/bets', bet)
-  .then(res => dispatch(createBet(res.data)))
-  .catch(err => dispatch(createBet(err.message)))
+  .then(res => dispatch(createdBet(res.data)))
+  .catch(err => dispatch(createdBet(err.message)))
 }
 
 const reducer = (bets = [], action) => {

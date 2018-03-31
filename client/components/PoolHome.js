@@ -7,6 +7,9 @@ import { MatchTable } from '../components'
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 6vh 10vw;
+  align-items: center;
+  width: 100vw;
 `
 
 class PoolHome extends Component {
