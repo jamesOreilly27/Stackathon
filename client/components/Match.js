@@ -67,6 +67,13 @@ const CheckboxLabel = styled.label`
   box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
 `
 
+const SubmitBetButton = styled.button`
+  width: 12vw;
+  height: 3vw;
+  border-radius: .5em;
+  font-size: 1.2em;
+`
+
 class Match extends Component {
   constructor(props) {
     super(props)
@@ -135,7 +142,7 @@ class Match extends Component {
           </TeamContainer>
         <DateAndWagerContainer>
           <div> {`Wager: 5 Pool Points`} </div>
-          <button type="submit"> Submit Your Bet </button>
+          <SubmitBetButton type="submit"> Submit Bet </SubmitBetButton>
         </DateAndWagerContainer>
           <TeamContainer rightSide>
             <Checkbox>
