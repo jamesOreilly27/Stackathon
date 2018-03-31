@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { fetchOnePoolThunk, fetchOddsBySport, setUserBets } from '../store'
+import { fetchOnePoolThunk, fetchOddsBySport, setUserBets, fetchUserThunk } from '../store'
 import { MatchTable, Leaderboard, UsersBets } from '../components'
 
 const Wrapper = styled.div`
@@ -47,11 +47,8 @@ class PoolHome extends Component {
   }
 
   componentDidMount() {
-    // this.props.getOdds(this.props.match.params.sport)
-    if(this.props.user) {
-      return this.props.getPoolDetail(this.props.match.params.id)
-      .then(response => console.log('USER', this.props.user, 'POOL', this.props.singlePool))
-    }
+    this.props.getOdds(this.props.match.params.sport)
+    this.props.getUser()
   }
 
   componentWillReceiveProps(nextProps) {
@@ -79,6 +76,9 @@ const mapState = state => state
 const mapDispatch = dispatch => ({
   getOdds(sport) {
     dispatch(fetchOddsBySport(sport))
+  },
+  getUser() {
+    dispatch(fetchUserThunk())
   },
   getPoolDetail(id) {
     return dispatch(fetchOnePoolThunk(id))
