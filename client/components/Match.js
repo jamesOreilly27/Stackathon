@@ -21,6 +21,7 @@ const TeamContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  ${({ rightSide }) => rightSide ? 'transform: rotate(180deg);' : ''}
 `
 
 const BetDetailContainer = styled.div`
@@ -29,6 +30,7 @@ const BetDetailContainer = styled.div`
   align-items: center;
   font-size: .875em;
   width: 20vw;
+  ${({ rightSide }) => rightSide ? 'transform: rotate(180deg);' : ''}
 `
 
 const DateAndWagerContainer = styled.div`
@@ -106,7 +108,7 @@ class Match extends Component {
           <button type="submit"> Submit Your Bet </button>
         </DateAndWagerContainer>
         <label>
-          <TeamContainer>
+          <TeamContainer rightSide>
             <input
             type="checkbox"
             name="home-box"
@@ -114,7 +116,7 @@ class Match extends Component {
             value={[game.HomeTeam, odds.PointSpreadHome]}
             checked={this.state.boxes.homeChecked}
           />
-            <BetDetailContainer>
+            <BetDetailContainer rightSide>
               <div>
                 {`@ ${game.HomeTeam}`}
               </div>
