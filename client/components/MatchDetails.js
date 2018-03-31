@@ -8,10 +8,6 @@ const Wrapper = styled.div`
   width: 14vw;
 `
 
-const Container = styled.div`
-
-`
-
 const MatchDetails = ({ bet }) => (
   <Wrapper>
     <div>
