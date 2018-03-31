@@ -22,7 +22,7 @@ const TeamContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   ${({ rightSide }) => rightSide ? 'transform: rotate(180deg);' : ''}
-`
+  `
 
 const BetDetailContainer = styled.div`
   display: flex;
@@ -31,7 +31,7 @@ const BetDetailContainer = styled.div`
   font-size: .875em;
   width: 20vw;
   ${({ rightSide }) => rightSide ? 'transform: rotate(180deg);' : ''}
-`
+  `
 
 const DateAndWagerContainer = styled.div`
   display: flex;
@@ -39,6 +39,32 @@ const DateAndWagerContainer = styled.div`
   font-size: .875em;
   width: 30%;
   align-items: center;
+`
+
+const Checkbox = styled.div`
+  width: 1.75vw;
+  height: 1.75vw;
+  position: absolute;
+	background: #DDD;
+	border-radius: 100%;
+	box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+`
+
+const CheckboxLabel = styled.label`
+  display: block;
+  width: 1.35vw;
+  height: 1.35vw;
+  border-radius: 100%;
+
+  transition: all .5s ease;
+  position: absolute;
+  top: ${({ leftSide }) => leftSide ? '.21vw' : '.2vw;'}
+  left: ${({ leftSide }) => leftSide ? '.24vw' : '.2vw;'}
+  cursor: pointer;
+  z-index: 1;
+
+  background: ${({ checked }) => checked ? 'rgba(33, 198, 0, 0.74);' : '#0A0A0A;'}
+  box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
 `
 
 class Match extends Component {
@@ -84,15 +110,20 @@ class Match extends Component {
         this.props.makeBet(this.state.bet)
       }}>
       {console.log('STATE', this.state)}
-        <label>
           <TeamContainer>
-            <input
-              type="checkbox"
-              name="away-box"
-              onChange={this.handleChange}
-              value={[game.AwayTeam, odds.PointSpreadAway]} 
-              checked={this.state.boxes.awayChecked}
-            />
+            <Checkbox>
+              <CheckboxLabel leftSide checked={this.state.boxes.awayChecked}>
+                <input
+                  type="checkbox"
+                  name="away-box"
+                  onChange={this.handleChange}
+                  value={[game.AwayTeam, odds.PointSpreadAway]} 
+                  checked={this.state.boxes.awayChecked}
+                  id="awayCheckbox"
+                  style={{ visibility: "hidden" }}
+                />   
+              </CheckboxLabel>
+            </Checkbox>
             <BetDetailContainer>
               <div>
                 {game.AwayTeam}
@@ -102,20 +133,24 @@ class Match extends Component {
               </div>
             </BetDetailContainer>
           </TeamContainer>
-        </label>
         <DateAndWagerContainer>
           <div> {`Wager: 5 Pool Points`} </div>
           <button type="submit"> Submit Your Bet </button>
         </DateAndWagerContainer>
-        <label>
           <TeamContainer rightSide>
-            <input
-            type="checkbox"
-            name="home-box"
-            onChange={this.handleChange}
-            value={[game.HomeTeam, odds.PointSpreadHome]}
-            checked={this.state.boxes.homeChecked}
-          />
+            <Checkbox>
+              <CheckboxLabel checked={this.state.boxes.homeChecked}>
+                <input
+                  type="checkbox"
+                  name="home-box"
+                  onChange={this.handleChange}
+                  value={[game.HomeTeam, odds.PointSpreadHome]}
+                  checked={this.state.boxes.homeChecked}
+                  id="homeCheckbox"
+                  style={{ visibility: "hidden" }}
+                />
+              </CheckboxLabel>
+            </Checkbox>
             <BetDetailContainer rightSide>
               <div>
                 {`@ ${game.HomeTeam}`}
@@ -125,7 +160,6 @@ class Match extends Component {
               </div>
             </BetDetailContainer>
           </TeamContainer>
-        </label>
       </Form>
     )
   }
