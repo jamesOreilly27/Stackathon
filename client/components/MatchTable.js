@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0.1em 0.1em 0.3em #9C9
 `
 
 const Container = styled.div`
