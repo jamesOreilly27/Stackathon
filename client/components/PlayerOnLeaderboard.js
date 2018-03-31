@@ -1,26 +1,23 @@
 import React from 'react'
+import styled from 'styled-components'
 
-const PlayerOnLeaderboard = props => {
-  let bgColor;
-  if (props.isCurrentUser(props.player)) bgColor = 'rgba(33, 198, 0, 0.74)'
-  else bgColor = '#8C8F96'
-  return (
-    <div style={{
-      margin: '2vh 0',
-      padding: '.8em',
-      backgroundColor: bgColor,
-      textAlign: 'center',
-      display: 'flex'
-    }}>
-      <div style={{ marginRight: '1vw' }}>
-        {`${props.player.userName}: `}
-      </div>
-      <div>
-        {`${props.player.pool_players.poolPoints} Points`}
-      </div>
+const Wrapper = styled.div`
+  width: 100%;
+  padding: .5em;
+  border-bottom: .15vw solid white;
+  display: flex;
+  justify-content: space-between;
+`
+
+const PlayerOnLeaderboard = ({ player }) => (
+  <Wrapper>
+    <div>
+      {`${player.userName}: `}
     </div>
-  )
-
-}
+    <div>
+      {`${player.pool_players.poolPoints} Points`}
+    </div>
+  </Wrapper>
+)
 
 export default PlayerOnLeaderboard
