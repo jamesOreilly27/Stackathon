@@ -1,5 +1,25 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import { PlayerOnLeaderboard } from '../components'
+
+const Wrapper = styled.div`
+  background-color: '#0A0A0A';
+  border-radius: .3em;
+  padding: 1vw;
+  box-shadow: .1em .1em .3em #9C9;
+  display: flex;
+`
+
+const Title = styled.div`
+  font-size: .875em;
+`
+
+const PlayerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
 
 class Leaderboard extends Component {
   constructor(props) {
@@ -23,22 +43,14 @@ class Leaderboard extends Component {
 
   render() {
     return (
-      <div style={{
-        margin: '3vh 0 0 10vw',
-        backgroundColor: '#0A0A0A',
-        borderRadius: '.3em',
-        padding: '1.5em 2em',
-        boxShadow: '.1em .1em .3em #9C9'
-      }}>
-        <div style={{ fontSize: '3em' }}>
-          Leaderboard
-                </div>
-        <div>
+      <Wrapper>
+        <Title> Leaderboard </Title>
+        <PlayerContainer>
           {this.sortLeaderboard(this.props.users).map(player => {
             return <PlayerOnLeaderboard key={player.id} player={player} isCurrentUser={this.isCurrentUser} />
           })}
-        </div>
-      </div>
+        </PlayerContainer>
+      </Wrapper>
     )
   }
 }
