@@ -12,28 +12,6 @@ const Wrapper = styled.div`
   width: 100vw;
 `
 
-const UsersPoolDetailsContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-`
-
-const UsersPoolBetsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #0A0A0A;
-  height: 30vh;
-`
-
-const LeaderboardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #0A0A0A;
-  height: 30vh;
-`
-
 class PoolHome extends Component {
   constructor(props) {
     super(props)
@@ -64,9 +42,9 @@ class PoolHome extends Component {
   render() {
     return (
       <Wrapper>
-          <Leaderboard users={this.props.singlePool.users}/>
-          <UsersBets bets={this.props.bets} /> 
-        {/* <MatchTable odds={this.props.odds} poolId={parseInt(this.props.match.params.id)} /> */}
+        <Leaderboard users={this.props.singlePool.users}/>
+        <UsersBets bets={this.props.bets} /> 
+        <MatchTable odds={this.props.odds} poolId={parseInt(this.props.match.params.id)} />
       </Wrapper>
     )
   }

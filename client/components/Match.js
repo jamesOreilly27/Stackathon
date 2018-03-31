@@ -85,10 +85,10 @@ class Match extends Component {
       bet: {
         betterId: 8,
         poolId: props.poolId,
-        matchId: this.props.newMatch.ID,
-        matchTime: this.props.newMatch.MatchTime,
-        homeTeam: this.props.newMatch.HomeTeam,
-        awayTeam: this.props.newMatch.AwayTeam,
+        matchId: props.newMatch.ID,
+        matchTime: props.newMatch.MatchTime,
+        homeTeam: props.newMatch.HomeTeam,
+        awayTeam: props.newMatch.AwayTeam,
         playerPick: '',
         oddsType: 'Points Spread',
         odds: 0
