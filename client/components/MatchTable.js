@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Match } from '../components'
+import LoaderWheel from './LoaderWheel'
 
 const Wrapper = styled.div`
   margin-top: 2vw;
@@ -29,8 +30,8 @@ const MatchTable = props => (
       {props.odds && props.odds.map(match => (
         <Match key={match.id} newMatch={match} poolId={props.poolId} />
       ))}
-    </Container>
+    </Container>)
   </Wrapper>
 )
 
-export default MatchTable
+export default LoaderWheel(MatchTable)
