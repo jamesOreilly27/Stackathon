@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { fetchOnePoolThunk, fetchOddsBySport } from '../store'
-import { MatchTable } from '../components'
+import { MatchTable, Leaderboard } from '../components'
 
 const Wrapper = styled.div`
   display: flex;
@@ -47,18 +47,16 @@ class PoolHome extends Component {
   }
 
   componentDidMount() {
-    this.props.getOdds(this.props.match.params.sport)
+    // this.props.getOdds(this.props.match.params.sport)
     this.props.getPoolDetail(this.props.match.params.id)
   }
 
   render() {
     return (
       <Wrapper>
-        <UsersPoolDetailsContainer>
-          <LeaderboardContainer> </LeaderboardContainer>
+          <Leaderboard users={this.props.singlePool.users}/>
           <UsersPoolBetsContainer> </UsersPoolBetsContainer>
-        </UsersPoolDetailsContainer>
-        <MatchTable odds={this.props.odds} poolId={parseInt(this.props.match.params.id)} />
+        {/* <MatchTable odds={this.props.odds} poolId={parseInt(this.props.match.params.id)} /> */}
       </Wrapper>
     )
   }
