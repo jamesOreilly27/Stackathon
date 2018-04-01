@@ -34,23 +34,22 @@ async function seed() {
     PoolPlayers.create({ poolId: pools[0].id, userId: users[7].id, poolPoints: 500 }),
     PoolPlayers.create({ poolId: pools[0].id, userId: users[0].id, poolPoints: 390 }),
     PoolPlayers.create({ poolId: pools[0].id, userId: users[1].id, poolPoints: 380 }),
-    PoolPlayers.create({ poolId: pools[0].id, userId: users[2].id, poolPoints: 365 }),
+    PoolPlayers.create({ poolId: pools[4].id, userId: users[2].id, poolPoints: 365 }),
     PoolPlayers.create({ poolId: pools[0].id, userId: users[3].id, poolPoints: 345 }),
     PoolPlayers.create({ poolId: pools[0].id, userId: users[4].id, poolPoints: 800 }),
     PoolPlayers.create({ poolId: pools[0].id, userId: users[5].id, poolPoints: 275 }),
     PoolPlayers.create({ poolId: pools[0].id, userId: users[6].id, poolPoints: 240 }),
     PoolPlayers.create({ poolId: pools[0].id, userId: users[8].id, poolPoints: 200 }),
-    PoolPlayers.create({ poolId: pools[0].id, userId: users[9].id, poolPoints: 135 }),
+    PoolPlayers.create({ poolId: pools[4].id, userId: users[9].id, poolPoints: 135 }),
     PoolPlayers.create({ poolId: pools[0].id, userId: users[10].id, poolPoints: 90 }),
     PoolPlayers.create({ poolId: pools[0].id, userId: users[11].id, poolPoints: 80 }),
-    PoolPlayers.create({ poolId: pools[0].id, userId: users[12].id, poolPoints: 25 }),
+    PoolPlayers.create({ poolId: pools[4].id, userId: users[12].id, poolPoints: 25 }),
     PoolPlayers.create({ poolId: pools[1].id, userId: users[7].id, poolPoints: 350 }),
     PoolPlayers.create({ poolId: pools[2].id, userId: users[7].id, poolPoints: 1000 }),
-    PoolPlayers.create({ poolId: pools[4].id, userId: users[7].id, poolPoints: 50 }),
   ])
 
   const Bets = await Promise.all([
-    Bet.create({ matchId: '386c77d5-4063-4e8d-a078-c989227012cd', matchTime: '2017-11-12T18:00:00', homeTeam: 'Tennessee Titans', awayTeam: 'Cincinnati Bengals', playerPick: 'Tennessee Titans', oddsType: 'money line', odds: 220, poolId: pools[0].id, betterId: users[7].id })
+    
   ])
 }
 
