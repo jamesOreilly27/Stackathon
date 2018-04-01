@@ -32,12 +32,6 @@ export const createPoolThunk = pool => dispatch => {
   .catch(err => dispatch(createdPool(err)))
 }
 
-export const addUserThunk = (user, pool) => dispatch => {
-  axios.put(`/api/pools/${pool.id}`, user)
-  .then(res => dispatch(addedUser(user)))
-  .catch(err => dispatch(addedUser(err)))
-}
-
 const reducer = (pools = [], action) => {
   switch (action.type) {
     case GOT_POOLS:
