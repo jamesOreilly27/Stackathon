@@ -8,9 +8,9 @@ const gotSinglePool = pool => ({
   payload: pool
 })
 
-const addedUser = poolPlayer => ({
-  type: addedUser,
-  payload: poolPlayer
+const addedUser = (user, poolPlayer) => ({
+  type: ADDED_USER,
+  payload: { user, poolPlayer }
 })
 
 
@@ -24,14 +24,20 @@ export const fetchOnePoolThunk = id => dispatch => {
 
 export const addUserThunk = (user, pool) => dispatch => {
   axios.put(`/api/pools/${pool.id}`, user)
-  .then(res => dispatch(addedUser(user)))
+  .then(res => {
+    console.log(addedUser(user, res.data))
+    dispatch(addedUser(user, res.data))
+  })
   .catch(err => dispatch(addedUser(err)))
 }
 
 const reducer = (pool = {}, action) => {
+  console.log(pool.users)
   switch (action.type) {
     case GOT_SINGLE_POOL:
       return action.payload
+    case ADDED_USER:
+      return { ...pool, users: [...pool.users.concat([{...action.payload.user, pool_players: action.payload.poolPlayer }]) ]}
     default:
       return pool
   }
