@@ -107,7 +107,7 @@ class Match extends Component {
     name === 'away-box' ? boxUpdate = { awayChecked: !this.state.boxes.awayChecked, homeChecked: false } : boxUpdate = { awayChecked: false, homeChecked: !this.state.boxes.homeChecked }
     const values = event.target.value.split(',')
     this.setState({
-      bet: {...this.state.bet, playerPick: values[0], odds: parseFloat(values[1]) },
+      bet: { ...this.state.bet, playerPick: values[0], odds: parseFloat(values[1]) },
       boxes: boxUpdate
     })
   }
@@ -120,57 +120,56 @@ class Match extends Component {
         event.preventDefault()
         this.props.makeBet(this.state.bet)
       }}>
-      {console.log('STATE', this.state)}
-          <TeamContainer>
-            <Checkbox>
-              <CheckboxLabel leftSide checked={this.state.boxes.awayChecked}>
-                <input
-                  type="checkbox"
-                  name="away-box"
-                  onChange={this.handleChange}
-                  value={[game.AwayTeam, odds.PointSpreadAway]} 
-                  checked={this.state.boxes.awayChecked}
-                  id="awayCheckbox"
-                  style={{ visibility: "hidden" }}
-                />   
-              </CheckboxLabel>
-            </Checkbox>
-            <BetDetailContainer>
-              <div>
-                {game.AwayTeam}
-              </div>
-              <div>
-                {parseInt(odds.PointSpreadAway) > 0 ? ` +${odds.PointSpreadAway}` : `${odds.PointSpreadAway}`}
-              </div>
-            </BetDetailContainer>
-          </TeamContainer>
+        <TeamContainer>
+          <Checkbox>
+            <CheckboxLabel leftSide checked={this.state.boxes.awayChecked}>
+              <input
+                type="checkbox"
+                name="away-box"
+                onChange={this.handleChange}
+                value={[game.AwayTeam, odds.PointSpreadAway]}
+                checked={this.state.boxes.awayChecked}
+                id="awayCheckbox"
+                style={{ visibility: "hidden" }}
+              />
+            </CheckboxLabel>
+          </Checkbox>
+          <BetDetailContainer>
+            <div>
+              {game.AwayTeam}
+            </div>
+            <div>
+              {parseInt(odds.PointSpreadAway) > 0 ? ` +${odds.PointSpreadAway}` : `${odds.PointSpreadAway}`}
+            </div>
+          </BetDetailContainer>
+        </TeamContainer>
         <DateAndWagerContainer>
           <div> {`Wager: 5 Pool Points`} </div>
           <SubmitBetButton type="submit"> Submit Bet </SubmitBetButton>
         </DateAndWagerContainer>
-          <TeamContainer rightSide>
-            <Checkbox>
-              <CheckboxLabel checked={this.state.boxes.homeChecked}>
-                <input
-                  type="checkbox"
-                  name="home-box"
-                  onChange={this.handleChange}
-                  value={[game.HomeTeam, odds.PointSpreadHome]}
-                  checked={this.state.boxes.homeChecked}
-                  id="homeCheckbox"
-                  style={{ visibility: "hidden" }}
-                />
-              </CheckboxLabel>
-            </Checkbox>
-            <BetDetailContainer rightSide>
-              <div>
-                {`@ ${game.HomeTeam}`}
-              </div>
-              <div>
-                {parseInt(odds.PointSpreadHome) > 0 ? `+${odds.PointSpreadHome}` : odds.PointSpreadHome}
-              </div>
-            </BetDetailContainer>
-          </TeamContainer>
+        <TeamContainer rightSide>
+          <Checkbox>
+            <CheckboxLabel checked={this.state.boxes.homeChecked}>
+              <input
+                type="checkbox"
+                name="home-box"
+                onChange={this.handleChange}
+                value={[game.HomeTeam, odds.PointSpreadHome]}
+                checked={this.state.boxes.homeChecked}
+                id="homeCheckbox"
+                style={{ visibility: "hidden" }}
+              />
+            </CheckboxLabel>
+          </Checkbox>
+          <BetDetailContainer rightSide>
+            <div>
+              {`@ ${game.HomeTeam}`}
+            </div>
+            <div>
+              {parseInt(odds.PointSpreadHome) > 0 ? `+${odds.PointSpreadHome}` : odds.PointSpreadHome}
+            </div>
+          </BetDetailContainer>
+        </TeamContainer>
       </Form>
     )
   }

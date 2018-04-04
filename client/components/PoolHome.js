@@ -27,7 +27,7 @@ class PoolHome extends Component {
   }
 
   componentDidMount() {
-    // this.props.getOdds(this.props.match.params.sport)
+    this.props.getOdds(this.props.match.params.sport)
     this.props.getUser()
   }
 
@@ -51,7 +51,7 @@ class PoolHome extends Component {
         {this.state.userIsParticipant
           ? <div style={{width: '85vw'}}>
               <UsersBets bets={this.props.bets} />
-              {/* <MatchTable odds={this.props.odds} poolId={parseInt(this.props.match.params.id)} /> */}
+              <MatchTable odds={this.props.odds} poolId={parseInt(this.props.match.params.id)} />
             </div>
           : <div>
               <button onClick={() => {
