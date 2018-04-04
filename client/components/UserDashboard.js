@@ -42,7 +42,6 @@ class UserDashboard extends Component {
           .then(response => {
             const result = response.payload[0]
             const newBet = {...bet, final: true}
-            console.log('TEST', didHomeTeamWin(result))
             this.props.checkBet(settleBet(newBet, result))
           })
         }
