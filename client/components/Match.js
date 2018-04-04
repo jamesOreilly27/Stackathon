@@ -139,7 +139,7 @@ class Match extends Component {
               {game.AwayTeam}
             </div>
             <div>
-              {parseInt(odds.PointSpreadAway) > 0 ? ` +${odds.PointSpreadAway}` : `${odds.PointSpreadAway}`}
+              {parseFloat(odds.PointSpreadAway) > 0 ? ` +${odds.PointSpreadAway}` : `${odds.PointSpreadAway}`}
             </div>
           </BetDetailContainer>
         </TeamContainer>
@@ -166,7 +166,7 @@ class Match extends Component {
               {`@ ${game.HomeTeam}`}
             </div>
             <div>
-              {parseInt(odds.PointSpreadHome) > 0 ? `+${odds.PointSpreadHome}` : odds.PointSpreadHome}
+              {parseFloat(odds.PointSpreadHome) > 0 ? `+${odds.PointSpreadHome}` : odds.PointSpreadHome}
             </div>
           </BetDetailContainer>
         </TeamContainer>
