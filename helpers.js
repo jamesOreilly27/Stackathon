@@ -41,6 +41,7 @@ export const convertTime = string => {
 export const processTime = dateString => {
   const date = convertTime(dateString)
   let hours = date.getHours()
+  //subtract by 16 to convert first to 12 hour time and then an extra 4 to move to eastern standard time
   if(hours > 12) hours = hours - 16
   const minutes = date.getMinutes()
   return minutes < 10 ? `${hours}:0${minutes}` : `${hours}:${minutes}`
