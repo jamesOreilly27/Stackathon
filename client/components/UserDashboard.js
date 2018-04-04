@@ -40,6 +40,7 @@ class UserDashboard extends Component {
         if(!bet.result && isMatchFinal(bet)) {
           return this.props.getResult(bet.matchId)
           .then(response => {
+            console.log('RESULT', response.payload[0])
             const result = response.payload[0]
             const newBet = {...bet, final: true}
             this.props.checkBet(settleBet(newBet, result))
