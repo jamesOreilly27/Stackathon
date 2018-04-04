@@ -36,7 +36,7 @@ const Header = () => (
   <Wrapper>
     <Container>
       <HomeLink to='/'>
-        Crypto Book-E
+        Pickem' Sports
       </HomeLink>
       <Navbar>
         <Navlink name="Login" />
