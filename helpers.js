@@ -37,10 +37,11 @@ export const convertTime = string => {
   return new Date(string)
 }
 
+//processTime will take a date string in UTC time and convert it to a time string in EST time
 export const processTime = dateString => {
   const date = convertTime(dateString)
   let hours = date.getHours()
-  if(hours > 12) hours = hours - 12
+  if(hours > 12) hours = hours - 16
   const minutes = date.getMinutes()
   return minutes < 10 ? `${hours}:0${minutes}` : `${hours}:${minutes}`
 }

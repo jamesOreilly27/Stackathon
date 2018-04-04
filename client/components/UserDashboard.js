@@ -38,6 +38,7 @@ class UserDashboard extends Component {
     if(this.props.user !== nextProps.user) {
       nextProps.user.bets.forEach(bet => {
         if(!bet.result && isMatchFinal(bet)) {
+          console.log('TEST', bet.matchId)
           return this.props.getResult(bet.matchId)
           .then(response => {
             console.log('RESULT', response.payload[0])
