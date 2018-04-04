@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  ${({ rightSide }) => rightSide ? 'transform: rotate(180deg);' : ''}
+  ${({ leftSide }) => leftSide ? '' : 'transform: rotate(180deg);'}
 `
 
 const Checkbox = styled.div`
@@ -44,13 +44,13 @@ const BetDetailContainer = styled.div`
   align-items: center;
   font-size: .875em;
   width: 20vw;
-  ${({ rightSide }) => rightSide ? 'transform: rotate(180deg);' : ''}
+  ${({ leftSide }) => leftSide ? '' : 'transform: rotate(180deg);'}
 `
 
 const TeamDetails = ({ name, pointSpread, checked, homeOrAway, leftSide, handleChange }) => (
-  <Wrapper>
+  <Wrapper leftSide={leftSide}>
     <Checkbox>
-      <CheckboxLabel checked={checked} >
+      <CheckboxLabel checked={checked} leftSide={leftSide}>
         <input
           type="checkbox"
           name={`${homeOrAway}-box`}
@@ -62,7 +62,7 @@ const TeamDetails = ({ name, pointSpread, checked, homeOrAway, leftSide, handleC
         />
       </CheckboxLabel>
     </Checkbox>
-    <BetDetailContainer>
+    <BetDetailContainer leftSide={leftSide}>
       <div>
         {name}
       </div>
