@@ -47,7 +47,7 @@ export const processTime = dateString => {
   return minutes < 10 ? `${hours}:0${minutes}` : `${hours}:${minutes}`
 }
 
-export const isMatchFinal = bet => {
+export const isInProgress = bet => {
   const date = new Date(bet.matchTime)
   const now = new Date()
   if(date - now < 0) return true
