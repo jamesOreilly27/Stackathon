@@ -22,6 +22,15 @@ const BetsContainer = styled.div`
 const UsersBets = ({ bets }) => (
   <Wrapper>
     <BetsContainer>
+      <Title> Bets in Progress </Title>
+      {bets &&
+        bets.filter(bet => !bet.final && bet.result)
+        .map(inProgressBet => {
+          return <Bet key={inProgressBet.id} bet={inProgressBet} />
+        })
+      }
+    </BetsContainer>
+    <BetsContainer>
       <Title> Settled Bets </Title>
       {bets &&
         bets.filter(bet => bet.final)
@@ -33,7 +42,7 @@ const UsersBets = ({ bets }) => (
     <BetsContainer>
       <Title> Active Bets </Title>
       {bets &&
-        bets.filter(bet => !bet.final)
+        bets.filter(bet => !bet.final && !bet.result)
         .map(activeBet => {
           return <Bet key={activeBet.id} bet={activeBet} />
         })
