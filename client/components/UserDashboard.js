@@ -40,10 +40,9 @@ class UserDashboard extends Component {
         if(!bet.final && isInProgress(bet)) {
           return this.props.getResult(bet.matchId)
           .then(response => {
-            console.log('RESULT', response.payload[0])
             const result = response.payload[0]
-            const newBet = {...bet, final: result.Final}
-            this.props.checkBet(settleBet(newBet, result))
+            const modifiedBet = {...bet, final: result.Final}
+            this.props.checkBet(settleBet(modifiedBet, result))
           })
         }
       }) 
