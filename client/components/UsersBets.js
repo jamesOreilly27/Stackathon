@@ -22,7 +22,7 @@ const BetsContainer = styled.div`
 const UsersBets = ({ bets }) => (
   <Wrapper>
     <BetsContainer>
-      <Title> Bets in Progress </Title>
+      <Title> In Progress </Title>
       {bets &&
         bets.filter(bet => !bet.final && bet.result)
         .map(inProgressBet => {
