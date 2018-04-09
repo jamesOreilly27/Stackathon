@@ -30,6 +30,47 @@ const Input = styled.input`
   font-size: .875em;
 `
 
-const AuthFormPresenter = ({ displayName, handleSubmit, error, isSignup }) => (
-
+const AuthForm= ({ displayName, handleSubmit, error, isSignup }) => (
+  <Form
+    onSubmit={isSignup ?
+      evt => {
+        evt.preventDefault()
+        handleSubmit(evt.target.userName.value, evt.target.email.value, evt.target.password.value)
+      }
+      :
+      evt => {
+        evt.preventDefault()
+        handleSubmit(evt.target.email.value, evt.target.password.value)
+      }
+    }
+  >
+    {isSignup &&
+      <Label>
+        Username
+      <Input
+          type="text"
+          name="userName"
+          required
+        />
+      </Label>
+    }
+    <Label>
+      Email
+      <Input
+        type="email"
+        name="email"
+        required
+      />
+    </Label>
+    <Label>
+      Password
+      <Input
+        type="text"
+        name="password"
+        required
+      />
+    </Label>
+  </Form>
 )
+
+export default Authform
