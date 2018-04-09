@@ -6,7 +6,7 @@ const Form = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 14vw;
+  height: 20vw;
   margin: 6vw 12vw;
 `
 
@@ -19,7 +19,7 @@ const Label = styled.label`
 
 const SubmitButton = styled.button`
   width: 10vw;
-  height: 5vw;
+  height: 3vw;
   border-radius: .5vw;
   font-size: .875em;
 `
@@ -71,6 +71,9 @@ const AuthForm= ({ displayName, handleSubmit, error, isSignup }) => (
         required
       />
     </Label>
+    <SubmitButton>
+      {displayName}
+    </SubmitButton>
   </Form>
 )
 
