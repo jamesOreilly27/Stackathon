@@ -19,7 +19,6 @@ const settledBet = bet => ({
   payload: bet
 })
 
-//only gets one user right now to save time
 export const fetchUserThunk = () => dispatch => {
   axios.get('/auth/me')
   .then(res => dispatch(gotUser(res.data)))
@@ -47,7 +46,7 @@ const reducer = (user = {}, action) => {
     case UPDATED_USER:
       return Object.assign({}, user, action.payload)
     case SETTLED_BET:
-      return {...user, bets: [...user.bets.filter(bet => bet.id !==action.payload.id).concat([action.payload])]}
+      return {...user, bets: [...user.bets.filter(bet => bet.id !== action.payload.id).concat([action.payload])]}
     default:
       return user
   }
