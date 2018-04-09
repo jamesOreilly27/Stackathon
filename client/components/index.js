@@ -1,6 +1,7 @@
 export { default as Header } from './Header'
 export { default as Navlink } from './Navlink'
 export { default as AuthForm } from './AuthForm'
+export { default as Login } from './Login'
 export { default as UserDashboard } from './UserDashboard'
 export { default as UserProfileUpdateForm } from './UserProfileUpdateForm'
 export { default as CreatePoolForm } from './CreatePoolForm'
