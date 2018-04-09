@@ -26,7 +26,7 @@ const UsersBets = ({ bets }) => (
       {bets &&
         bets.filter(bet => !bet.final && bet.result)
         .map(inProgressBet => {
-          return <Bet key={inProgressBet.id} bet={inProgressBet} />
+          return <Bet key={inProgressBet.id} bet={inProgressBet} hasScore />
         })
       }
     </BetsContainer>
@@ -35,7 +35,7 @@ const UsersBets = ({ bets }) => (
       {bets &&
         bets.filter(bet => bet.final)
         .map(finishedBet => {
-          return <Bet key={finishedBet.id} bet={finishedBet} finished won={finishedBet.playerWon}/>
+          return <Bet key={finishedBet.id} bet={finishedBet} finished won={finishedBet.playerWon} hasScore />
         })
       }
     </BetsContainer>
