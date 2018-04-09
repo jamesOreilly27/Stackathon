@@ -5,8 +5,9 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 20vw;
+  justify-content: space-around;
+  height: 14vw;
+  margin: 6vw 12vw;
 `
 
 const Label = styled.label`
