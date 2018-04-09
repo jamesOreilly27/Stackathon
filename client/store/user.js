@@ -21,7 +21,7 @@ const settledBet = bet => ({
 
 //only gets one user right now to save time
 export const fetchUserThunk = () => dispatch => {
-  axios.get('/api/users/8')
+  axios.get('/auth/me')
   .then(res => dispatch(gotUser(res.data)))
   .catch(err => dispatch(gotUser(err)))
 }

@@ -73,4 +73,4 @@ const AuthForm= ({ displayName, handleSubmit, error, isSignup }) => (
   </Form>
 )
 
-export default Authform
+export default AuthForm

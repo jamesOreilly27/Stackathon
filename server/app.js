@@ -4,7 +4,6 @@ const session = require('express-session')
 const chalk = require('chalk')
 const volleyball = require('volleyball')
 const bodyParser = require('body-parser')
-const routes = require('./routes')
 const path = require('path')
 const PORT = 1337
 
@@ -38,7 +37,8 @@ const createApp = () => {
   app.use(passport.session())
 
   //Backend api routes will come from index.js in this folder 
-  app.use('/api', routes);
+  app.use('/api', require('./routes'))
+  app.use('/auth', require('./auth'))
 
   app.use('/static', express.static(path.join(__dirname, 'public')))
   
