@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Route } from 'react-router-dom'
 import { checkBetThunk, gotResultThunk } from '../store'
-import { isMatchFinal, settleBet, didHomeTeamWin, setWinner } from '../../helpers'
+import { isInProgress, settleBet, didHomeTeamWin, setWinner } from '../../helpers'
 import { AccountInfo, UsersBets, UsersPools, CreatePoolForm } from '../components'
 
 const Wrapper = styled.div`
@@ -35,15 +35,14 @@ class UserDashboard extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(this.props.user !== nextProps.user) {
+    if(this.props.user.id !== nextProps.user.id) {
       nextProps.user.bets.forEach(bet => {
-        if(!bet.result && isMatchFinal(bet)) {
+        if(!bet.final && isInProgress(bet)) {
           return this.props.getResult(bet.matchId)
           .then(response => {
             const result = response.payload[0]
-            const newBet = {...bet, final: true}
-            console.log('TEST', didHomeTeamWin(result))
-            this.props.checkBet(settleBet(newBet, result))
+            const modifiedBet = {...bet, final: result.Final}
+            this.props.checkBet(settleBet(modifiedBet, result))
           })
         }
       }) 

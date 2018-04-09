@@ -32,7 +32,6 @@ export const addUserThunk = (user, pool) => dispatch => {
 }
 
 const reducer = (pool = {}, action) => {
-  console.log(pool.users)
   switch (action.type) {
     case GOT_SINGLE_POOL:
       return action.payload

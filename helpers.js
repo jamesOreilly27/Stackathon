@@ -37,19 +37,23 @@ export const convertTime = string => {
   return new Date(string)
 }
 
+//processTime will take a date string in UTC time and convert it to a time string in EST time
 export const processTime = dateString => {
   const date = convertTime(dateString)
   let hours = date.getHours()
-  if(hours > 12) hours = hours - 12
+  //subtract by 16 to convert first to 12 hour time and then an extra 4 to move to eastern standard time
+  if(hours > 12) hours = hours - 16
   const minutes = date.getMinutes()
   return minutes < 10 ? `${hours}:0${minutes}` : `${hours}:${minutes}`
 }
 
-export const isMatchFinal = bet => {
+export const isInProgress = bet => {
   const date = new Date(bet.matchTime)
   const now = new Date()
+  now.setHours(now.getHours() + 4)
+  console.log('DATE', date, 'NOW', now)
   if(date - now < 0) return true
-  else return false
+  return false
 }
 
 export const didHomeTeamWin = result => {
