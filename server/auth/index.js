@@ -4,7 +4,7 @@ const User = require('../db/models/user')
 const wrongLoginInfoMessage = 'Could Not Login. Either the username or password provided are incorrect'
 
 router.post('/login', (req, res, next) => {
-  User.findOne({where: {email: req.body.email}})
+  User.scope('bets-and-pools').findOne({where: {email: req.body.email}})
     .then(user => {
       console.log('TEST', user)
       if(!user) {
