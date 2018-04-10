@@ -9,7 +9,7 @@ const mapState = state => ({
 })
 
 const mapDispatch = (dispatch, ownProps) => ({
-  handleSubmit (email, password) {
+  handleSubmit(email, password) {
     dispatch(authLogin(email, password, ownProps.history))
   }
 })

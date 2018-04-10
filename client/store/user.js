@@ -20,8 +20,9 @@ const settledBet = bet => ({
 })
 
 export const authLogin = (email, password, history) => dispatch => {
-  axios.post('/auth/login', { email, password })
+  return axios.post('/auth/login', { email, password })
   .then(res => {
+    console.log('RES', res)
     dispatch(gotUser(res.data))
     history.push('/dashboard')
   })
@@ -35,7 +36,7 @@ export const fetchUserThunk = () => dispatch => {
 }
 
 export const updateUserThunk = user => dispatch => {
-  axios.put(`api/users/${user.id}`, user)
+  axios.put(`/api/users/${user.id}`, user)
   .then(res => res.data)
   .then(changedUser => dispatch(updatedUser(changedUser[1][0])))
   .catch(err => dispatch(updatedUser(err)))

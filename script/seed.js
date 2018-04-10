@@ -7,19 +7,19 @@ async function seed() {
   console.log(chalk.bgBlue.white.bold('db synced!'))
 
   const users = await Promise.all([
-    User.create({ firstName: 'sofia', lastName: 'coppola', userName: 'OscarSwag', email: 'sofiaCoppola@email.com', password: '456' }),
-    User.create({ firstName: 'eddie', lastName: 'murphy', userName: 'eddieMurphy', email: 'murphy@email.com', password: '123' }),
-    User.create({ firstName: 'mel', lastName: 'brooks', userName: 'melBrooks', email: 'melBrooks@email.com', password: '789' }),
-    User.create({ firstName: 'quetin', lastName: 'tarentino', userName: 'mrPink', email: 'quentin@email.com', password: '123' }),
-    User.create({ firstName: 'JJ', lastName: 'Abrams', userName: 'LostWuzDaBomb', email: 'lost@email.com', password: '123' }),
-    User.create({ firstName: 'bill', lastName: 'crystal', userName: 'knoblauchThrowAway', email: 'summerOf61@email.com', password: '123' }),
-    User.create({ firstName: 'steven', lastName: 'spielberg', userName: 'shark_attack', email: 'foneHome@email.com', password: '123' }),
-    User.create({ firstName: 'christopher', lastName: 'nolan', userName: 'down_with_batflek', email: 'CBRealBatman@email.com', password: '123' }),
-    User.create({ firstName: 'peter', lastName: 'jackson', userName: 'hobbit', email: 'LOTRdirector@email.com', password: '123' }),
-    User.create({ firstName: 'james', lastName: 'cameron', userName: 'your_Avatar_here', email: 'titanic@email.com', password: '123' }),
-    User.create({ firstName: 'sergio', lastName: 'leone', userName: 'manwithnoname', email: 'Blondie@email.com', password: '123' }),
-    User.create({ firstName: 'kathryn', lastName: 'bigelow', userName: 'surfs_up', email: 'PointBreak@email.com', password: '123' }),
-    User.create({ firstName: 'patty', lastName: 'jenkins', userName: 'wonder_woman', email: 'DianeKicksAss@email.com', password: '123' }),
+    User.create({ userName: 'OscarSwag', email: 'sofiaCoppola@email.com', password: '456' }),
+    User.create({ userName: 'eddieMurphy', email: 'murphy@email.com', password: '123' }),
+    User.create({ userName: 'melBrooks', email: 'melBrooks@email.com', password: '789' }),
+    User.create({ userName: 'mrPink', email: 'quentin@email.com', password: '123' }),
+    User.create({ userName: 'LostWuzDaBomb', email: 'lost@email.com', password: '123' }),
+    User.create({ userName: 'knoblauchThrowAway', email: 'summerOf61@email.com', password: '123' }),
+    User.create({ userName: 'shark_attack', email: 'foneHome@email.com', password: '123' }),
+    User.create({ userName: 'down_with_batflek', email: 'CBRealBatman@email.com', password: '123' }),
+    User.create({ userName: 'hobbit', email: 'LOTRdirector@email.com', password: '123' }),
+    User.create({ userName: 'your_Avatar_here', email: 'titanic@email.com', password: '123' }),
+    User.create({ userName: 'manwithnoname', email: 'Blondie@email.com', password: '123' }),
+    User.create({ userName: 'surfs_up', email: 'PointBreak@email.com', password: '123' }),
+    User.create({ userName: 'wonder_woman', email: 'DianeKicksAss@email.com', password: '123' }),
   ])
 
   const pools = await Promise.all([
