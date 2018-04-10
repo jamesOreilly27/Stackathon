@@ -27,13 +27,7 @@ class PoolHome extends Component {
   }
 
   componentDidMount() {
-    // this.props.getOdds(this.props.match.params.sport)
-    this.props.getUser()
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if(this.props.user !== nextProps.user) {
-      return this.props.getPoolDetail(this.props.match.params.id)
+    this.props.getPoolDetail(this.props.match.params.id)
       .then(response => response.payload)
       .then(pool => {
         this.setState({ userIsParticipant: this.isParticipating() })
@@ -41,7 +35,8 @@ class PoolHome extends Component {
       })
       .then(bets => this.props.userBetsToProps(bets))
       .catch(err => this.props.userBetsToProps(err.message))
-    }
+    
+      this.props.getOdds(this.props.match.params.sport)
   }
 
   render() {
@@ -51,7 +46,7 @@ class PoolHome extends Component {
         {this.state.userIsParticipant
           ? <div style={{width: '85vw'}}>
               <UsersBets bets={this.props.bets} />
-              {/* <MatchTable odds={this.props.odds} poolId={parseInt(this.props.match.params.id)} /> */}
+              <MatchTable odds={this.props.odds} poolId={parseInt(this.props.match.params.id)} />
             </div>
           : <div>
               <button onClick={() => {
@@ -69,9 +64,6 @@ const mapState = state => state
 const mapDispatch = dispatch => ({
   getOdds(sport) {
     dispatch(fetchOddsBySport(sport))
-  },
-  getUser() {
-    dispatch(fetchUserThunk())
   },
   getPoolDetail(id) {
     return dispatch(fetchOnePoolThunk(id))
