@@ -25,7 +25,6 @@ export const fetchOnePoolThunk = id => dispatch => {
 export const addUserThunk = (user, pool) => dispatch => {
   axios.put(`/api/pools/${pool.id}`, user)
   .then(res => {
-    console.log(addedUser(user, res.data))
     dispatch(addedUser(user, res.data))
   })
   .catch(err => dispatch(addedUser(err)))

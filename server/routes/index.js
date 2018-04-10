@@ -13,8 +13,4 @@ router.use('/odds', odds)
 router.use('/bets', bets)
 router.use('/results', results)
 
-router.get('/', (req, res, next) => {
-  console.log(chalk.yellow('Hello World'))
-})
-
 module.exports = router;

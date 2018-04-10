@@ -22,7 +22,6 @@ const settledBet = bet => ({
 export const authLogin = (email, password, history) => dispatch => {
   return axios.post('/auth/login', { email, password })
   .then(res => {
-    console.log('RES', res)
     dispatch(gotUser(res.data))
     history.push('/dashboard')
   })

@@ -6,7 +6,6 @@ const wrongLoginInfoMessage = 'Could Not Login. Either the username or password 
 router.post('/login', (req, res, next) => {
   User.scope('bets-and-pools').findOne({where: {email: req.body.email}})
     .then(user => {
-      console.log('TEST', user)
       if(!user) {
         res.status(401).send(wrongLoginInfoMessage)
       } else if(!user.correctPassword(req.body.password)) {
