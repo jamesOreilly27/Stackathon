@@ -27,7 +27,7 @@ class Main extends Component {
               <Switch>
                 <Route exact path='/' component={Login} />
                 <Route exact path='/dashboard' component={UserDashboard} />
-                <Route exact path={'/:sport'} component={SportHome} />
+                <Route exact path={'/sports/:sport'} component={SportHome} />
                 <Route path={'/pools/:sport/:id'} component={PoolHome} />
               </Switch>
             </ContentContainer>

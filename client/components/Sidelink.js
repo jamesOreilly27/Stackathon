@@ -20,7 +20,7 @@ const StyledLink = styled(Link)`
 
 const Sidelink = ({ path }) => (
   <Container>
-    <StyledLink to={`/${path}`}>
+    <StyledLink to={`sports/${path}`}>
       {path.toUpperCase()}
     </StyledLink>
   </Container>
