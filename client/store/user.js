@@ -28,6 +28,13 @@ export const authLogin = (email, password, history) => dispatch => {
   .catch(err => dispatch(gotUser(err.message)))
 }
 
+export const authSignUp = (userName, email, password, history) => dispatch => {
+  axios.post('/auth/signup', { email, userName, password })
+  .then(res => dispatch(gotUser(res.data)))
+  .then(() => history.push('/dashboard'))
+  .catch(err => dispatch(gotUser(err.message)))
+}
+
 export const fetchUserThunk = () => dispatch => {
   axios.get('/auth/me')
   .then(res => dispatch(gotUser(res.data)))
