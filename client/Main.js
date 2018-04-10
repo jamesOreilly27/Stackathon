@@ -25,7 +25,7 @@ class Main extends Component {
             <ContentContainer>
               <Sidebar />
               <Switch>
-                <Route exact path='/' component={Login} />
+                <Route path={'/' || '/Login'} component={Login} />
                 <Route exact path='/dashboard' component={UserDashboard} />
                 <Route exact path={'/sports/:sport'} component={SportHome} />
                 <Route path={'/pools/:sport/:id'} component={PoolHome} />
