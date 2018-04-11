@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { TeamDetails } from '../components'
+import { TeamDetails, WagerInput } from '../components'
 import { createBetThunk } from '../store'
 
 const Form = styled.form`
@@ -38,14 +38,14 @@ class Match extends Component {
     super(props)
     this.state = {
       bet: {
-        betterId: 8,
+        betterId: props.user.id,
         poolId: props.poolId,
         matchId: props.newMatch.ID,
         matchTime: props.newMatch.MatchTime,
         homeTeam: props.newMatch.HomeTeam,
         awayTeam: props.newMatch.AwayTeam,
         playerPick: '',
-        amount: 5,
+        amount: 0,
         odds: 0
       },
       boxes: {
@@ -54,6 +54,7 @@ class Match extends Component {
       }
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleTextChange = this.handleTextChange.bind(this)
   }
 
   handleChange(event) {
@@ -68,7 +69,7 @@ class Match extends Component {
   }
 
   handleTextChange(event) {
-    console.log(event.target)
+    this.setState({ ...this.state, bet: { ...this.state.bet, amount: parseInt(event.target.value) } })
   }
 
   render() {
@@ -78,7 +79,12 @@ class Match extends Component {
       <Form onSubmit={(event) => {
         event.preventDefault()
         this.props.makeBet(this.state.bet)
+        this.setState({...this.state,
+          bet: { playerPick: "", amount: 0, odds: 0 },
+          boxes: { awayChecked: false, homeChecked: false }
+        })
       }}>
+      {console.log('STATE', this.state)}
         <TeamDetails
           name={game.AwayTeam}
           pointSpread={odds.PointSpreadAway} 
@@ -88,7 +94,7 @@ class Match extends Component {
           leftSide
         />
         <DateAndWagerContainer>
-          <div> {`Wager: 5 Pool Points`} </div>
+          <WagerInput handleChange={this.handleTextChange}/>
           <SubmitBetButton type="submit"> Submit Bet </SubmitBetButton>
         </DateAndWagerContainer>
         <TeamDetails
