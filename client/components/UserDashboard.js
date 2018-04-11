@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Route } from 'react-router-dom'
-import { checkBetThunk, gotResultThunk } from '../store'
-import { isInProgress, settleBet, didHomeTeamWin, setWinner } from '../../helpers'
+import { fetchUserThunk } from '../store'
 import { AccountInfo, UsersBets, UsersPools, CreatePoolForm } from '../components'
 
 const Wrapper = styled.div`
@@ -34,18 +33,10 @@ class UserDashboard extends Component {
     this.setState({ editButtonClicked: true })
   }
 
-  componentWillReceiveProps(nextProps) {
-    if(this.props.user.id !== nextProps.user.id) {
-      nextProps.user.bets.forEach(bet => {
-        if(!bet.final && isInProgress(bet)) {
-          return this.props.getResult(bet.matchId)
-          .then(response => {
-            const result = response.payload[0]
-            const modifiedBet = {...bet, final: result.Final}
-            this.props.checkBet(settleBet(modifiedBet, result))
-          })
-        }
-      }) 
+  componentDidMount() {
+    console.log(!this.props.user.id)
+    if(!this.props.user.id) {
+      this.props.getUser()
     }
   }
 
@@ -66,12 +57,8 @@ class UserDashboard extends Component {
 const mapState = ({ user }) => ({ user })
 
 const mapDispatch = dispatch => ({
-  checkBet(bet) {
-    dispatch(checkBetThunk(bet))
-  },
-
-  getResult(id) {
-    return dispatch(gotResultThunk(id))
+  getUser() {
+    dispatch(fetchUserThunk())
   }
 })
 

@@ -36,8 +36,10 @@ router.post('/logout', (req, res) => {
   res.redirect('/')
 })
 
-router.get('/me', (req, res) => {
-  res.json(req.user)
+router.get('/me', (req, res, next) => {
+  User.scope('bets-and-pools').findById(req.user.id)
+  .then(user => res.json(user))
+  .catch(next)
 })
 
 module.exports = router

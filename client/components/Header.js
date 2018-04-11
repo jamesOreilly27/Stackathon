@@ -35,7 +35,7 @@ const Navbar = styled.nav`
 const Header = () => (
   <Wrapper>
     <Container>
-      <HomeLink to='/'>
+      <HomeLink to='/dashboard'>
         Pickem' Sports
       </HomeLink>
       <Navbar>
