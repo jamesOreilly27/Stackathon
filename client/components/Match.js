@@ -45,7 +45,7 @@ class Match extends Component {
         homeTeam: props.newMatch.HomeTeam,
         awayTeam: props.newMatch.AwayTeam,
         playerPick: '',
-        oddsType: 'Points Spread',
+        amount: 5,
         odds: 0
       },
       boxes: {
@@ -65,6 +65,10 @@ class Match extends Component {
       bet: { ...this.state.bet, playerPick: values[0], odds: parseFloat(values[1]) },
       boxes: boxUpdate
     })
+  }
+
+  handleTextChange(event) {
+    console.log(event.target)
   }
 
   render() {
