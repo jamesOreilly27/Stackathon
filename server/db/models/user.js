@@ -16,10 +16,6 @@ const User = db.define('user', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  points: {
-    type: Sequelize.INTEGER,
-    defaultValue: 1000
-  },
   salt: {
     type: Sequelize.STRING
   },

@@ -51,7 +51,6 @@ export const isInProgress = bet => {
   const date = new Date(bet.matchTime)
   const now = new Date()
   now.setHours(now.getHours() + 4)
-  console.log('DATE', date, 'NOW', now)
   if(date - now < 0) return true
   return false
 }

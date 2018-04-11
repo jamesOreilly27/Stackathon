@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { TeamDetails } from '../components'
+import { TeamDetails, WagerInput } from '../components'
 import { createBetThunk } from '../store'
 
 const Form = styled.form`
@@ -38,14 +38,14 @@ class Match extends Component {
     super(props)
     this.state = {
       bet: {
-        betterId: 8,
+        betterId: props.user.id,
         poolId: props.poolId,
         matchId: props.newMatch.ID,
         matchTime: props.newMatch.MatchTime,
         homeTeam: props.newMatch.HomeTeam,
         awayTeam: props.newMatch.AwayTeam,
         playerPick: '',
-        oddsType: 'Points Spread',
+        amount: 0,
         odds: 0
       },
       boxes: {
@@ -54,6 +54,7 @@ class Match extends Component {
       }
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleTextChange = this.handleTextChange.bind(this)
   }
 
   handleChange(event) {
@@ -67,6 +68,10 @@ class Match extends Component {
     })
   }
 
+  handleTextChange(event) {
+    this.setState({ ...this.state, bet: { ...this.state.bet, amount: parseInt(event.target.value) } })
+  }
+
   render() {
     const odds = this.props.newMatch.Odds[0]
     const game = this.props.newMatch
@@ -74,7 +79,12 @@ class Match extends Component {
       <Form onSubmit={(event) => {
         event.preventDefault()
         this.props.makeBet(this.state.bet)
+        this.setState({...this.state,
+          bet: { playerPick: "", amount: 0, odds: 0 },
+          boxes: { awayChecked: false, homeChecked: false }
+        })
       }}>
+      {console.log('STATE', this.state)}
         <TeamDetails
           name={game.AwayTeam}
           pointSpread={odds.PointSpreadAway} 
@@ -84,7 +94,7 @@ class Match extends Component {
           leftSide
         />
         <DateAndWagerContainer>
-          <div> {`Wager: 5 Pool Points`} </div>
+          <WagerInput handleChange={this.handleTextChange}/>
           <SubmitBetButton type="submit"> Submit Bet </SubmitBetButton>
         </DateAndWagerContainer>
         <TeamDetails

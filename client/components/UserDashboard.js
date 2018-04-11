@@ -34,7 +34,6 @@ class UserDashboard extends Component {
   }
 
   componentDidMount() {
-    console.log(!this.props.user.id)
     if(!this.props.user.id) {
       this.props.getUser()
     }

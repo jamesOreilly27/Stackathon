@@ -33,8 +33,8 @@ const Bet = db.define('bet', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  oddsType: {
-    type: Sequelize.STRING,
+  amount: {
+    type: Sequelize.INTEGER,
     allowNull: false
   },
   odds: {
