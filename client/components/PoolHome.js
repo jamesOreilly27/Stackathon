@@ -27,6 +27,10 @@ class PoolHome extends Component {
   }
 
   componentDidMount() {
+    console.log(!this.props.user)
+    if(!this.props.user.id) {
+      this.props.getUser()
+    }
     this.props.getPoolDetail(this.props.match.params.id)
       .then(response => response.payload)
       .then(pool => {
@@ -62,6 +66,9 @@ class PoolHome extends Component {
 
 const mapState = state => state
 const mapDispatch = dispatch => ({
+  getUser() {
+    dispatch(fetchUserThunk())
+  },
   getOdds(sport) {
     dispatch(fetchOddsBySport(sport))
   },

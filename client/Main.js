@@ -57,7 +57,11 @@ class Main extends Component {
 }
 
 
-const mapState = state => state
+const mapState = state => ({
+  isLoggedIn: !!state.user.id,
+  isAdmin: state.user.isAdmin,
+  user: state.user
+})
 
 const mapDispatch = dispatch => ({
   checkBet(bet) {
