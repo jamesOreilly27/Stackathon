@@ -56,12 +56,19 @@ export const isInProgress = bet => {
   return false
 }
 
-export const didHomeTeamWin = result => {
-  return result.BinaryScore === '1-0'
+export const didHomeTeamWin = (bet, result) => {
+  let homeScore = parseInt(result.HomeScore)
+  let awayScore = parseInt(result.AwayScore)
+  const odds = parseFloat(bet.odds)
+
+  if(bet.playerPick === bet.homeTeam) homeScore += odds
+  else awayScore += odds
+
+  return homeScore > awayScore
 }
 
 const setWinner = (bet, result) => {
-  if(didHomeTeamWin(result)) return bet.homeTeam
+  if(didHomeTeamWin(bet, result)) return bet.homeTeam
   else return bet.awayTeam
 }
 
