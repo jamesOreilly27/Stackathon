@@ -47,10 +47,6 @@ async function seed() {
     PoolPlayers.create({ poolId: pools[1].id, userId: users[7].id, poolPoints: 350 }),
     PoolPlayers.create({ poolId: pools[2].id, userId: users[7].id, poolPoints: 1000 }),
   ])
-
-  const Bets = await Promise.all([
-    
-  ])
 }
 
 seed()
